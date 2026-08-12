@@ -176,56 +176,56 @@ class AppLocalizationsZh extends AppLocalizations {
   String get checkAllDoneTip => '若任一环节发现可疑信号，请拍照留存证据，并联系前台/房东或报警处理。';
 
   @override
-  String get quickScanTitle => 'Quick Scan';
+  String get quickScanTitle => '一键扫描';
 
   @override
-  String get quickScanSubtitle => 'IR → WiFi → Magnet, fully automated';
+  String get quickScanSubtitle => '红外 → WiFi → 磁力，全自动完成';
 
   @override
-  String get quickScanStart => 'Start Quick Scan';
+  String get quickScanStart => '开始一键扫描';
 
   @override
   String quickScanRunning(Object step) {
-    return 'Running: $step';
+    return '正在执行：$step';
   }
 
   @override
-  String get quickScanStepIr => 'IR scan (≈ 20s)';
+  String get quickScanStepIr => '红外检测（约 20 秒）';
 
   @override
-  String get quickScanStepWifi => 'WiFi scan (≈ 15s)';
+  String get quickScanStepWifi => 'WiFi 扫描（约 15 秒）';
 
   @override
-  String get quickScanStepMagnet => 'Magnet scan (≈ 15s)';
+  String get quickScanStepMagnet => '磁力检测（约 15 秒）';
 
   @override
-  String get quickScanDone => 'Quick scan complete. View verdict.';
+  String get quickScanDone => '一键扫描完成，查看结论';
 
   @override
-  String get verdictTitle => 'Scan Verdict';
+  String get verdictTitle => '扫描结论';
 
   @override
-  String get verdictSafe => 'Safe: no suspicious signals found';
+  String get verdictSafe => '安全：未发现可疑信号';
 
   @override
   String verdictRisk(Object count) {
-    return 'Risk found: $count suspicious items';
+    return '发现风险：$count 个可疑项';
   }
 
   @override
-  String get verdictHighRisk => 'High risk: suspected hidden camera';
+  String get verdictHighRisk => '高风险：疑似隐藏摄像头';
 
   @override
-  String get verdictViewEvidence => 'View evidence';
+  String get verdictViewEvidence => '查看证据明细';
 
   @override
-  String get verdictExportPdf => 'Export PDF';
+  String get verdictExportPdf => '导出 PDF';
 
   @override
-  String get verdictNextActions => 'Next actions';
+  String get verdictNextActions => '下一步行动';
 
   @override
-  String get verdictDone => 'Done';
+  String get verdictDone => '完成';
 
   @override
   String get nextActionsTitle => '发现摄像头怎么办';
@@ -621,6 +621,102 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get moreGuideSubtitle => '常见隐藏位置与反偷拍技巧';
+
+  @override
+  String get guideTitle => '排查指南';
+
+  @override
+  String get guideIntro => '先视觉排查，再用工具逐个验证。以下是最常见的藏匿位置，建议按顺序过一遍。';
+
+  @override
+  String get guideCta => '发现可疑？查看下一步行动';
+
+  @override
+  String get guideHow => '怎么看：';
+
+  @override
+  String get guideHint => '提示：';
+
+  @override
+  String get guideP1Title => '烟雾报警器';
+
+  @override
+  String get guideP1Check => '站在正下方从下往上 / 侧向观察，金属与塑料接缝处常有针孔';
+
+  @override
+  String get guideP1Hint => '黑色机身里最容易藏针孔镜头，务必贴近多看几个角度';
+
+  @override
+  String get guideP2Title => '插座孔与插线板';
+
+  @override
+  String get guideP2Check => '观察插座面板是否有不自然的孔洞或凸起，用手电照内部';
+
+  @override
+  String get guideP2Hint => 'USB 插口、充电口、排插侧面都是藏镜头高发区';
+
+  @override
+  String get guideP3Title => '镜子（双面镜）';
+
+  @override
+  String get guideP3Check => '指甲贴镜面：指甲与倒影之间有空隙为普通镜，无空隙需警惕';
+
+  @override
+  String get guideP3Hint => '双面镜后方可能是一间房，但镜子本身也能藏微型镜头';
+
+  @override
+  String get guideP4Title => '装饰画';
+
+  @override
+  String get guideP4Check => '检查画框四周、挂画背后的缝隙，是否有多余的洞';
+
+  @override
+  String get guideP4Hint => '画框暗格是经典藏匿点，轻轻按压边框感受是否有异';
+
+  @override
+  String get guideP5Title => '空调出风口';
+
+  @override
+  String get guideP5Check => '对出风口内部用手电照射，观察格栅间是否有异常反光体';
+
+  @override
+  String get guideP5Hint => '挂机空调顶部与墙体之间也容易塞入微型设备';
+
+  @override
+  String get guideP6Title => '床头电子钟 / 台灯';
+
+  @override
+  String get guideP6Check => '屏幕面板、按键缝隙、底座是否有额外的孔';
+
+  @override
+  String get guideP6Hint => '紧贴床头的电子设备既是隐蔽点又贴近你，优先级最高';
+
+  @override
+  String get guideP7Title => '路由器 / 电视盒子';
+
+  @override
+  String get guideP7Check => '观察 LED 是否有异常的额外指示灯或针孔';
+
+  @override
+  String get guideP7Hint => '路由器常被改装成“合法外衣”藏摄像头';
+
+  @override
+  String get guideP8Title => '花盆 / 绿植';
+
+  @override
+  String get guideP8Check => '检查花盆、土壤上方枝叶间是否有异物';
+
+  @override
+  String get guideP8Hint => '叶片遮挡下的微型镜头很难被直接看到，配合红外扫描';
+
+  @override
+  String get guideP9Title => '灯具 / 烟雾探测器';
+
+  @override
+  String get guideP9Check => '灯罩内、吊灯连接处、床头壁灯背面逐一检查';
+
+  @override
+  String get guideP9Hint => '光源附近的光晕会干扰肉眼，用红外检测扫过更可靠';
 
   @override
   String get morePrivacy => '隐私政策';

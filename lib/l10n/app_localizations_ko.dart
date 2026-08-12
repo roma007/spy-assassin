@@ -196,7 +196,7 @@ class AppLocalizationsKo extends AppLocalizations {
   String get quickScanStepWifi => 'WiFi 검사 (약 15초)';
 
   @override
-  String get quickScanStepMagnet => '자력 검사 (约 15초)';
+  String get quickScanStepMagnet => '자력 검사 (약 15초)';
 
   @override
   String get quickScanDone => '빠른 검사 완료. 결론 보기';
@@ -621,6 +621,102 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get moreGuideSubtitle => '흔한 은닉 위치와 몰카 예방 팁';
+
+  @override
+  String get guideTitle => '점검 가이드';
+
+  @override
+  String get guideIntro => '먼저 육안으로 확인한 뒤 도구로 하나씩 검증하세요. 아래는 가장 흔한 은닉 위치이며 순서대로 살펴보는 것을 권장합니다.';
+
+  @override
+  String get guideCta => '의심되는 것이 보이나요? 다음 행동 보기';
+
+  @override
+  String get guideHow => '확인 방법: ';
+
+  @override
+  String get guideHint => '팁: ';
+
+  @override
+  String get guideP1Title => '연기 감지기';
+
+  @override
+  String get guideP1Check => '바로 아래에서 위/측면으로 살펴보세요. 금속과 플라스틱 이음새에 바늘구멍이 자주 있습니다';
+
+  @override
+  String get guideP1Hint => '검은 본체 안에 바늘구멍 렌즈가 가장 숨기 쉽습니다. 가까이서 여러 각도로 확인하세요';
+
+  @override
+  String get guideP2Title => '콘센트와 멀티탭';
+
+  @override
+  String get guideP2Check => '패널에 부자연스러운 구멍이나 돌출이 없는지 확인하고 손전등으로 내부를 비춰보세요';
+
+  @override
+  String get guideP2Hint => 'USB 포트, 충전구, 멀티탭 옆면은 은닉 장소로 흔합니다';
+
+  @override
+  String get guideP3Title => '거울 (양면거울)';
+
+  @override
+  String get guideP3Check => '손톱을 거울에 대세요. 손톱과 반사 사이에 틈이 있으면 일반 거울, 틈이 없으면 주의하세요';
+
+  @override
+  String get guideP3Hint => '양면거울 뒤에는 방이 있을 수 있고 거울 자체에도 초소형 렌즈를 숨길 수 있습니다';
+
+  @override
+  String get guideP4Title => '액자와 벽걸이 그림';
+
+  @override
+  String get guideP4Check => '액자 가장자리와 그림 뒤쪽 틈에 불필요한 구멍이 있는지 확인하세요';
+
+  @override
+  String get guideP4Hint => '액자 뒤 은닉공간은 전형적인 장소입니다. 테두리를 살짝 눌러 이상한 느낌이 있는지 확인하세요';
+
+  @override
+  String get guideP5Title => '에어컨 배출구';
+
+  @override
+  String get guideP5Check => '배출구 안쪽에 손전등을 비추고 핀 사이에 이상한 반사체가 없는지 확인하세요';
+
+  @override
+  String get guideP5Hint => '벽걸이 에어컨 위쪽과 벽 사이에도 소형 기기를 숨길 수 있습니다';
+
+  @override
+  String get guideP6Title => '침대 옆 전자시계 / 조명';
+
+  @override
+  String get guideP6Check => '화면, 버튼 틈, 받침대에 추가 구멍이 있는지 확인하세요';
+
+  @override
+  String get guideP6Hint => '침대 옆 전자기기는 은닉 지점이면서 당신과 가까워 가장 먼저 확인하세요';
+
+  @override
+  String get guideP7Title => '공유기 / 셋톱박스';
+
+  @override
+  String get guideP7Check => 'LED에 평소와 다른 표시등이나 바늘구멍이 있는지 확인하세요';
+
+  @override
+  String get guideP7Hint => '공유기는 \'합법적인 외형\'으로 위장해 카메라를 숨기는 데 자주 사용됩니다';
+
+  @override
+  String get guideP8Title => '화분 / 식물';
+
+  @override
+  String get guideP8Check => '화분과 흙 위 잎 사이에 이물질이 없는지 확인하세요';
+
+  @override
+  String get guideP8Hint => '잎에 가려진 초소형 렌즈는 직접 보기 어렵습니다. 적외선 스캔과 병행하세요';
+
+  @override
+  String get guideP9Title => '조명 / 연기 감지기';
+
+  @override
+  String get guideP9Check => '등갓 안, 샹들리에 연결부, 침대 옆 벽등 뒤를 하나씩 확인하세요';
+
+  @override
+  String get guideP9Hint => '광원 주변의 눈부심은 육안을 방해하므로 적외선 감지가 더 정확합니다';
 
   @override
   String get morePrivacy => '개인정보 처리방침';

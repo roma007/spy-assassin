@@ -1237,6 +1237,198 @@ abstract class AppLocalizations {
   /// **'Common hiding places and anti-voyeurism tips'**
   String get moreGuideSubtitle;
 
+  /// No description provided for @guideTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Inspection Guide'**
+  String get guideTitle;
+
+  /// No description provided for @guideIntro.
+  ///
+  /// In en, this message translates to:
+  /// **'Check by eye first, then verify each spot with the tools. Below are the most common hiding places — go through them in order.'**
+  String get guideIntro;
+
+  /// No description provided for @guideCta.
+  ///
+  /// In en, this message translates to:
+  /// **'Found something suspicious? See next steps'**
+  String get guideCta;
+
+  /// No description provided for @guideHow.
+  ///
+  /// In en, this message translates to:
+  /// **'How to check: '**
+  String get guideHow;
+
+  /// No description provided for @guideHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Tip: '**
+  String get guideHint;
+
+  /// No description provided for @guideP1Title.
+  ///
+  /// In en, this message translates to:
+  /// **'Smoke detector'**
+  String get guideP1Title;
+
+  /// No description provided for @guideP1Check.
+  ///
+  /// In en, this message translates to:
+  /// **'Stand directly beneath it and look up / from the side; pinholes often hide at metal-plastic seams'**
+  String get guideP1Check;
+
+  /// No description provided for @guideP1Hint.
+  ///
+  /// In en, this message translates to:
+  /// **'Black housings hide pinhole lenses easily — get close and check several angles'**
+  String get guideP1Hint;
+
+  /// No description provided for @guideP2Title.
+  ///
+  /// In en, this message translates to:
+  /// **'Outlets & power strips'**
+  String get guideP2Title;
+
+  /// No description provided for @guideP2Check.
+  ///
+  /// In en, this message translates to:
+  /// **'Look for unnatural holes or bulges on the panel; shine a flashlight inside'**
+  String get guideP2Check;
+
+  /// No description provided for @guideP2Hint.
+  ///
+  /// In en, this message translates to:
+  /// **'USB ports, charger holes and power-strip sides are common hiding spots'**
+  String get guideP2Hint;
+
+  /// No description provided for @guideP3Title.
+  ///
+  /// In en, this message translates to:
+  /// **'Mirror (two-way)'**
+  String get guideP3Title;
+
+  /// No description provided for @guideP3Check.
+  ///
+  /// In en, this message translates to:
+  /// **'Press a fingernail to the glass: a gap means a normal mirror; no gap means caution'**
+  String get guideP3Check;
+
+  /// No description provided for @guideP3Hint.
+  ///
+  /// In en, this message translates to:
+  /// **'A two-way mirror may hide a room behind it — but the mirror itself can also hold a micro lens'**
+  String get guideP3Hint;
+
+  /// No description provided for @guideP4Title.
+  ///
+  /// In en, this message translates to:
+  /// **'Wall art & frames'**
+  String get guideP4Title;
+
+  /// No description provided for @guideP4Check.
+  ///
+  /// In en, this message translates to:
+  /// **'Check the frame edges and the gap behind the painting for extra holes'**
+  String get guideP4Check;
+
+  /// No description provided for @guideP4Hint.
+  ///
+  /// In en, this message translates to:
+  /// **'Hidden compartments behind frames are classic — gently press the frame to feel for oddities'**
+  String get guideP4Hint;
+
+  /// No description provided for @guideP5Title.
+  ///
+  /// In en, this message translates to:
+  /// **'AC vents'**
+  String get guideP5Title;
+
+  /// No description provided for @guideP5Check.
+  ///
+  /// In en, this message translates to:
+  /// **'Shine a flashlight into the vent and look for unusual reflections between the fins'**
+  String get guideP5Check;
+
+  /// No description provided for @guideP5Hint.
+  ///
+  /// In en, this message translates to:
+  /// **'The gap above a wall-mounted AC and the wall can hide micro devices'**
+  String get guideP5Hint;
+
+  /// No description provided for @guideP6Title.
+  ///
+  /// In en, this message translates to:
+  /// **'Bedside clock / lamp'**
+  String get guideP6Title;
+
+  /// No description provided for @guideP6Check.
+  ///
+  /// In en, this message translates to:
+  /// **'Check the screen, button gaps and base for extra holes'**
+  String get guideP6Check;
+
+  /// No description provided for @guideP6Hint.
+  ///
+  /// In en, this message translates to:
+  /// **'Devices right by the bed are both hidden and close to you — check them first'**
+  String get guideP6Hint;
+
+  /// No description provided for @guideP7Title.
+  ///
+  /// In en, this message translates to:
+  /// **'Router / TV box'**
+  String get guideP7Title;
+
+  /// No description provided for @guideP7Check.
+  ///
+  /// In en, this message translates to:
+  /// **'Look for extra LEDs or pinholes beyond the normal lights'**
+  String get guideP7Check;
+
+  /// No description provided for @guideP7Hint.
+  ///
+  /// In en, this message translates to:
+  /// **'Routers are often repurposed as a \"legitimate\" disguise for a camera'**
+  String get guideP7Hint;
+
+  /// No description provided for @guideP8Title.
+  ///
+  /// In en, this message translates to:
+  /// **'Plant pots'**
+  String get guideP8Title;
+
+  /// No description provided for @guideP8Check.
+  ///
+  /// In en, this message translates to:
+  /// **'Check the pot and the foliage above the soil for foreign objects'**
+  String get guideP8Check;
+
+  /// No description provided for @guideP8Hint.
+  ///
+  /// In en, this message translates to:
+  /// **'Micro lenses under foliage are hard to spot — combine with the IR scan'**
+  String get guideP8Hint;
+
+  /// No description provided for @guideP9Title.
+  ///
+  /// In en, this message translates to:
+  /// **'Lights / smoke detector'**
+  String get guideP9Title;
+
+  /// No description provided for @guideP9Check.
+  ///
+  /// In en, this message translates to:
+  /// **'Check inside lamp shades, chandelier joints and behind bedside wall lamps'**
+  String get guideP9Check;
+
+  /// No description provided for @guideP9Hint.
+  ///
+  /// In en, this message translates to:
+  /// **'Glare near light sources fools the eye — the IR detector is more reliable here'**
+  String get guideP9Hint;
+
   /// No description provided for @morePrivacy.
   ///
   /// In en, this message translates to:

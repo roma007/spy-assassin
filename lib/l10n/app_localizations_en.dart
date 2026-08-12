@@ -623,6 +623,102 @@ class AppLocalizationsEn extends AppLocalizations {
   String get moreGuideSubtitle => 'Common hiding places and anti-voyeurism tips';
 
   @override
+  String get guideTitle => 'Inspection Guide';
+
+  @override
+  String get guideIntro => 'Check by eye first, then verify each spot with the tools. Below are the most common hiding places — go through them in order.';
+
+  @override
+  String get guideCta => 'Found something suspicious? See next steps';
+
+  @override
+  String get guideHow => 'How to check: ';
+
+  @override
+  String get guideHint => 'Tip: ';
+
+  @override
+  String get guideP1Title => 'Smoke detector';
+
+  @override
+  String get guideP1Check => 'Stand directly beneath it and look up / from the side; pinholes often hide at metal-plastic seams';
+
+  @override
+  String get guideP1Hint => 'Black housings hide pinhole lenses easily — get close and check several angles';
+
+  @override
+  String get guideP2Title => 'Outlets & power strips';
+
+  @override
+  String get guideP2Check => 'Look for unnatural holes or bulges on the panel; shine a flashlight inside';
+
+  @override
+  String get guideP2Hint => 'USB ports, charger holes and power-strip sides are common hiding spots';
+
+  @override
+  String get guideP3Title => 'Mirror (two-way)';
+
+  @override
+  String get guideP3Check => 'Press a fingernail to the glass: a gap means a normal mirror; no gap means caution';
+
+  @override
+  String get guideP3Hint => 'A two-way mirror may hide a room behind it — but the mirror itself can also hold a micro lens';
+
+  @override
+  String get guideP4Title => 'Wall art & frames';
+
+  @override
+  String get guideP4Check => 'Check the frame edges and the gap behind the painting for extra holes';
+
+  @override
+  String get guideP4Hint => 'Hidden compartments behind frames are classic — gently press the frame to feel for oddities';
+
+  @override
+  String get guideP5Title => 'AC vents';
+
+  @override
+  String get guideP5Check => 'Shine a flashlight into the vent and look for unusual reflections between the fins';
+
+  @override
+  String get guideP5Hint => 'The gap above a wall-mounted AC and the wall can hide micro devices';
+
+  @override
+  String get guideP6Title => 'Bedside clock / lamp';
+
+  @override
+  String get guideP6Check => 'Check the screen, button gaps and base for extra holes';
+
+  @override
+  String get guideP6Hint => 'Devices right by the bed are both hidden and close to you — check them first';
+
+  @override
+  String get guideP7Title => 'Router / TV box';
+
+  @override
+  String get guideP7Check => 'Look for extra LEDs or pinholes beyond the normal lights';
+
+  @override
+  String get guideP7Hint => 'Routers are often repurposed as a \"legitimate\" disguise for a camera';
+
+  @override
+  String get guideP8Title => 'Plant pots';
+
+  @override
+  String get guideP8Check => 'Check the pot and the foliage above the soil for foreign objects';
+
+  @override
+  String get guideP8Hint => 'Micro lenses under foliage are hard to spot — combine with the IR scan';
+
+  @override
+  String get guideP9Title => 'Lights / smoke detector';
+
+  @override
+  String get guideP9Check => 'Check inside lamp shades, chandelier joints and behind bedside wall lamps';
+
+  @override
+  String get guideP9Hint => 'Glare near light sources fools the eye — the IR detector is more reliable here';
+
+  @override
   String get morePrivacy => 'Privacy policy';
 
   @override
