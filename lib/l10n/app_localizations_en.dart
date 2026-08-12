@@ -9,11 +9,10 @@ class AppLocalizationsEn extends AppLocalizations {
   AppLocalizationsEn([String locale = 'en']) : super(locale);
 
   @override
-  String get appTitle => 'Privacy Camera';
+  String get appTitle => 'Spy Assassin - Hidden Camera Detector';
 
   @override
-  String get privacyPromiseBanner =>
-      'No account · no ads · no cloud upload · no data saved — all detection runs on-device';
+  String get privacyPromiseBanner => 'No account · no ads · no cloud upload · no data saved — all detection runs on-device';
 
   @override
   String get proTitle => 'Pro';
@@ -31,8 +30,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get proLimitTitle => 'Daily free limit reached';
 
   @override
-  String get proUpgradePrompt =>
-      'Upgrade to Pro for unlimited use of all detection tools and PDF report export.';
+  String get proUpgradePrompt => 'Upgrade to Pro for unlimited use of all detection tools and PDF report export.';
 
   @override
   String get proLater => 'Not now';
@@ -41,6 +39,44 @@ class AppLocalizationsEn extends AppLocalizations {
   String proLimitLeft(Object count) {
     return '$count free detection(s) left today';
   }
+
+  @override
+  String get proPlanMonthly => 'Monthly';
+
+  @override
+  String get proPlanYearly => 'Yearly';
+
+  @override
+  String get proPlanMonthlySub => 'Cancel anytime';
+
+  @override
+  String get proPlanYearlySub => 'Best value, 2 months free';
+
+  @override
+  String get proBestValue => 'BEST VALUE';
+
+  @override
+  String get proRestore => 'Restore purchases';
+
+  @override
+  String get proRestoreEmpty => 'No previous purchases found';
+
+  @override
+  String get proPurchasing => 'Processing…';
+
+  @override
+  String get proStoreUnavailable => 'Store is not available. Please try again later.';
+
+  @override
+  String get proIapError => 'Purchase failed. Please try again.';
+
+  @override
+  String proActiveUntil(Object date) {
+    return 'Active until $date';
+  }
+
+  @override
+  String get proLocalSimUnlock => 'Developer · simulate unlock';
 
   @override
   String get navTabCheck => 'Check';
@@ -76,8 +112,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get checkVisualTitle => 'Visual Check';
 
   @override
-  String get checkVisualDesc =>
-      'Inspect mirrors, smoke detectors, outlet holes, wall art, air-conditioning vents, digital clocks and other common hiding spots';
+  String get checkVisualDesc => 'Inspect mirrors, smoke detectors, outlet holes, wall art, air-conditioning vents, digital clocks and other common hiding spots';
 
   @override
   String get checkStep1Min => '~1 min';
@@ -89,29 +124,25 @@ class AppLocalizationsEn extends AppLocalizations {
   String get checkIrTitle => 'IR Scan';
 
   @override
-  String get checkIrDesc =>
-      'Turn off the lights, open \"IR Detection\" and slowly sweep every corner of the room';
+  String get checkIrDesc => 'Turn off the lights, open \"IR Detection\" and slowly sweep every corner of the room';
 
   @override
   String get checkNetTitle => 'Network Scan';
 
   @override
-  String get checkNetDesc =>
-      'Connect to the room WiFi, open \"WiFi Scan\" to look for suspicious networked devices';
+  String get checkNetDesc => 'Connect to the room WiFi, open \"WiFi Scan\" to look for suspicious networked devices';
 
   @override
   String get checkMagnetTitle => 'Magnet Check';
 
   @override
-  String get checkMagnetDesc =>
-      'Use \"Magnet Scan\" close to suspicious chargers, clocks, smoke detectors and other objects';
+  String get checkMagnetDesc => 'Use \"Magnet Scan\" close to suspicious chargers, clocks, smoke detectors and other objects';
 
   @override
   String get checkDone => 'Check complete. You can relax now.';
 
   @override
-  String get checkInProgress =>
-      'Finish the 4 steps in order, about 4 minutes in total';
+  String get checkInProgress => 'Finish the 4 steps in order, about 4 minutes in total';
 
   @override
   String checkSuspiciousFound(Object count) {
@@ -142,40 +173,86 @@ class AppLocalizationsEn extends AppLocalizations {
   String get checkAllFourDone => 'All 4 steps complete';
 
   @override
-  String get checkAllDoneTip =>
-      'If any step raised a suspicious signal, take photos as evidence and contact the front desk / landlord or call the police.';
+  String get checkAllDoneTip => 'If any step raised a suspicious signal, take photos as evidence and contact the front desk / landlord or call the police.';
+
+  @override
+  String get quickScanTitle => 'Quick Scan';
+
+  @override
+  String get quickScanSubtitle => 'IR → WiFi → Magnet, fully automated';
+
+  @override
+  String get quickScanStart => 'Start Quick Scan';
+
+  @override
+  String quickScanRunning(Object step) {
+    return 'Running: $step';
+  }
+
+  @override
+  String get quickScanStepIr => 'IR scan (≈ 20s)';
+
+  @override
+  String get quickScanStepWifi => 'WiFi scan (≈ 15s)';
+
+  @override
+  String get quickScanStepMagnet => 'Magnet scan (≈ 15s)';
+
+  @override
+  String get quickScanDone => 'Quick scan complete. View verdict.';
+
+  @override
+  String get verdictTitle => 'Scan Verdict';
+
+  @override
+  String get verdictSafe => 'Safe: no suspicious signals found';
+
+  @override
+  String verdictRisk(Object count) {
+    return 'Risk found: $count suspicious items';
+  }
+
+  @override
+  String get verdictHighRisk => 'High risk: suspected hidden camera';
+
+  @override
+  String get verdictViewEvidence => 'View evidence';
+
+  @override
+  String get verdictExportPdf => 'Export PDF';
+
+  @override
+  String get verdictNextActions => 'Next actions';
+
+  @override
+  String get verdictDone => 'Done';
 
   @override
   String get nextActionsTitle => 'Camera found, what to do';
 
   @override
-  String get nextActionsTip =>
-      'Stay calm, secure evidence first, do not dismantle anything. Personal safety comes first; leave the room immediately if necessary.';
+  String get nextActionsTip => 'Stay calm, secure evidence first, do not dismantle anything. Personal safety comes first; leave the room immediately if necessary.';
 
   @override
   String get nextAction1Title => '1. Photograph evidence (do this first)';
 
   @override
-  String get nextAction1Desc =>
-      'Use another phone to photograph the suspicious device from multiple angles, including its location and the whole room. Do not touch, dismantle or damage it; keep the scene untouched. This is key evidence for reporting and handling.';
+  String get nextAction1Desc => 'Use another phone to photograph the suspicious device from multiple angles, including its location and the whole room. Do not touch, dismantle or damage it; keep the scene untouched. This is key evidence for reporting and handling.';
 
   @override
   String get nextAction2Title => '2. Notify the venue manager';
 
   @override
-  String get nextAction2Desc =>
-      'Hotels/B&Bs: immediately inform the front desk or landlord, ask for a room change or on-site handling, and request a written record. Being secretly filmed is the venue\'s contractual or even legal liability; never negotiate privately without witnesses.';
+  String get nextAction2Desc => 'Hotels/B&Bs: immediately inform the front desk or landlord, ask for a room change or on-site handling, and request a written record. Being secretly filmed is the venue\'s contractual or even legal liability; never negotiate privately without witnesses.';
 
   @override
   String get nextAction3Title => '3. Call the police';
 
   @override
-  String get nextAction3Desc =>
-      'Call 110 (China) or the local police number and say \"suspected secret filming\"; police will come to collect evidence. Law enforcement can perform forensic analysis; do not remove or destroy the device yourself.';
+  String get nextAction3Desc => 'Call 110 (China) or the local police number and say \"suspected secret filming\"; police will come to collect evidence. Law enforcement can perform forensic analysis; do not remove or destroy the device yourself.';
 
   @override
-  String get nextActionsRightsTip =>
-      'Rights reminder: In China, the Personal Information Protection Law and local \"anti-voyeurism\" legislation explicitly prohibit installing cameras in private venues such as hotels. You may demand compensation and file complaints with 12315 or the local consumers association.';
+  String get nextActionsRightsTip => 'Rights reminder: In China, the Personal Information Protection Law and local \"anti-voyeurism\" legislation explicitly prohibit installing cameras in private venues such as hotels. You may demand compensation and file complaints with 12315 or the local consumers association.';
 
   @override
   String permissionDenial(Object feature) {
@@ -197,16 +274,13 @@ class AppLocalizationsEn extends AppLocalizations {
   }
 
   @override
-  String get irSustainedSummary =>
-      'Persistent suspected infrared light source (clear IR illuminator signature)';
+  String get irSustainedSummary => 'Persistent suspected infrared light source (clear IR illuminator signature)';
 
   @override
-  String get irOccasionalSummary =>
-      'Occasional infrared spot detected (may be a remote control / reflection)';
+  String get irOccasionalSummary => 'Occasional infrared spot detected (may be a remote control / reflection)';
 
   @override
-  String get irGuidance =>
-      'Turn off the lights and draw the curtains. Slowly sweep smoke detectors, outlets, mirrors and other spots.';
+  String get irGuidance => 'Turn off the lights and draw the curtains. Slowly sweep smoke detectors, outlets, mirrors and other spots.';
 
   @override
   String get torchOn => 'Torch on';
@@ -215,8 +289,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get torchOff => 'Torch on';
 
   @override
-  String get irFlipTooltip =>
-      'Switch camera (front camera is more IR-sensitive)';
+  String get irFlipTooltip => 'Switch camera (front camera is more IR-sensitive)';
 
   @override
   String get irResTooltip => 'Resolution (lower = higher frame rate)';
@@ -237,12 +310,10 @@ class AppLocalizationsEn extends AppLocalizations {
   String get irErrorTitle => 'IR detection unavailable';
 
   @override
-  String get irAlarmBanner =>
-      'Persistent suspected IR light source, move slowly and confirm from multiple angles';
+  String get irAlarmBanner => 'Persistent suspected IR light source, move slowly and confirm from multiple angles';
 
   @override
-  String get irAlertBanner =>
-      'Occasional spot detected — likely a TV remote (IR only when pressing buttons) or a reflection; only sustained spots are suspicious';
+  String get irAlertBanner => 'Occasional spot detected — likely a TV remote (IR only when pressing buttons) or a reflection; only sustained spots are suspicious';
 
   @override
   String get stabilityChip => 'Device is moving, keep it steady';
@@ -256,12 +327,10 @@ class AppLocalizationsEn extends AppLocalizations {
   }
 
   @override
-  String get lensConfirmedSummary =>
-      'Suspected lens reflection spot found, change angle to confirm';
+  String get lensConfirmedSummary => 'Suspected lens reflection spot found, change angle to confirm';
 
   @override
-  String get lensGuidance =>
-      'Keep the torch on with light coaxial to the lens, slowly pan across walls and objects';
+  String get lensGuidance => 'Keep the torch on with light coaxial to the lens, slowly pan across walls and objects';
 
   @override
   String get lensFlipTooltip => 'Switch camera';
@@ -273,19 +342,16 @@ class AppLocalizationsEn extends AppLocalizations {
   String get lensErrorTitle => 'Reflection scan unavailable';
 
   @override
-  String get lensConfirmBanner =>
-      'Suspected lens reflection, change angle to confirm';
+  String get lensConfirmBanner => 'Suspected lens reflection, change angle to confirm';
 
   @override
-  String get lensHintBanner =>
-      'Bright circular spot detected, keep scanning to confirm reflection (glass/metal can cause false positives)';
+  String get lensHintBanner => 'Bright circular spot detected, keep scanning to confirm reflection (glass/metal can cause false positives)';
 
   @override
   String get retry => 'Retry';
 
   @override
-  String get wifiNeedInfo =>
-      'Could not get current WiFi info, make sure you are connected to WiFi';
+  String get wifiNeedInfo => 'Could not get current WiFi info, make sure you are connected to WiFi';
 
   @override
   String wifiHighCount(Object count) {
@@ -314,16 +380,13 @@ class AppLocalizationsEn extends AppLocalizations {
   }
 
   @override
-  String get wifiVerdictInternet =>
-      'Public internet (1.1.1.1:80) is reachable but the LAN is not — your phone is isolated or blocked from LAN devices. Most common causes: 1) VPN/proxy is on (it blocks the LAN, please turn it off); 2) phone is on the router\'s \"guest network\" or \"device isolation/AP isolation\" is enabled; 3) iOS local network permission has not taken effect (Settings > Privacy & Security > Local Network, make sure \"Privacy Camera\" is green; if not, restart the phone and retry).';
+  String get wifiVerdictInternet => 'Public internet (1.1.1.1:80) is reachable but the LAN is not — your phone is isolated or blocked from LAN devices. Most common causes: 1) VPN/proxy is on (it blocks the LAN, please turn it off); 2) phone is on the router\'s \"guest network\" or \"device isolation/AP isolation\" is enabled; 3) iOS local network permission has not taken effect (Settings > Privacy & Security > Local Network, make sure \"Spy Assassin\" is green; if not, restart the phone and retry).';
 
   @override
-  String get wifiVerdictNone =>
-      'Neither public internet nor LAN is reachable — check if Airplane Mode or a global VPN is on, or confirm the WiFi actually has internet.';
+  String get wifiVerdictNone => 'Neither public internet nor LAN is reachable — check if Airplane Mode or a global VPN is on, or confirm the WiFi actually has internet.';
 
   @override
-  String get wifiDisclaimer =>
-      'Note: only devices on the current WiFi can be found; offline or local-storage cameras are invisible. Results are for reference only, not legal evidence. Long-press a device to quickly mark it as \"my device\".';
+  String get wifiDisclaimer => 'Note: only devices on the current WiFi can be found; offline or local-storage cameras are invisible. Results are for reference only, not legal evidence. Long-press a device to quickly mark it as \"my device\".';
 
   @override
   String get wifiNotConnected => 'Not connected to WiFi';
@@ -357,8 +420,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get wifiPermTitle => 'Location permission required';
 
   @override
-  String get wifiPermDesc =>
-      'Android requires location permission to read WiFi info. Scan results stay on your device.';
+  String get wifiPermDesc => 'Android requires location permission to read WiFi info. Scan results stay on your device.';
 
   @override
   String wifiDetailReason(Object reason) {
@@ -367,6 +429,9 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get wifiDetailIp => 'IP address';
+
+  @override
+  String get wifiDetailHostname => 'Device name';
 
   @override
   String get wifiDetailMac => 'MAC address';
@@ -385,6 +450,34 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get wifiDetailUpnp => 'UPnP discovery';
+
+  @override
+  String get wifiDetailRtsp => 'RTSP fingerprint';
+
+  @override
+  String get wifiDetailHttp => 'HTTP fingerprint';
+
+  @override
+  String get wifiNoMacIos => 'iOS cannot read the MAC address, so hardware vendor info is unavailable';
+
+  @override
+  String get wifiStaleChip => 'Likely sleeping';
+
+  @override
+  String get wifiStaleSection => 'Sleeping / unreachable (history)';
+
+  @override
+  String wifiStaleLastSeen(Object time) {
+    return 'Last online $time';
+  }
+
+  @override
+  String get wifiStaleNote => 'No response this time; may be sleeping. From the last scan.';
+
+  @override
+  String wifiStaleCount(Object count) {
+    return '$count more sleeping / unreachable (history)';
+  }
 
   @override
   String get wifiMarkedCancel => 'My device (tap to unmark)';
@@ -412,8 +505,7 @@ class AppLocalizationsEn extends AppLocalizations {
   }
 
   @override
-  String get bleDisclaimer =>
-      'Note: Bluetooth cameras are uncommon, this tool is only a supplementary clue. Names containing camera/recorder keywords or unnamed devices are worth attention; connected earbuds, bands and speakers are normal devices.';
+  String get bleDisclaimer => 'Note: Bluetooth cameras are uncommon, this tool is only a supplementary clue. Names containing camera/recorder keywords or unnamed devices are worth attention; connected earbuds, bands and speakers are normal devices.';
 
   @override
   String get bleOn => 'Bluetooth on';
@@ -457,28 +549,22 @@ class AppLocalizationsEn extends AppLocalizations {
   String get magnetUsageTitle => 'Usage tips';
 
   @override
-  String get magnetTip1 =>
-      '• Hold the phone 3~10 cm from the suspicious object and move slowly';
+  String get magnetTip1 => '• Hold the phone 3~10 cm from the suspicious object and move slowly';
 
   @override
-  String get magnetTip2 =>
-      '• Magnetometer location: near the top-right corner on iPhone, near the top-center on most Android phones';
+  String get magnetTip2 => '• Magnetometer location: near the top-right corner on iPhone, near the top-center on most Android phones';
 
   @override
-  String get magnetTip3 =>
-      '• Only act when above the threshold line for over 1 second';
+  String get magnetTip3 => '• Only act when above the threshold line for over 1 second';
 
   @override
-  String get magnetTip4 =>
-      '• Dense electronics areas (outlet walls, near routers) cause more false positives';
+  String get magnetTip4 => '• Dense electronics areas (outlet walls, near routers) cause more false positives';
 
   @override
-  String get magnetCalibrating =>
-      'Calibrating ambient magnetic field (keep the phone still)…';
+  String get magnetCalibrating => 'Calibrating ambient magnetic field (keep the phone still)…';
 
   @override
-  String get magnetCalibrated =>
-      'Calibrated, you can start scanning suspicious objects';
+  String get magnetCalibrated => 'Calibrated, you can start scanning suspicious objects';
 
   @override
   String get magnetRecalibrate => 'Recalibrate';
@@ -498,8 +584,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get magnetThresholdTitle => 'Alarm threshold';
 
   @override
-  String get magnetThresholdHint =>
-      'Raise to reduce false positives (lower for more sensitive scenes)';
+  String get magnetThresholdHint => 'Raise to reduce false positives (lower for more sensitive scenes)';
 
   @override
   String get magnetChart => 'Live chart';
@@ -511,15 +596,13 @@ class AppLocalizationsEn extends AppLocalizations {
   String get moreLensTitle => 'Lens reflection scan';
 
   @override
-  String get moreLensSubtitle =>
-      'Coaxial torch light to find lens retro-reflection spots';
+  String get moreLensSubtitle => 'Coaxial torch light to find lens retro-reflection spots';
 
   @override
   String get moreBleTitle => 'Bluetooth scan';
 
   @override
-  String get moreBleSubtitle =>
-      'Supplementary scan of nearby Bluetooth devices';
+  String get moreBleSubtitle => 'Supplementary scan of nearby Bluetooth devices';
 
   @override
   String get moreReportTitle => 'Inspection report';
@@ -528,18 +611,22 @@ class AppLocalizationsEn extends AppLocalizations {
   String get moreReportSubtitle => 'Summarize results and export as PDF';
 
   @override
+  String get moreHistoryTitle => 'Scan History';
+
+  @override
+  String get moreHistorySubtitle => 'Saved inspection records and photos';
+
+  @override
   String get moreGuide => 'Hiding spots guide';
 
   @override
-  String get moreGuideSubtitle =>
-      'Common hiding places and anti-voyeurism tips';
+  String get moreGuideSubtitle => 'Common hiding places and anti-voyeurism tips';
 
   @override
   String get morePrivacy => 'Privacy policy';
 
   @override
-  String get morePrivacySubtitle =>
-      'No account · no ads · no cloud upload · no data saved';
+  String get morePrivacySubtitle => 'No account · no ads · no cloud upload · no data saved';
 
   @override
   String get moreAbout => 'About';
@@ -590,8 +677,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get statsTools => 'Tool usage';
 
   @override
-  String get statsEmpty =>
-      'No data yet. Complete a room check or use a detection tool and it will be recorded here (on-device only).';
+  String get statsEmpty => 'No data yet. Complete a room check or use a detection tool and it will be recorded here (on-device only).';
 
   @override
   String statsDurationFormat(Object m, Object s) {
@@ -617,22 +703,56 @@ class AppLocalizationsEn extends AppLocalizations {
   String get settingsCancel => 'Cancel';
 
   @override
-  String get settingsDataNote =>
-      'All stats are stored only on this device and never uploaded. Check records and photos live in memory only and are cleared when the app restarts.';
+  String get settingsDataNote => 'All stats are stored only on this device and never uploaded. Scan history is saved on-device; the free tier keeps the last 5 records.';
 
   @override
   String get morePrivacyDesign => 'Privacy-first design';
 
   @override
-  String get morePrivacyDesc =>
-      'All detection runs on-device: no account, no collection, no upload of any image or network data.';
+  String get morePrivacyDesc => 'All detection runs on-device: no account, no collection, no upload of any image or network data.';
 
   @override
   String get reportTitle => 'Inspection report';
 
   @override
-  String get reportEmptyError =>
-      'No inspection records yet, complete at least one detection first';
+  String get reportHistoryTitle => 'Scan History';
+
+  @override
+  String get reportOpenHistory => 'View all';
+
+  @override
+  String get reportSeal => 'Finish & save this check';
+
+  @override
+  String get historyTitle => 'Scan History';
+
+  @override
+  String get historyEmpty => 'No saved checks yet. Finish a check, then tap \"Finish & save this check\" on the Report screen to archive it.';
+
+  @override
+  String historyProNote(Object count) {
+    return 'Free keeps the last $count scan records. Upgrade to Pro for unlimited storage';
+  }
+
+  @override
+  String get historyProUnlimited => 'Pro: unlimited scan history';
+
+  @override
+  String historyPlace(Object place) {
+    return 'Place: $place';
+  }
+
+  @override
+  String get historyOpen => 'Open';
+
+  @override
+  String get historyDelete => 'Delete';
+
+  @override
+  String get historyDeleteConfirm => 'Delete this scan record? Its details and photos will be removed permanently.';
+
+  @override
+  String get reportEmptyError => 'No inspection records yet, complete at least one detection first';
 
   @override
   String get reportShareCancelled => 'Share cancelled';
@@ -643,8 +763,7 @@ class AppLocalizationsEn extends AppLocalizations {
   }
 
   @override
-  String get reportPlaceLabel =>
-      'Inspection place (optional, e.g. hotel / room no.)';
+  String get reportPlaceLabel => 'Inspection place (optional, e.g. hotel / room no.)';
 
   @override
   String get reportPlaceHint => 'Only shown in the report, no location access';
@@ -653,8 +772,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get reportPhotos => 'Photos';
 
   @override
-  String get reportPhotosEmpty =>
-      'No photos yet. Photograph suspicious devices or spots; they will be included when you export.';
+  String get reportPhotosEmpty => 'No photos yet. Photograph suspicious devices or spots; they will be included when you export.';
 
   @override
   String get reportAddPhoto => 'Add photo';
@@ -669,8 +787,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get reportPhotoFailed => 'Failed to add photo, try again';
 
   @override
-  String get reportEmptyHint =>
-      'No records yet. Results are summarized here automatically after IR, reflection, WiFi, Bluetooth or magnet checks.';
+  String get reportEmptyHint => 'No records yet. Results are summarized here automatically after IR, reflection, WiFi, Bluetooth or magnet checks.';
 
   @override
   String get reportDetails => 'Details';
@@ -685,8 +802,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get reportExportPdf => 'Export PDF & share';
 
   @override
-  String get reportLocalNote =>
-      'The report is generated on-device and shared through the system sheet; nothing is uploaded.';
+  String get reportLocalNote => 'The report is generated on-device and shared through the system sheet; nothing is uploaded. This check is saved on-device (free keeps the last 5).';
 
   @override
   String reportSummary(Object count, Object riskCount) {
@@ -694,11 +810,10 @@ class AppLocalizationsEn extends AppLocalizations {
   }
 
   @override
-  String get reportSummaryDesc =>
-      'Summary of this session\'s checks, exportable as PDF';
+  String get reportSummaryDesc => 'Summary of this session\'s checks, exportable as PDF';
 
   @override
-  String get reportPdfTitle => 'Privacy Camera · Inspection Report';
+  String get reportPdfTitle => 'Spy Assassin · Inspection Report';
 
   @override
   String get reportPdfTime => 'Generated at';
@@ -730,24 +845,19 @@ class AppLocalizationsEn extends AppLocalizations {
   String get reportPdfNext => 'Suggested next steps';
 
   @override
-  String get reportPdfAction1 =>
-      'Photograph the suspicious device\'s location and the room overview; do not touch or dismantle it';
+  String get reportPdfAction1 => 'Photograph the suspicious device\'s location and the room overview; do not touch or dismantle it';
 
   @override
-  String get reportPdfAction2 =>
-      'Inform the hotel front desk / landlord and request a written record or a room change';
+  String get reportPdfAction2 => 'Inform the hotel front desk / landlord and request a written record or a room change';
 
   @override
-  String get reportPdfAction3 =>
-      'Call 110 (China) / local police for on-site forensics';
+  String get reportPdfAction3 => 'Call 110 (China) / local police for on-site forensics';
 
   @override
-  String get reportPdfDisclaimer =>
-      'Disclaimer: IR/reflection detection depends on the CMOS IR sensitivity of your phone; WiFi scanning only finds devices on the current LAN; magnet and Bluetooth checks are supplementary. This report is not legal evidence; rely on police forensics.';
+  String get reportPdfDisclaimer => 'Disclaimer: IR/reflection detection depends on the CMOS IR sensitivity of your phone; WiFi scanning only finds devices on the current LAN; magnet and Bluetooth checks are supplementary. This report is not legal evidence; rely on police forensics.';
 
   @override
-  String get reportPdfFooter =>
-      'Generated by \"Privacy Camera\" · processed on-device only';
+  String get reportPdfFooter => 'Generated by \"Spy Assassin\" · processed on-device only';
 
   @override
   String get riskSafe => 'Pass';

@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:privacy_camera/l10n/app_localizations.dart';
 
+import '../../core/pro/iap_config.dart';
 import '../../core/pro/pro_store.dart';
 import '../../core/pro/upgrade_dialog.dart';
 import '../../core/theme/app_theme.dart';
 import '../../core/widgets/common_widgets.dart';
 import '../bluetooth/bluetooth_screen.dart';
 import '../lens/lens_screen.dart';
+import '../report/history_screen.dart';
 import '../report/report_screen.dart';
 import 'guide_screen.dart';
 import 'privacy_policy_screen.dart';
@@ -58,6 +60,14 @@ class MoreScreen extends StatelessWidget {
                 subtitle: l10n.moreReportSubtitle,
                 onTap: () => Navigator.of(context).push(
                     MaterialPageRoute(builder: (_) => const ReportScreen())),
+              ),
+              const SizedBox(height: 6),
+              _ToolTile(
+                icon: Icons.history_rounded,
+                title: l10n.moreHistoryTitle,
+                subtitle: l10n.moreHistorySubtitle,
+                onTap: () => Navigator.of(context).push(
+                    MaterialPageRoute(builder: (_) => const HistoryScreen())),
               ),
             ],
           ),
@@ -132,7 +142,7 @@ class _ProCard extends StatelessWidget {
                     const SizedBox(height: 4),
                     Text(
                       pro.isPro
-                          ? l10n.proSubtitle
+                          ? _proDetail(l10n, pro)
                           : l10n.proLimitLeft(remaining),
                       style: const TextStyle(
                           fontSize: 12,
@@ -167,6 +177,22 @@ class _ProCard extends StatelessWidget {
         );
       },
     );
+  }
+  String _proDetail(AppLocalizations l10n, ProStore pro) {
+    if (pro.isIapActive) {
+      final expiry = pro.iapExpiry;
+      final date = expiry == null
+          ? ''
+          : '${expiry.year}-${expiry.month.toString().padLeft(2, '0')}-${expiry.day.toString().padLeft(2, '0')}';
+      final planName = switch (pro.iapPlan) {
+        ProPlan.monthly => l10n.proPlanMonthly,
+        ProPlan.yearly => l10n.proPlanYearly,
+        null => '',
+      };
+      final base = date.isEmpty ? planName : l10n.proActiveUntil(date);
+      return planName.isEmpty ? base : '$planName · $base';
+    }
+    return l10n.proSubtitle;
   }
 }
 

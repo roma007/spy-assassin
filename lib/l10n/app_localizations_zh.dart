@@ -9,7 +9,7 @@ class AppLocalizationsZh extends AppLocalizations {
   AppLocalizationsZh([String locale = 'zh']) : super(locale);
 
   @override
-  String get appTitle => '隐私相机';
+  String get appTitle => '间谍刺客 - 隐藏摄像头检测';
 
   @override
   String get privacyPromiseBanner => '无账号 · 无广告 · 无云上传 · 数据不落盘，全程本地检测';
@@ -39,6 +39,44 @@ class AppLocalizationsZh extends AppLocalizations {
   String proLimitLeft(Object count) {
     return '今日剩余免费检测 $count 次';
   }
+
+  @override
+  String get proPlanMonthly => '月度';
+
+  @override
+  String get proPlanYearly => '年度';
+
+  @override
+  String get proPlanMonthlySub => '随时取消';
+
+  @override
+  String get proPlanYearlySub => '最划算，送 2 个月';
+
+  @override
+  String get proBestValue => '超值';
+
+  @override
+  String get proRestore => '恢复购买';
+
+  @override
+  String get proRestoreEmpty => '未找到可恢复的购买记录';
+
+  @override
+  String get proPurchasing => '正在处理…';
+
+  @override
+  String get proStoreUnavailable => '商店暂不可用，请稍后重试';
+
+  @override
+  String get proIapError => '购买失败，请稍后重试';
+
+  @override
+  String proActiveUntil(Object date) {
+    return '有效期至 $date';
+  }
+
+  @override
+  String get proLocalSimUnlock => '开发者 · 本地模拟解锁';
 
   @override
   String get navTabCheck => '检查';
@@ -138,6 +176,58 @@ class AppLocalizationsZh extends AppLocalizations {
   String get checkAllDoneTip => '若任一环节发现可疑信号，请拍照留存证据，并联系前台/房东或报警处理。';
 
   @override
+  String get quickScanTitle => 'Quick Scan';
+
+  @override
+  String get quickScanSubtitle => 'IR → WiFi → Magnet, fully automated';
+
+  @override
+  String get quickScanStart => 'Start Quick Scan';
+
+  @override
+  String quickScanRunning(Object step) {
+    return 'Running: $step';
+  }
+
+  @override
+  String get quickScanStepIr => 'IR scan (≈ 20s)';
+
+  @override
+  String get quickScanStepWifi => 'WiFi scan (≈ 15s)';
+
+  @override
+  String get quickScanStepMagnet => 'Magnet scan (≈ 15s)';
+
+  @override
+  String get quickScanDone => 'Quick scan complete. View verdict.';
+
+  @override
+  String get verdictTitle => 'Scan Verdict';
+
+  @override
+  String get verdictSafe => 'Safe: no suspicious signals found';
+
+  @override
+  String verdictRisk(Object count) {
+    return 'Risk found: $count suspicious items';
+  }
+
+  @override
+  String get verdictHighRisk => 'High risk: suspected hidden camera';
+
+  @override
+  String get verdictViewEvidence => 'View evidence';
+
+  @override
+  String get verdictExportPdf => 'Export PDF';
+
+  @override
+  String get verdictNextActions => 'Next actions';
+
+  @override
+  String get verdictDone => 'Done';
+
+  @override
   String get nextActionsTitle => '发现摄像头怎么办';
 
   @override
@@ -147,26 +237,22 @@ class AppLocalizationsZh extends AppLocalizations {
   String get nextAction1Title => '1. 拍照取证（先做）';
 
   @override
-  String get nextAction1Desc =>
-      '用另一台手机对可疑设备多角度拍照，拍下安装位置与房间全貌；不要触碰、拆卸或破坏设备，保持现场原样，这是报警和处理的关键证据。';
+  String get nextAction1Desc => '用另一台手机对可疑设备多角度拍照，拍下安装位置与房间全貌；不要触碰、拆卸或破坏设备，保持现场原样，这是报警和处理的关键证据。';
 
   @override
   String get nextAction2Title => '2. 告知场所负责人';
 
   @override
-  String get nextAction2Desc =>
-      '酒店/民宿：立刻告知前台或房东，要求换房或到场处理，并索要书面记录；被偷拍是场所的违约甚至违法责任，别在没人见证的情况下私下沟通。';
+  String get nextAction2Desc => '酒店/民宿：立刻告知前台或房东，要求换房或到场处理，并索要书面记录；被偷拍是场所的违约甚至违法责任，别在没人见证的情况下私下沟通。';
 
   @override
   String get nextAction3Title => '3. 报警';
 
   @override
-  String get nextAction3Desc =>
-      '拨打 110（中国）/ 当地报警电话，说明\"疑似被偷拍\"，警察会到场取证；警方可对设备进行司法鉴定，个人不要自行拆除或销毁可疑设备。';
+  String get nextAction3Desc => '拨打 110（中国）/ 当地报警电话，说明\"疑似被偷拍\"，警察会到场取证；警方可对设备进行司法鉴定，个人不要自行拆除或销毁可疑设备。';
 
   @override
-  String get nextActionsRightsTip =>
-      '维权提示：在中国，《个人信息保护法》与各地\"反偷拍\"立法明确禁止在酒店等隐私场所安装摄像头，你可以要求场所赔偿，并可向 12315 或当地消协投诉。';
+  String get nextActionsRightsTip => '维权提示：在中国，《个人信息保护法》与各地\"反偷拍\"立法明确禁止在酒店等隐私场所安装摄像头，你可以要求场所赔偿，并可向 12315 或当地消协投诉。';
 
   @override
   String permissionDenial(Object feature) {
@@ -294,16 +380,13 @@ class AppLocalizationsZh extends AppLocalizations {
   }
 
   @override
-  String get wifiVerdictInternet =>
-      '能访问公网(1.1.1.1:80)，但无法访问局域网——说明手机与局域网设备被隔离或屏蔽。最常见原因：① 手机开着 VPN/代理（会屏蔽局域网，请关闭）；② 手机连的是路由器的「访客网络」或开启了「设备隔离/AP 隔离」；③ iOS 本地网络权限仍未生效（设置 > 隐私与安全性 > 本地网络，确认「隐私相机」开关为绿色；不行就重启手机后重试）。';
+  String get wifiVerdictInternet => '能访问公网(1.1.1.1:80)，但无法访问局域网——说明手机与局域网设备被隔离或屏蔽。最常见原因：① 手机开着 VPN/代理（会屏蔽局域网，请关闭）；② 手机连的是路由器的「访客网络」或开启了「设备隔离/AP 隔离」；③ iOS 本地网络权限仍未生效（设置 > 隐私与安全性 > 本地网络，确认「间谍刺客」开关为绿色；不行就重启手机后重试）。';
 
   @override
-  String get wifiVerdictNone =>
-      '公网与局域网均不可达——请检查是否开了飞行模式、VPN 全局模式，或确认 WiFi 是否真的可上网。';
+  String get wifiVerdictNone => '公网与局域网均不可达——请检查是否开了飞行模式、VPN 全局模式，或确认 WiFi 是否真的可上网。';
 
   @override
-  String get wifiDisclaimer =>
-      '说明：仅检测当前 WiFi 下的联网设备，离线或本地存储的摄像头无法被发现；结果仅供参考，非执法证据。长按设备可快速标记为\"我的设备\"。';
+  String get wifiDisclaimer => '说明：仅检测当前 WiFi 下的联网设备，离线或本地存储的摄像头无法被发现；结果仅供参考，非执法证据。长按设备可快速标记为\"我的设备\"。';
 
   @override
   String get wifiNotConnected => '未连接 WiFi';
@@ -348,6 +431,9 @@ class AppLocalizationsZh extends AppLocalizations {
   String get wifiDetailIp => 'IP 地址';
 
   @override
+  String get wifiDetailHostname => '设备名称';
+
+  @override
   String get wifiDetailMac => 'MAC 地址';
 
   @override
@@ -364,6 +450,34 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get wifiDetailUpnp => 'UPnP 发现';
+
+  @override
+  String get wifiDetailRtsp => 'RTSP 指纹';
+
+  @override
+  String get wifiDetailHttp => 'HTTP 指纹';
+
+  @override
+  String get wifiNoMacIos => 'iOS 无法读取 MAC 地址，不含硬件厂商线索';
+
+  @override
+  String get wifiStaleChip => '可能休眠';
+
+  @override
+  String get wifiStaleSection => '休眠/未响应（历史记录）';
+
+  @override
+  String wifiStaleLastSeen(Object time) {
+    return '上次在线 $time';
+  }
+
+  @override
+  String get wifiStaleNote => '本次扫描未响应，可能处于休眠。来自上次扫描记录。';
+
+  @override
+  String wifiStaleCount(Object count) {
+    return '另有 $count 台休眠/未响应（历史记录）';
+  }
 
   @override
   String get wifiMarkedCancel => '我的设备（点击取消标记）';
@@ -391,8 +505,7 @@ class AppLocalizationsZh extends AppLocalizations {
   }
 
   @override
-  String get bleDisclaimer =>
-      '说明：蓝牙摄像头使用率低，本工具仅作辅助线索。名称含摄像头/录音关键词或未命名设备值得留意；已连接的耳机、手环、音箱等均为正常设备。';
+  String get bleDisclaimer => '说明：蓝牙摄像头使用率低，本工具仅作辅助线索。名称含摄像头/录音关键词或未命名设备值得留意；已连接的耳机、手环、音箱等均为正常设备。';
 
   @override
   String get bleOn => '蓝牙已开启';
@@ -498,6 +611,12 @@ class AppLocalizationsZh extends AppLocalizations {
   String get moreReportSubtitle => '汇总检测结论，导出 PDF 存档';
 
   @override
+  String get moreHistoryTitle => '扫描历史';
+
+  @override
+  String get moreHistorySubtitle => '已保存的检查记录与现场照片';
+
+  @override
   String get moreGuide => '排查指南';
 
   @override
@@ -584,8 +703,7 @@ class AppLocalizationsZh extends AppLocalizations {
   String get settingsCancel => '取消';
 
   @override
-  String get settingsDataNote =>
-      '所有统计数据仅保存在本机，用于查看自己的使用情况，不会上传。检测报告与照片仅存于内存，重启应用后自动清空。';
+  String get settingsDataNote => '所有统计数据与检测报告均保存在本机，不会上传。免费版扫描历史保留最近 5 份。';
 
   @override
   String get morePrivacyDesign => '隐私优先设计';
@@ -595,6 +713,43 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get reportTitle => '检测报告';
+
+  @override
+  String get reportHistoryTitle => '扫描历史';
+
+  @override
+  String get reportOpenHistory => '查看全部';
+
+  @override
+  String get reportSeal => '完成并保存本次检查';
+
+  @override
+  String get historyTitle => '扫描历史';
+
+  @override
+  String get historyEmpty => '还没有保存的检查记录。完成检测后，在「检测报告」页点「完成并保存本次检查」即可归档。';
+
+  @override
+  String historyProNote(Object count) {
+    return '免费版保留最近 $count 份扫描记录，升级 Pro 无限保存';
+  }
+
+  @override
+  String get historyProUnlimited => 'Pro：扫描记录无限保存';
+
+  @override
+  String historyPlace(Object place) {
+    return '地点：$place';
+  }
+
+  @override
+  String get historyOpen => '打开';
+
+  @override
+  String get historyDelete => '删除';
+
+  @override
+  String get historyDeleteConfirm => '确定删除这份扫描记录？检测明细与现场照片将一并删除，不可恢复。';
 
   @override
   String get reportEmptyError => '暂无检测记录，请先完成至少一项检测';
@@ -647,7 +802,7 @@ class AppLocalizationsZh extends AppLocalizations {
   String get reportExportPdf => '导出 PDF 并分享';
 
   @override
-  String get reportLocalNote => '报告在本地生成并通过系统分享面板发送，不会上传到任何服务器。';
+  String get reportLocalNote => '报告在本地生成并通过系统分享面板发送，不会上传。本次检查会自动保存到本机（免费版保留最近 5 份）。';
 
   @override
   String reportSummary(Object count, Object riskCount) {
@@ -658,7 +813,7 @@ class AppLocalizationsZh extends AppLocalizations {
   String get reportSummaryDesc => '本次会话的检测结论汇总，可导出为 PDF';
 
   @override
-  String get reportPdfTitle => '隐私相机 · 检测报告';
+  String get reportPdfTitle => '间谍刺客 · 检测报告';
 
   @override
   String get reportPdfTime => '生成时间';
@@ -699,11 +854,10 @@ class AppLocalizationsZh extends AppLocalizations {
   String get reportPdfAction3 => '拨打 110 报警，由警方到场取证与司法鉴定';
 
   @override
-  String get reportPdfDisclaimer =>
-      '免责声明：红外/反光检测依赖手机 CMOS 对红外光的敏感度，WiFi 扫描仅能发现当前局域网内联网设备，磁力与蓝牙检测仅作辅助。本报告不构成任何法律证据，请以警方取证为准。';
+  String get reportPdfDisclaimer => '免责声明：红外/反光检测依赖手机 CMOS 对红外光的敏感度，WiFi 扫描仅能发现当前局域网内联网设备，磁力与蓝牙检测仅作辅助。本报告不构成任何法律证据，请以警方取证为准。';
 
   @override
-  String get reportPdfFooter => '由「隐私相机」生成 · 数据仅在本地处理';
+  String get reportPdfFooter => '由「间谍刺客」生成 · 数据仅在本地处理';
 
   @override
   String get riskSafe => '通过';

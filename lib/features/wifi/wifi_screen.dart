@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:intl/intl.dart';
 import 'package:privacy_camera/l10n/app_localizations.dart';
 import 'package:network_info_plus/network_info_plus.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -12,7 +13,9 @@ import '../../core/report/report_store.dart';
 import '../../core/stats/stat_store.dart';
 import '../../core/theme/app_theme.dart';
 import '../../core/widgets/common_widgets.dart';
+import 'device_history_store.dart';
 import 'lan_scanner.dart';
+import 'mdns_resolver.dart';
 import 'ssdp_discoverer.dart';
 
 /// WiFi 扫描页：扫描局域网设备，识别可疑的联网摄像头。
@@ -174,28 +177,45 @@ class _WifiScreenState extends State<WifiScreen> {
         upnpInfo: s.server ?? s.location ?? 'UPnP 设备',
       );
     }
+    // mDNS 反向解析设备名称，让「未知设备」有名字可辨识
+    try {
+      final hostnames =
+          await MdnsResolver().resolveNames(byIp.keys.toList());
+      for (final ip in hostnames.keys) {
+        final d = byIp[ip];
+        if (d != null) byIp[ip] = d.withHostname(hostnames[ip]);
+      }
+    } catch (_) {}
     final devices = byIp.values.toList();
+    // 合并历史：本次未响应但曾经确认是摄像头的设备照常列出（标为可能休眠）。
+    final history = await DeviceHistoryStore.load();
+    final stale =
+        DeviceHistoryStore.staleFromHistory(history, byIp.keys.toSet());
+    final all = [...devices, ...stale];
+    await DeviceHistoryStore.save(devices);
     if (mounted) {
       setState(() {
         _scanning = false;
-        _devices = devices;
+        _devices = all;
       });
-      _recordScanResult(devices);
+      _recordScanResult(all);
       if (devices.isNotEmpty) {
         HapticFeedback.heavyImpact();
-      } else {
+      } else if (stale.isEmpty) {
         await _showEmptyHint(scanner, range.$1, range.$2);
       }
     }
   }
 
-  /// 扫描完成时记录本次结论到检测报告。
+  /// 扫描完成时记录本次结论到检测报告（休眠回填设备不计入风险计数）。
   void _recordScanResult(List<LanDevice> devices) {
     final l10n = AppLocalizations.of(context)!;
+    final live = devices.where((d) => !d.stale).toList();
     final suspicious =
-        devices.where((d) => !_knownIps.contains(d.ip)).toList();
+        live.where((d) => !_knownIps.contains(d.ip)).toList();
     final high = suspicious.where((d) => d.isHighRisk).toList();
     final medium = suspicious.where((d) => d.isMediumRisk).toList();
+    final staleCount = devices.where((d) => d.stale).length;
 
     final risk = high.isNotEmpty
         ? ReportRisk.high
@@ -206,7 +226,8 @@ class _WifiScreenState extends State<WifiScreen> {
     final detail = <String>[
       if (high.isNotEmpty) l10n.wifiHighCount(high.length),
       if (medium.isNotEmpty) l10n.wifiMediumCount(medium.length),
-      if (devices.isEmpty) l10n.wifiNoOpenDevices,
+      if (staleCount > 0) l10n.wifiStaleCount(staleCount),
+      if (live.isEmpty) l10n.wifiNoOpenDevices,
       for (final d in high.take(5)) '${d.ip}${d.vendor != null ? '(${d.vendor})' : ''}: ${d.reason.split('\n').first}',
       for (final d in medium.take(3)) '${d.ip}${d.vendor != null ? '(${d.vendor})' : ''}',
     ];
@@ -351,14 +372,17 @@ class _WifiScreenState extends State<WifiScreen> {
 
   Widget _buildResults() {
     final l10n = AppLocalizations.of(context)!;
-    // 疑似设备按风险降序排列，已知设备（“我的设备”）放最后
-    final suspicious = _devices.where((d) => !_knownIps.contains(d.ip)).toList()
+    // 疑似设备按风险降序排列，已知设备（“我的设备”）放最后，休眠回填单独分区
+    final live = _devices.where((d) => !d.stale).toList();
+    final stale = _devices.where((d) => d.stale).toList()
+      ..sort((a, b) => a.ip.compareTo(b.ip));
+    final suspicious = live.where((d) => !_knownIps.contains(d.ip)).toList()
       ..sort((a, b) {
         final byRisk = b.risk.index.compareTo(a.risk.index);
         return byRisk != 0 ? byRisk : a.ip.compareTo(b.ip);
       });
     final known =
-        _devices.where((d) => _knownIps.contains(d.ip)).toList()
+        live.where((d) => _knownIps.contains(d.ip)).toList()
           ..sort((a, b) => a.ip.compareTo(b.ip));
     final high = suspicious.where((d) => d.isHighRisk).length;
     final medium = suspicious.where((d) => d.isMediumRisk).length;
@@ -398,6 +422,24 @@ class _WifiScreenState extends State<WifiScreen> {
               _DeviceTile(
                 device: d,
                 isKnown: true,
+                onTap: () => _showDetail(d),
+                onLongPress: () => _toggleKnown(d),
+              ),
+          ],
+          if (stale.isNotEmpty) ...[
+            Padding(
+              padding: const EdgeInsets.only(top: 6, bottom: 8),
+              child: Text(l10n.wifiStaleSection,
+                  style: const TextStyle(
+                      fontSize: 12.5,
+                      color: AppColors.textSecondary,
+                      fontWeight: FontWeight.w600)),
+            ),
+            for (final d in stale)
+              _DeviceTile(
+                device: d,
+                isKnown: _knownIps.contains(d.ip),
+                isStale: true,
                 onTap: () => _showDetail(d),
                 onLongPress: () => _toggleKnown(d),
               ),
@@ -443,19 +485,74 @@ class _WifiScreenState extends State<WifiScreen> {
               Text(l10n.wifiDetailReason(device.reason),
                   style: const TextStyle(
                       fontSize: 12.5, color: AppColors.textSecondary, height: 1.5)),
+              if (device.stale) ...[
+                const SizedBox(height: 8),
+                Container(
+                  width: double.infinity,
+                  padding: const EdgeInsets.all(10),
+                  decoration: BoxDecoration(
+                    color: AppColors.surfaceLight,
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        l10n.wifiStaleNote,
+                        style: const TextStyle(
+                            fontSize: 12.5,
+                            color: AppColors.textSecondary,
+                            height: 1.5),
+                      ),
+                      if (device.lastSeenAt != null) ...[
+                        const SizedBox(height: 4),
+                        Text(
+                          l10n.wifiStaleLastSeen(DateFormat('MM-dd HH:mm')
+                              .format(device.lastSeenAt!)),
+                          style: const TextStyle(
+                              fontSize: 12, color: AppColors.riskLow),
+                        ),
+                      ],
+                    ],
+                  ),
+                ),
+              ],
               const SizedBox(height: 14),
               _DetailRow(label: l10n.wifiDetailIp, value: device.ip),
+              if (device.hostname != null)
+                _DetailRow(
+                    label: l10n.wifiDetailHostname, value: device.hostname!),
               if (device.mac != null) _DetailRow(label: l10n.wifiDetailMac, value: device.mac!),
               if (device.vendor != null)
                 _DetailRow(label: l10n.wifiDetailVendor, value: device.vendor!),
+              if (Platform.isIOS && device.mac == null)
+                Padding(
+                  padding: const EdgeInsets.only(top: 2, bottom: 2),
+                  child: Text(
+                    l10n.wifiNoMacIos,
+                    style: const TextStyle(
+                        fontSize: 11.5, color: AppColors.textSecondary),
+                  ),
+                ),
               _DetailRow(
                 label: l10n.wifiDetailPorts,
                 value: device.openPorts.isEmpty
                     ? l10n.wifiNone
                     : device.openPorts
-                        .map((p) => '$p(${LanScanner.portInfo[p] ?? l10n.wifiPortUnknown})')
+                        .map((p) =>
+                            '$p(${LanScanner.portInfo[p] ?? l10n.wifiPortUnknown})')
                         .join('、'),
               ),
+              if (device.rtspServer != null)
+                _DetailRow(label: l10n.wifiDetailRtsp, value: device.rtspServer!),
+              if (device.httpServer != null || device.httpTitle != null)
+                _DetailRow(
+                  label: l10n.wifiDetailHttp,
+                  value: [
+                    device.httpServer,
+                    device.httpTitle,
+                  ].whereType<String>().join(' / '),
+                ),
               if (device.upnpInfo != null)
                 _DetailRow(label: l10n.wifiDetailUpnp, value: device.upnpInfo!),
               const SizedBox(height: 16),
@@ -534,27 +631,35 @@ class _DeviceTile extends StatelessWidget {
     required this.isKnown,
     required this.onTap,
     required this.onLongPress,
+    this.isStale = false,
   });
 
   final LanDevice device;
   final bool isKnown;
+  final bool isStale;
   final VoidCallback onTap;
   final VoidCallback onLongPress;
 
   @override
   Widget build(BuildContext context) {
     final l10n = AppLocalizations.of(context)!;
-    final risk = isKnown
-        ? RiskChip(label: l10n.wifiMyDeviceChip, color: AppColors.safe)
-        : RiskChip(
-            label: _WifiRiskLabels.of(l10n, device),
-            color: device.isHighRisk
-                ? AppColors.riskHigh
-                : device.isMediumRisk
-                    ? AppColors.riskLow
-                    : AppColors.safe,
-          );
+    final risk = isStale
+        ? RiskChip(label: l10n.wifiStaleChip, color: AppColors.textSecondary)
+        : isKnown
+            ? RiskChip(label: l10n.wifiMyDeviceChip, color: AppColors.safe)
+            : RiskChip(
+                label: _WifiRiskLabels.of(l10n, device),
+                color: device.isHighRisk
+                    ? AppColors.riskHigh
+                    : device.isMediumRisk
+                        ? AppColors.riskLow
+                        : AppColors.safe,
+              );
     final subtitle = [
+      if (device.stale && device.lastSeenAt != null)
+        l10n.wifiStaleLastSeen(
+            DateFormat('MM-dd HH:mm').format(device.lastSeenAt!)),
+      if (device.hostname != null) device.hostname!,
       if (device.vendor != null) device.vendor!,
       if (device.mac != null) device.mac!,
       if (device.openPorts.isNotEmpty) l10n.wifiPorts(device.portText),
@@ -574,10 +679,14 @@ class _DeviceTile extends StatelessWidget {
         child: Row(
           children: [
             Icon(
-              isKnown
-                  ? Icons.phonelink_erase_rounded
-                  : Icons.devices_rounded,
-              color: isKnown ? AppColors.safe : AppColors.textSecondary,
+              isStale
+                  ? Icons.bedtime_rounded
+                  : isKnown
+                      ? Icons.phonelink_erase_rounded
+                      : Icons.devices_rounded,
+              color: isStale || !isKnown
+                  ? AppColors.textSecondary
+                  : AppColors.safe,
             ),
             const SizedBox(width: 10),
             Expanded(

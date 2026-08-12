@@ -33,4 +33,7 @@
   bundle `com.privacycam.privacyCamera`，Team `R2TCRBA6NZ`。
 - 原生加速内核：`packages/spot_detector`（FFI + C）。iOS 用 CocoaPods（已删 Package.swift），
   Android 用 CMake。本机无 Android SDK/NDK，Android 只能靠 CI 验证。
-- 真实 IAP 未接入：App 内为本地模拟订阅（`lib/core/pro/pro_store.dart`）。
+- 真实 IAP 已接入：`lib/core/pro/iap_store.dart`（in_app_purchase）+ `iap_config.dart`（产品 ID）。
+  上线前需在 App Store Connect / Google Play Console 创建产品 `com.privacycam.privacyCamera.pro.monthly` / `.yearly`。
+  本地模拟解锁（`ProStore.unlock()`）仅保留在 `kDebugMode` 付费墙里。
+- 验证前必须把 `assets/` 一并拷贝到临时目录（PDF 内嵌字体 `assets/fonts/`），否则 `flutter test` 报 asset 缺失。

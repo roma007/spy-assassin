@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:privacy_camera/l10n/app_localizations.dart';
 
 import '../../core/locale/locale_store.dart';
-import '../../core/report/report_store.dart';
+import '../../core/report/report_archive.dart';
 import '../../core/stats/stat_store.dart';
 import '../../core/theme/app_theme.dart';
 import '../../core/widgets/common_widgets.dart';
@@ -181,8 +181,8 @@ class _DataSection extends StatelessWidget {
           const SizedBox(height: 4),
           _SelectTile(
             label: l10n.settingsClearReport,
-            onTap: () => _confirm(
-                context, l10n.settingsClearReport, ReportStore.instance.clear),
+            onTap: () => _confirm(context, l10n.settingsClearReport,
+                ReportArchive.instance.clearAll),
           ),
         ],
       ),

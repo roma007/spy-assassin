@@ -1,12 +1,24 @@
 import 'dart:async';
 import 'dart:io';
 
-/// 局域网设备扫描：对当前网段做 TCP 端口探测，结合端口指纹与
-/// MAC 厂商（OUI）识别可疑联网摄像头。
+/// 局域网设备扫描：对当前网段做 TCP 端口探测，结合端口指纹、RTSP/HTTP
+/// 指纹与 MAC 厂商（OUI）识别可疑联网摄像头。
 class LanScanner {
-  LanScanner({this.timeout = const Duration(milliseconds: 350)});
+  LanScanner({
+    this.timeout = const Duration(milliseconds: 350),
+    this.retryTimeout = const Duration(milliseconds: 1800),
+    this.concurrency = 64,
+  });
 
   final Duration timeout;
+
+  /// 长超时：WiFi 省电（休眠）设备的 SYN 由 AP 缓存、等它醒来才投递，
+  /// 快速探测阶段用该超时覆盖常见唤醒周期，避免休眠摄像头漏报。
+  final Duration retryTimeout;
+
+  /// 同时探测的主机数上限。一次性对整网段并发连接会造成 WiFi 连接风暴，
+  /// 让休眠/忙碌设备在超时内不应答而漏报，因此按批限流。
+  final int concurrency;
 
   /// 端口指纹：端口 → 常见用途。
   static const Map<int, String> portInfo = {
@@ -35,22 +47,63 @@ class LanScanner {
     80, 81, 443, 8000, 8080, 8081, 8888, 8899, // 通用 Web 端口
   ];
 
+  /// 存活发现的快速探测端口：摄像头最常暴露的端口，先于全端口深探。
+  static const List<int> _quickProbeOrder = [554, 80];
+
+  /// 快速探测阶段使用长超时的端口（主要是 554，覆盖休眠唤醒周期）。
+  static const Set<int> _quickSlowPorts = {554};
+
   /// 扫描指定网段（如 192.168.1），返回存活且开放探测端口的主机。
   Future<List<LanDevice>> scan(String subnet) =>
       scanRange('$subnet.1', '$subnet.254');
 
   /// 扫描 [firstHost] ~ [lastHost]（含）的连续 IP 范围。
+  ///
+  /// 两阶段降低漏报：先对全段快速探测 [554, 80] 找存活主机（限并发避免连接
+  /// 风暴；554 用长超时覆盖 WiFi 省电休眠设备的唤醒周期），再只对存活主机做
+  /// 全端口深探。Android 上出现在 ARP 表的主机也会强制深探。
   Future<List<LanDevice>> scanRange(String firstHost, String lastHost) async {
     final first = _ipToInt(firstHost);
     final last = _ipToInt(lastHost);
     if (first == null || last == null || first > last) return const [];
     final arp = await ArpTable.read();
-    final futures = <Future<LanDevice?>>[];
-    for (var ip = first; ip <= last; ip++) {
-      futures.add(_probeHost(_intToIp(ip), arp));
+    final hosts = [for (var ip = first; ip <= last; ip++) _intToIp(ip)];
+
+    // 阶段 A：快速探测找存活主机（554 长超时，可唤醒省电休眠的设备）。
+    final live = <String>{
+      for (final d in await _probeAll(hosts, _quickProbeOrder, arp,
+          slowPorts: _quickSlowPorts))
+        d.ip,
+    };
+
+    // Android 上 ARP 表里出现过的主机即使快速探测无响应也强制深探一次。
+    live.addAll(arp.keys.where((ip) => hosts.contains(ip)));
+
+    // 阶段 B：对存活主机做全端口深探（含指纹）。
+    return _probeAll(live.toList(), _probeOrder, arp);
+  }
+
+  /// 限并发地对一批主机做端口探测，返回开放端口的主机。
+  /// 快速发现阶段不抓指纹（结果只用其 IP），只有最终深探才做指纹。
+  /// [slowPorts] 中的端口使用 [retryTimeout]（长超时）。
+  Future<List<LanDevice>> _probeAll(
+    List<String> ips,
+    List<int> ports,
+    Map<String, String> arp, {
+    bool fingerprint = true,
+    Set<int> slowPorts = const {},
+  }) async {
+    final results = <LanDevice>[];
+    for (var i = 0; i < ips.length; i += concurrency) {
+      final end = i + concurrency < ips.length ? i + concurrency : ips.length;
+      final futures = <Future<LanDevice?>>[];
+      for (final ip in ips.sublist(i, end)) {
+        futures.add(_probeHost(ip, ports, arp,
+            fingerprint: fingerprint, slowPorts: slowPorts));
+      }
+      results.addAll((await Future.wait(futures)).whereType<LanDevice>());
     }
-    final results = await Future.wait(futures);
-    return results.whereType<LanDevice>().toList();
+    return results;
   }
 
   static int? _ipToInt(String ip) {
@@ -68,10 +121,17 @@ class LanScanner {
   static String _intToIp(int v) =>
       '${(v >> 24) & 255}.${(v >> 16) & 255}.${(v >> 8) & 255}.${v & 255}';
 
-  Future<LanDevice?> _probeHost(String ip, Map<String, String> arp) async {
+  Future<LanDevice?> _probeHost(
+    String ip,
+    List<int> ports,
+    Map<String, String> arp, {
+    bool fingerprint = true,
+    Set<int> slowPorts = const {},
+  }) async {
     final openPorts = <int>[];
-    for (final port in _probeOrder) {
-      if (await _isPortOpen(ip, port)) {
+    for (final port in ports) {
+      if (await _isPortOpen(ip, port,
+          timeout: slowPorts.contains(port) ? retryTimeout : timeout)) {
         openPorts.add(port);
         // 命中高特征端口后无需再探测其余通用端口
         if (highRiskPorts.contains(port)) break;
@@ -80,12 +140,25 @@ class LanScanner {
     if (openPorts.isEmpty) return null;
     final mac = arp[ip];
     final vendor = mac != null ? ouiLookupVendor(mac) : null;
-    return LanDevice(ip: ip, openPorts: openPorts, mac: mac, vendor: vendor);
+    final (rtsp, httpServer, httpTitle) = fingerprint
+        ? await _fingerprint(ip, openPorts)
+        : (null, null, null);
+    return LanDevice(
+      ip: ip,
+      openPorts: openPorts,
+      mac: mac,
+      vendor: vendor,
+      rtspServer: rtsp,
+      httpServer: httpServer,
+      httpTitle: httpTitle,
+    );
   }
 
-  Future<bool> _isPortOpen(String ip, int port) async {
+  Future<bool> _isPortOpen(String ip, int port,
+      {Duration? timeout}) async {
     try {
-      final socket = await RawSocket.connect(ip, port, timeout: timeout);
+      final socket = await RawSocket.connect(ip, port,
+          timeout: timeout ?? this.timeout);
       unawaited(socket.close());
       return true;
     } on SocketException {
@@ -93,6 +166,103 @@ class LanScanner {
     } on TimeoutException {
       return false;
     }
+  }
+
+  /// 对开放端口的主机做 RTSP/HTTP 指纹探测，弥补 iOS 无法读取 MAC 的短板。
+  Future<(String?, String?, String?)> _fingerprint(
+    String ip,
+    List<int> openPorts,
+  ) async {
+    String? rtsp;
+    String? httpServer;
+    String? httpTitle;
+    if (openPorts.contains(554)) {
+      rtsp = await _probeRtsp(ip);
+    }
+    final webPort = _webPortOf(openPorts);
+    if (webPort != null) {
+      final http = await _probeHttp(ip, webPort);
+      httpServer = http.$1;
+      httpTitle = http.$2;
+    }
+    return (rtsp, httpServer, httpTitle);
+  }
+
+  static const List<int> _httpProbePorts = [80, 8080, 8000, 81, 8081, 8888, 8899];
+
+  static int? _webPortOf(List<int> openPorts) {
+    for (final p in _httpProbePorts) {
+      if (openPorts.contains(p)) return p;
+    }
+    return null;
+  }
+
+  /// 发一个 RTSP OPTIONS 请求，返回 Server 头（失败返回 null）。
+  Future<String?> _probeRtsp(String ip) async {
+    Socket? socket;
+    try {
+      socket = await Socket.connect(ip, 554, timeout: timeout);
+      socket.write('OPTIONS rtsp://$ip:554/ RTSP/1.0\r\nCSeq: 1\r\n\r\n');
+      await socket.flush();
+      final text =
+          await _collectResponse(socket, const Duration(milliseconds: 800));
+      if (!text.toUpperCase().startsWith('RTSP/1.0')) return null;
+      final server = _headerOf(text, 'Server');
+      if (server != null && server.isNotEmpty) return server;
+      return text.split('\r\n').first;
+    } catch (_) {
+      return null;
+    } finally {
+      socket?.destroy();
+    }
+  }
+
+  /// 抓取设备的 HTTP 首页，返回 (Server 头, 页面 <title>)。
+  Future<(String?, String?)> _probeHttp(String ip, int port) async {
+    Socket? socket;
+    try {
+      socket = await Socket.connect(ip, port, timeout: timeout);
+      socket.write('GET / HTTP/1.1\r\nHost: $ip\r\nConnection: close\r\n\r\n');
+      await socket.flush();
+      final text =
+          await _collectResponse(socket, const Duration(milliseconds: 1000));
+      final server = _headerOf(text, 'Server');
+      final m = RegExp(r'<title[^>]*>([\s\S]*?)</title>',
+              caseSensitive: false)
+          .firstMatch(text);
+      final title = m?.group(1)?.trim();
+      return (server, title);
+    } catch (_) {
+      return (null, null);
+    } finally {
+      socket?.destroy();
+    }
+  }
+
+  /// 读取响应直到收到 \r\n\r\n 或超过 [limit]（最多收集 8KB，防止卡住）。
+  Future<String> _collectResponse(Socket socket, Duration limit) async {
+    final buffer = StringBuffer();
+    try {
+      await socket.timeout(limit).forEach((chunk) {
+        buffer.write(String.fromCharCodes(chunk));
+        if (buffer.length > 8192 || buffer.toString().contains('\r\n\r\n')) {
+          socket.destroy();
+        }
+      });
+    } catch (_) {
+      // 超时/连接被断开等一律视为未取到响应，不阻塞扫描。
+    }
+    return buffer.toString();
+  }
+
+  static String? _headerOf(String text, String name) {
+    final prefix = '${name.toLowerCase()}:';
+    for (final line in text.split('\r\n')) {
+      if (line.toLowerCase().startsWith(prefix)) {
+        return line.substring(line.indexOf(':') + 1).trim();
+      }
+    }
+    return null;
   }
 
   /// 探测单台主机单端口是否可达（用于网关/网络连通性自检）。
@@ -108,6 +278,12 @@ class LanDevice {
     this.mac,
     this.vendor,
     this.upnpInfo,
+    this.hostname,
+    this.rtspServer,
+    this.httpServer,
+    this.httpTitle,
+    this.stale = false,
+    this.lastSeenAt,
   });
 
   final String ip;
@@ -122,12 +298,31 @@ class LanDevice {
   /// 通过 UPnP/SSDP 发现到的设备描述（未探到开放探测端口时提供线索）。
   final String? upnpInfo;
 
-  static const Set<int> _mediumPorts = {80, 8080, 8000, 8888};
+  /// mDNS 反向解析出的主机名（如 ipcamera.local 设备的名称）。
+  final String? hostname;
+
+  /// RTSP OPTIONS 响应中的 Server 头（确认设备是 RTSP 摄像头）。
+  final String? rtspServer;
+
+  /// HTTP 首页响应中的 Server 头。
+  final String? httpServer;
+
+  /// HTTP 首页 <title>。
+  final String? httpTitle;
+
+  /// 本次扫描未响应、由历史记录回填的休眠/离线设备。
+  final bool stale;
+
+  /// 最后在线时间（仅 [stale] 设备由历史记录携带）。
+  final DateTime? lastSeenAt;
+
+  /// 摄像头专属 Web 端口（区别于路由器/服务器等也常开的 80/443/8080）。
+  static const Set<int> _cameraWebPorts = {81, 8000, 8081, 8888, 8899};
 
   /// 风险分级：
-  /// - high：命中摄像头特征端口，或厂商为摄像头制造商
-  /// - medium：开放常见摄像头 Web 端口
-  /// - low：其它
+  /// - high：命中摄像头特征端口，RTSP 指纹确认，或厂商为摄像头制造商
+  /// - medium：开放摄像头专属 Web 端口，或 HTTP 指纹疑似摄像头
+  /// - low：仅开放通用 Web 端口（80/443/8080）等
   DeviceRisk get risk {
     if (openPorts.any((p) => LanScanner.highRiskPorts.contains(p))) {
       return DeviceRisk.high;
@@ -135,8 +330,15 @@ class LanDevice {
     final isCamVendor =
         vendor != null && OuiDb.cameraVendors.contains(vendor);
     if (isCamVendor && openPorts.isNotEmpty) return DeviceRisk.high;
-    if (openPorts.any((p) => _mediumPorts.contains(p))) return DeviceRisk.medium;
+    if (rtspServer != null) return DeviceRisk.high;
     if (isCamVendor) return DeviceRisk.medium;
+    if (FingerprintDb.looksLikeCamera(httpServer) ||
+        FingerprintDb.looksLikeCamera(httpTitle)) {
+      return DeviceRisk.medium;
+    }
+    if (openPorts.any((p) => _cameraWebPorts.contains(p))) {
+      return DeviceRisk.medium;
+    }
     return DeviceRisk.low;
   }
 
@@ -151,12 +353,31 @@ class LanDevice {
 
   String get portText => openPorts.join(', ');
 
+  /// 返回携带主机名的新设备（字段不可变，用于扫描后补全 mDNS 名称）。
+  LanDevice withHostname(String? name) => LanDevice(
+        ip: ip,
+        openPorts: openPorts,
+        mac: mac,
+        vendor: vendor,
+        upnpInfo: upnpInfo,
+        hostname: name ?? hostname,
+        rtspServer: rtspServer,
+        httpServer: httpServer,
+        httpTitle: httpTitle,
+        stale: stale,
+        lastSeenAt: lastSeenAt,
+      );
+
   /// 风险依据说明。
   String get reason {
     final lines = <String>[
+      if (stale) '本次未响应（可能休眠），来自历史记录',
       for (final p in openPorts)
         '${LanScanner.portInfo[p] ?? '端口 $p'}(TCP $p)',
       if (vendor != null) 'MAC 厂商匹配：$vendor',
+      if (rtspServer != null) 'RTSP 指纹：$rtspServer',
+      if (httpServer != null || httpTitle != null)
+        'HTTP 指纹：${[httpServer, httpTitle].whereType<String>().join(' / ')}',
       if (upnpInfo != null) 'UPnP 发现：$upnpInfo',
     ];
     return lines.isEmpty ? '开放了探测端口' : lines.join('\n');
@@ -226,6 +447,41 @@ String? ouiLookupVendor(String mac) {
   if (parts.length < 3) return null;
   final oui = '${parts[0]}:${parts[1]}:${parts[2]}';
   return OuiDb.vendors[oui];
+}
+
+/// 从 RTSP/HTTP 指纹文本中识别疑似摄像头的关键词（供线索参考）。
+class FingerprintDb {
+  FingerprintDb._();
+
+  static const List<String> cameraKeywords = [
+    'tapo',
+    'hik',
+    'dahua',
+    'xiongmai',
+    'zmeye',
+    'reolink',
+    'amcrest',
+    'geovision',
+    'swann',
+    'axis',
+    'ipcam',
+    'ipc',
+    'ipc-',
+    'cctv',
+    'rtsp',
+    'dvr',
+    'nvr',
+    'p2p',
+    'camera',
+    '摄像头',
+    '监控',
+  ];
+
+  static bool looksLikeCamera(String? value) {
+    if (value == null || value.isEmpty) return false;
+    final lower = value.toLowerCase();
+    return cameraKeywords.any(lower.contains);
+  }
 }
 
 /// 读取 /proc/net/arp 获得局域网 {IP: MAC} 映射（仅 Android 可读，

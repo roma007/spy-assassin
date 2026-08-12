@@ -6,6 +6,7 @@ import '../../core/theme/app_theme.dart';
 import '../../core/widgets/common_widgets.dart';
 import '../more/guide_screen.dart';
 import 'next_actions_screen.dart';
+import 'quick_scan_screen.dart';
 
 /// 检查引导页：把各检测工具串成 4 分钟 Room Check 流程。
 class CheckScreen extends StatefulWidget {
@@ -81,6 +82,8 @@ class _CheckScreenState extends State<CheckScreen> {
     return ListView(
       padding: const EdgeInsets.only(top: 8, bottom: 24),
       children: [
+        _QuickScanCard(),
+        const SizedBox(height: 8),
         _buildSummaryCard(),
         for (var i = 0; i < steps.length; i++)
           _StepCard(
@@ -367,6 +370,52 @@ class _AllDoneCard extends StatelessWidget {
             ),
           ),
         ],
+      ),
+    );
+  }
+}
+
+class _QuickScanCard extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
+    return SectionCard(
+      padding: EdgeInsets.zero,
+      child: InkWell(
+        borderRadius: BorderRadius.circular(16),
+        onTap: () => Navigator.of(context).push(
+          MaterialPageRoute(builder: (_) => const QuickScanScreen()),
+        ),
+        child: Padding(
+          padding: const EdgeInsets.all(16),
+          child: Row(
+            children: [
+              Container(
+                width: 48,
+                height: 48,
+                decoration: BoxDecoration(
+                  color: AppColors.primary.withValues(alpha: 0.15),
+                  shape: BoxShape.circle,
+                ),
+                child: const Icon(Icons.flash_on_rounded, color: AppColors.primary, size: 26),
+              ),
+              const SizedBox(width: 14),
+              Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(l10n.quickScanTitle,
+                        style: const TextStyle(fontSize: 15, fontWeight: FontWeight.w600)),
+                    const SizedBox(height: 4),
+                    Text(l10n.quickScanSubtitle,
+                        style: const TextStyle(fontSize: 12.5, color: AppColors.textSecondary)),
+                  ],
+                ),
+              ),
+              const Icon(Icons.chevron_right_rounded, color: AppColors.textSecondary),
+            ],
+          ),
+        ),
       ),
     );
   }

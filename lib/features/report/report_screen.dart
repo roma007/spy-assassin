@@ -6,9 +6,11 @@ import 'package:printing/printing.dart';
 
 import '../../core/l10n/app_localizations_ext.dart';
 import '../../core/pro/upgrade_dialog.dart';
+import '../../core/report/report_archive.dart';
 import '../../core/report/report_store.dart';
 import '../../core/theme/app_theme.dart';
 import '../../core/widgets/common_widgets.dart';
+import 'history_screen.dart';
 import 'report_pdf.dart';
 
 /// 检测报告页：汇总本次会话的各检测项结论，导出 PDF 分享（取证场景）。
@@ -22,12 +24,29 @@ class ReportScreen extends StatefulWidget {
 class _ReportScreenState extends State<ReportScreen> {
   final _placeCtrl = TextEditingController();
   bool _exporting = false;
+  bool _sealing = false;
   String? _error;
+
+  @override
+  void initState() {
+    super.initState();
+    _placeCtrl.text = ReportStore.instance.place;
+  }
 
   @override
   void dispose() {
     _placeCtrl.dispose();
     super.dispose();
+  }
+
+  Future<void> _seal() async {
+    if (_sealing) return;
+    setState(() {
+      _sealing = true;
+      _error = null;
+    });
+    await ReportArchive.instance.seal();
+    if (mounted) setState(() => _sealing = false);
   }
 
   Future<void> _export() async {
@@ -128,14 +147,38 @@ class _ReportScreenState extends State<ReportScreen> {
             children: [
               _buildSummary(l10n, entries.length, riskCount),
               SectionCard(
-                child: TextField(
-                  controller: _placeCtrl,
-                  decoration: InputDecoration(
-                    labelText: l10n.reportPlaceLabel,
-                    hintText: l10n.reportPlaceHint,
-                    border: const OutlineInputBorder(),
-                    isDense: true,
-                  ),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Row(
+                      children: [
+                        Text(l10n.reportHistoryTitle,
+                            style: const TextStyle(
+                                fontSize: 12.5,
+                                color: AppColors.textSecondary,
+                                fontWeight: FontWeight.w600)),
+                        const Spacer(),
+                        TextButton.icon(
+                          onPressed: () => Navigator.of(context).push(
+                              MaterialPageRoute(
+                                  builder: (_) => const HistoryScreen())),
+                          icon: const Icon(Icons.history_rounded, size: 18),
+                          label: Text(l10n.reportOpenHistory),
+                        ),
+                      ],
+                    ),
+                    const SizedBox(height: 4),
+                    TextField(
+                      controller: _placeCtrl,
+                      onChanged: (v) => ReportStore.instance.place = v,
+                      decoration: InputDecoration(
+                        labelText: l10n.reportPlaceLabel,
+                        hintText: l10n.reportPlaceHint,
+                        border: const OutlineInputBorder(),
+                        isDense: true,
+                      ),
+                    ),
+                  ],
                 ),
               ),
               _buildPhotos(l10n),
@@ -204,6 +247,21 @@ class _ReportScreenState extends State<ReportScreen> {
                   label: Text(_exporting ? l10n.reportExporting : l10n.reportExportPdf),
                 ),
               ),
+              if (entries.isNotEmpty)
+                SectionCard(
+                  child: OutlinedButton.icon(
+                    onPressed: _sealing ? null : _seal,
+                    icon: _sealing
+                        ? const SizedBox(
+                            width: 18,
+                            height: 18,
+                            child: CircularProgressIndicator(
+                                strokeWidth: 2, color: AppColors.primary),
+                          )
+                        : const Icon(Icons.archive_rounded),
+                    label: Text(l10n.reportSeal),
+                  ),
+                ),
               SectionCard(
                 child: Text(
                   l10n.reportLocalNote,

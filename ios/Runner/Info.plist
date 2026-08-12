@@ -7,7 +7,7 @@
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleDisplayName</key>
-	<string>隐私相机</string>
+	<string>间谍刺客 - 隐藏摄像头检测</string>
 	<key>NSCameraUsageDescription</key>
 	<string>用于红外检测和镜头反光扫描，查找隐藏摄像头。所有图像仅在本地处理，不会上传。</string>
 	<key>NSLocalNetworkUsageDescription</key>
