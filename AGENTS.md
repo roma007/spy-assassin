@@ -36,4 +36,7 @@
 - 真实 IAP 已接入：`lib/core/pro/iap_store.dart`（in_app_purchase）+ `iap_config.dart`（产品 ID）。
   上线前需在 App Store Connect / Google Play Console 创建产品 `com.privacycam.privacyCamera.pro.monthly` / `.yearly`。
   本地模拟解锁（`ProStore.unlock()`）仅保留在 `kDebugMode` 付费墙里。
+- **商业化模型（2026-08-12 定稿，`docs/产品方案.md` §5 已同步）**：全部检测工具免费无限次使用 + PDF 报告免费；
+  扫描历史免费保留最近 5 份；Pro（月/年订阅）解锁无限历史存档 + 后续 AI 高级识别。
+  已无每日限次/扣次机制（旧 `ProStore.consumeUse()`/`maxFreePerDay` 已删除）——任何关于「限次/每日 5 次/扣次」的结论都是过时的。
 - 验证前必须把 `assets/` 一并拷贝到临时目录（PDF 内嵌字体 `assets/fonts/`），否则 `flutter test` 报 asset 缺失。

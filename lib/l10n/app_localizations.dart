@@ -118,7 +118,7 @@ abstract class AppLocalizations {
   /// No description provided for @proSubtitle.
   ///
   /// In en, this message translates to:
-  /// **'Unlimited detections + PDF report export'**
+  /// **'Unlimited history archive + advanced AI features'**
   String get proSubtitle;
 
   /// No description provided for @proUnlock.
@@ -133,29 +133,11 @@ abstract class AppLocalizations {
   /// **'Pro activated'**
   String get proUnlocked;
 
-  /// No description provided for @proLimitTitle.
-  ///
-  /// In en, this message translates to:
-  /// **'Daily free limit reached'**
-  String get proLimitTitle;
-
   /// No description provided for @proUpgradePrompt.
   ///
   /// In en, this message translates to:
-  /// **'Upgrade to Pro for unlimited use of all detection tools and PDF report export.'**
+  /// **'Upgrade to Pro for unlimited history archive and future advanced AI detection features.'**
   String get proUpgradePrompt;
-
-  /// No description provided for @proLater.
-  ///
-  /// In en, this message translates to:
-  /// **'Not now'**
-  String get proLater;
-
-  /// No description provided for @proLimitLeft.
-  ///
-  /// In en, this message translates to:
-  /// **'{count} free detection(s) left today'**
-  String proLimitLeft(Object count);
 
   /// No description provided for @proPlanMonthly.
   ///
@@ -228,12 +210,6 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Developer · simulate unlock'**
   String get proLocalSimUnlock;
-
-  /// No description provided for @navTabCheck.
-  ///
-  /// In en, this message translates to:
-  /// **'Check'**
-  String get navTabCheck;
 
   /// No description provided for @navTabIr.
   ///
@@ -1926,6 +1902,300 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Magnet Scan'**
   String get featureMagnet;
+
+  /// No description provided for @featureTracker.
+  ///
+  /// In en, this message translates to:
+  /// **'Tracker Scan'**
+  String get featureTracker;
+
+  /// No description provided for @navTabHub.
+  ///
+  /// In en, this message translates to:
+  /// **'Anti-Spy'**
+  String get navTabHub;
+
+  /// No description provided for @tabTitleHub.
+  ///
+  /// In en, this message translates to:
+  /// **'Anti-Surveillance'**
+  String get tabTitleHub;
+
+  /// No description provided for @hubTagline.
+  ///
+  /// In en, this message translates to:
+  /// **'Find hidden cameras in your room and trackers that follow you'**
+  String get hubTagline;
+
+  /// No description provided for @hubTaglineSub.
+  ///
+  /// In en, this message translates to:
+  /// **'Anti-voyeurism · anti-tracking, all on-device'**
+  String get hubTaglineSub;
+
+  /// No description provided for @hubRoomCheckTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Room Check'**
+  String get hubRoomCheckTitle;
+
+  /// No description provided for @hubRoomCheckSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'4-step scan for hidden cameras (IR / lens / WiFi / magnet)'**
+  String get hubRoomCheckSubtitle;
+
+  /// No description provided for @hubTrackerTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Tracker Scan'**
+  String get hubTrackerTitle;
+
+  /// No description provided for @hubTrackerSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Scan nearby Bluetooth for trackers following you'**
+  String get hubTrackerSubtitle;
+
+  /// No description provided for @trackerTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Tracker Scan'**
+  String get trackerTitle;
+
+  /// No description provided for @trackerIntro.
+  ///
+  /// In en, this message translates to:
+  /// **'Scans nearby Bluetooth devices for known trackers such as AirTags. Scan a few times from different spots to check whether any device keeps following you. Everything stays on your device.'**
+  String get trackerIntro;
+
+  /// No description provided for @trackerStartScan.
+  ///
+  /// In en, this message translates to:
+  /// **'Start scan'**
+  String get trackerStartScan;
+
+  /// No description provided for @trackerScanning.
+  ///
+  /// In en, this message translates to:
+  /// **'Scanning (about 10s)…'**
+  String get trackerScanning;
+
+  /// No description provided for @trackerScanAgain.
+  ///
+  /// In en, this message translates to:
+  /// **'Scan again'**
+  String get trackerScanAgain;
+
+  /// No description provided for @trackerScanFailed.
+  ///
+  /// In en, this message translates to:
+  /// **'Scan failed. Make sure Bluetooth permission is granted, then try again.'**
+  String get trackerScanFailed;
+
+  /// No description provided for @trackerRoundsDone.
+  ///
+  /// In en, this message translates to:
+  /// **'{count} scan(s) completed'**
+  String trackerRoundsDone(Object count);
+
+  /// No description provided for @trackerRoundsTip.
+  ///
+  /// In en, this message translates to:
+  /// **'Move to another spot or outside, then scan again to confirm whether a device keeps following you.'**
+  String get trackerRoundsTip;
+
+  /// No description provided for @trackerMoveHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Tracker candidates found. Confirm their location, or scan again for more confidence.'**
+  String get trackerMoveHint;
+
+  /// No description provided for @trackerFinish.
+  ///
+  /// In en, this message translates to:
+  /// **'Finish check'**
+  String get trackerFinish;
+
+  /// No description provided for @trackerRestart.
+  ///
+  /// In en, this message translates to:
+  /// **'Start over'**
+  String get trackerRestart;
+
+  /// No description provided for @trackerNoTracker.
+  ///
+  /// In en, this message translates to:
+  /// **'No known trackers found'**
+  String get trackerNoTracker;
+
+  /// No description provided for @trackerNoTrackerTip.
+  ///
+  /// In en, this message translates to:
+  /// **'Keep relying on the system\'s built-in unknown-tracker alerts and stay alert.'**
+  String get trackerNoTrackerTip;
+
+  /// No description provided for @trackerFoundCandidates.
+  ///
+  /// In en, this message translates to:
+  /// **'{count} candidate(s) found'**
+  String trackerFoundCandidates(Object count);
+
+  /// No description provided for @trackerSectionTrackers.
+  ///
+  /// In en, this message translates to:
+  /// **'Tracker candidates'**
+  String get trackerSectionTrackers;
+
+  /// No description provided for @trackerSectionOthers.
+  ///
+  /// In en, this message translates to:
+  /// **'Other Bluetooth devices ({count})'**
+  String trackerSectionOthers(Object count);
+
+  /// No description provided for @trackerBrandFindMy.
+  ///
+  /// In en, this message translates to:
+  /// **'AirTag / Find My accessory'**
+  String get trackerBrandFindMy;
+
+  /// No description provided for @trackerBrandSamsung.
+  ///
+  /// In en, this message translates to:
+  /// **'Samsung SmartTag'**
+  String get trackerBrandSamsung;
+
+  /// No description provided for @trackerBrandTile.
+  ///
+  /// In en, this message translates to:
+  /// **'Tile tracker'**
+  String get trackerBrandTile;
+
+  /// No description provided for @trackerBrandGoogle.
+  ///
+  /// In en, this message translates to:
+  /// **'Google tracker'**
+  String get trackerBrandGoogle;
+
+  /// No description provided for @trackerMotionRepeated.
+  ///
+  /// In en, this message translates to:
+  /// **'Possibly following'**
+  String get trackerMotionRepeated;
+
+  /// No description provided for @trackerMotionOnce.
+  ///
+  /// In en, this message translates to:
+  /// **'Seen once'**
+  String get trackerMotionOnce;
+
+  /// No description provided for @trackerMotionRegular.
+  ///
+  /// In en, this message translates to:
+  /// **'Regular device'**
+  String get trackerMotionRegular;
+
+  /// No description provided for @trackerDistanceNear.
+  ///
+  /// In en, this message translates to:
+  /// **'Very close'**
+  String get trackerDistanceNear;
+
+  /// No description provided for @trackerDistanceMid.
+  ///
+  /// In en, this message translates to:
+  /// **'Close'**
+  String get trackerDistanceMid;
+
+  /// No description provided for @trackerDistanceFar.
+  ///
+  /// In en, this message translates to:
+  /// **'Far'**
+  String get trackerDistanceFar;
+
+  /// No description provided for @trackerGuidanceTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Suspicious tracker found, what to do'**
+  String get trackerGuidanceTitle;
+
+  /// No description provided for @trackerGuidance1.
+  ///
+  /// In en, this message translates to:
+  /// **'Check your belongings, bags, and inside/outside your vehicle for unfamiliar small devices'**
+  String get trackerGuidance1;
+
+  /// No description provided for @trackerGuidance2.
+  ///
+  /// In en, this message translates to:
+  /// **'For an AirTag, open the Find My app on any nearby iPhone → Items, and try playing a sound to locate it'**
+  String get trackerGuidance2;
+
+  /// No description provided for @trackerGuidance3.
+  ///
+  /// In en, this message translates to:
+  /// **'Do not remove it hastily — photograph it as evidence first; if confirmed, contact the police'**
+  String get trackerGuidance3;
+
+  /// No description provided for @trackerDisclaimer.
+  ///
+  /// In en, this message translates to:
+  /// **'Note: this scan runs in the foreground and only recognizes known tracker brands. Devices actively paired to their owner\'s phone may be missed. Results are for reference only, not legal evidence.'**
+  String get trackerDisclaimer;
+
+  /// No description provided for @trackerSafeTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Nothing unusual'**
+  String get trackerSafeTitle;
+
+  /// No description provided for @trackerSafeDesc.
+  ///
+  /// In en, this message translates to:
+  /// **'No known trackers found in this round. Stay alert and rescan from another spot if needed.'**
+  String get trackerSafeDesc;
+
+  /// No description provided for @trackerRiskTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Tracker candidate(s) found'**
+  String get trackerRiskTitle;
+
+  /// No description provided for @trackerRiskRepeated.
+  ///
+  /// In en, this message translates to:
+  /// **'{count} device(s) kept appearing near you across scans — check now'**
+  String trackerRiskRepeated(Object count);
+
+  /// No description provided for @trackerRiskOnce.
+  ///
+  /// In en, this message translates to:
+  /// **'{count} tracker candidate(s) found — follow the guidance below'**
+  String trackerRiskOnce(Object count);
+
+  /// No description provided for @trackerReportSummary.
+  ///
+  /// In en, this message translates to:
+  /// **'Tracker scan {rounds} time(s): {candidates} candidate(s), {repeated} possibly following'**
+  String trackerReportSummary(Object candidates, Object repeated, Object rounds);
+
+  /// No description provided for @trackerReportSummaryNone.
+  ///
+  /// In en, this message translates to:
+  /// **'Tracker scan found no known trackers'**
+  String get trackerReportSummaryNone;
+
+  /// No description provided for @moreTrackerTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Tracker Scan'**
+  String get moreTrackerTitle;
+
+  /// No description provided for @moreTrackerSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Detect nearby AirTags, SmartTags and other trackers'**
+  String get moreTrackerSubtitle;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

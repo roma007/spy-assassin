@@ -8,7 +8,6 @@ import 'package:network_info_plus/network_info_plus.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../core/permissions/permission_helper.dart';
-import '../../core/pro/upgrade_dialog.dart';
 import '../../core/report/report_store.dart';
 import '../../core/stats/stat_store.dart';
 import '../../core/theme/app_theme.dart';
@@ -148,7 +147,6 @@ class _WifiScreenState extends State<WifiScreen> {
   }
 
   Future<void> _scan() async {
-    if (!await ensureAccess(context)) return;
     StatStore.instance.recordWifi();
     final range = _hostRange();
     if (range == null) {

@@ -11,8 +11,9 @@ void main() {
     ];
     await tester.pumpWidget(const PrivacyCameraApp());
 
+    expect(find.text('反监视中心'), findsOneWidget);
+    expect(find.text('反监视'), findsOneWidget);
     expect(find.text('房间检查'), findsOneWidget);
-    expect(find.text('检查'), findsOneWidget);
     expect(find.text('红外'), findsOneWidget);
     expect(find.text('WiFi'), findsOneWidget);
     expect(find.text('磁力'), findsOneWidget);
@@ -25,8 +26,9 @@ void main() {
     ];
     await tester.pumpWidget(const PrivacyCameraApp());
 
+    expect(find.text('Anti-Surveillance'), findsOneWidget);
+    expect(find.text('Anti-Spy'), findsOneWidget);
     expect(find.text('Room Check'), findsOneWidget);
-    expect(find.text('Check'), findsOneWidget);
     expect(find.text('IR'), findsOneWidget);
     expect(find.text('WiFi'), findsOneWidget);
     expect(find.text('Magnet'), findsOneWidget);
@@ -39,8 +41,9 @@ void main() {
     ];
     await tester.pumpWidget(const PrivacyCameraApp());
 
+    expect(find.text('반감시 센터'), findsOneWidget);
+    expect(find.text('반감시'), findsOneWidget);
     expect(find.text('방 점검'), findsOneWidget);
-    expect(find.text('점검'), findsOneWidget);
     expect(find.text('적외선'), findsOneWidget);
     expect(find.text('자력'), findsOneWidget);
     expect(find.text('더보기'), findsOneWidget);

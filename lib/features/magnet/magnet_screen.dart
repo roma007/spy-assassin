@@ -6,7 +6,6 @@ import 'package:flutter/services.dart';
 import 'package:privacy_camera/l10n/app_localizations.dart';
 import 'package:sensors_plus/sensors_plus.dart';
 
-import '../../core/pro/upgrade_dialog.dart';
 import '../../core/report/report_store.dart';
 import '../../core/stats/stat_store.dart';
 import '../../core/theme/app_theme.dart';
@@ -29,8 +28,6 @@ class _MagnetScreenState extends State<MagnetScreen> {
   bool _calibrating = true;
   bool _alarm = false;
   bool _reported = false;
-  bool _accessChecked = false;
-  bool _blocked = false;
   bool _statRecorded = false;
   final List<double> _history = [];
   DateTime? _aboveSince;
@@ -54,13 +51,6 @@ class _MagnetScreenState extends State<MagnetScreen> {
   }
 
   Future<void> _start() async {
-    if (!_accessChecked) {
-      _accessChecked = true;
-      if (!await ensureAccess(context)) {
-        if (mounted) setState(() => _blocked = true);
-        return;
-      }
-    }
     if (!_statRecorded) {
       _statRecorded = true;
       StatStore.instance.recordMagnet();
@@ -147,14 +137,6 @@ class _MagnetScreenState extends State<MagnetScreen> {
 
   @override
   Widget build(BuildContext context) {
-    if (_blocked) {
-      return ProLockedView(
-        onUnlock: () {
-          setState(() => _blocked = false);
-          _start();
-        },
-      );
-    }
     final l10n = AppLocalizations.of(context)!;
     return ListView(
       padding: const EdgeInsets.only(top: 8, bottom: 24),

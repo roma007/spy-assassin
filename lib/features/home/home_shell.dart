@@ -30,7 +30,7 @@ class _HomeShellState extends State<HomeShell> {
   Widget build(BuildContext context) {
     final l10n = AppLocalizations.of(context)!;
     final titles = [
-      l10n.tabTitleCheck,
+      l10n.tabTitleHub,
       l10n.tabTitleIr,
       l10n.tabTitleWifi,
       l10n.tabTitleMagnet,
@@ -49,8 +49,8 @@ class _HomeShellState extends State<HomeShell> {
         onDestinationSelected: (i) => setState(() => _index = i),
         destinations: [
           NavigationDestination(
-            icon: const Icon(Icons.checklist_rounded),
-            label: l10n.navTabCheck,
+            icon: const Icon(Icons.shield_rounded),
+            label: l10n.navTabHub,
           ),
           NavigationDestination(
             icon: const Icon(Icons.visibility_rounded),

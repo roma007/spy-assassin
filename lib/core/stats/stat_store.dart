@@ -18,6 +18,7 @@ class StatStore extends ChangeNotifier {
   static const _wifiKey = 'stat_tool_wifi';
   static const _magnetKey = 'stat_tool_magnet';
   static const _bleKey = 'stat_tool_ble';
+  static const _trackerKey = 'stat_tool_tracker';
 
   int _checkStarted = 0;
   int _checkDone = 0;
@@ -28,6 +29,7 @@ class StatStore extends ChangeNotifier {
     _wifiKey: 0,
     _magnetKey: 0,
     _bleKey: 0,
+    _trackerKey: 0,
   };
 
   int get checkStarted => _checkStarted;
@@ -47,6 +49,7 @@ class StatStore extends ChangeNotifier {
   int get wifiCount => _tools[_wifiKey]!;
   int get magnetCount => _tools[_magnetKey]!;
   int get bleCount => _tools[_bleKey]!;
+  int get trackerCount => _tools[_trackerKey]!;
 
   void recordCheckStarted() {
     _checkStarted++;
@@ -74,6 +77,7 @@ class StatStore extends ChangeNotifier {
   void recordWifi() => recordTool(_wifiKey);
   void recordMagnet() => recordTool(_magnetKey);
   void recordBle() => recordTool(_bleKey);
+  void recordTracker() => recordTool(_trackerKey);
 
   Future<void> init() async {
     final prefs = await SharedPreferences.getInstance();

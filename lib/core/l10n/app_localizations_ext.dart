@@ -11,6 +11,7 @@ extension AppL10n on AppLocalizations {
         'wifi' => featureWifi,
         'bluetooth' => featureBluetooth,
         'magnet' => featureMagnet,
+        'tracker' => featureTracker,
         _ => featureKey,
       };
 

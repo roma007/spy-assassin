@@ -9,7 +9,6 @@ import 'package:privacy_camera/l10n/app_localizations.dart';
 import 'package:sensors_plus/sensors_plus.dart';
 
 import '../../core/permissions/permission_helper.dart';
-import '../../core/pro/upgrade_dialog.dart';
 import '../../core/report/report_store.dart';
 import '../../core/stats/stat_store.dart';
 import '../../core/theme/app_theme.dart';
@@ -43,9 +42,6 @@ class _IrScreenState extends State<IrScreen> with WidgetsBindingObserver {
   bool _reported = false;
   /// 手机是否在明显晃动。
   bool _unstable = false;
-  /// Pro 门槛：仅首次进入时检查一次。
-  bool _accessChecked = false;
-  bool _blocked = false;
   String? _error;
 
   final _detector = BrightSpotDetector();
@@ -95,13 +91,6 @@ class _IrScreenState extends State<IrScreen> with WidgetsBindingObserver {
 
   Future<void> _init() async {
     if (!mounted) return;
-    if (!_accessChecked) {
-      _accessChecked = true;
-      if (!await ensureAccess(context)) {
-        if (mounted) setState(() => _blocked = true);
-        return;
-      }
-    }
     setState(() {
       _initializing = true;
       _permissionDenied = false;
@@ -246,14 +235,6 @@ class _IrScreenState extends State<IrScreen> with WidgetsBindingObserver {
 
   @override
   Widget build(BuildContext context) {
-    if (_blocked) {
-      return ProLockedView(
-        onUnlock: () {
-          setState(() => _blocked = false);
-          _init();
-        },
-      );
-    }
     if (_permissionDenied) return _buildPermissionDenied();
     if (_error != null) return _buildError();
     if (_initializing || _controller == null) return const _LoadingView();

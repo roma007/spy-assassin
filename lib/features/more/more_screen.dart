@@ -10,6 +10,7 @@ import '../bluetooth/bluetooth_screen.dart';
 import '../lens/lens_screen.dart';
 import '../report/history_screen.dart';
 import '../report/report_screen.dart';
+import '../tracker/tracker_screen.dart';
 import 'guide_screen.dart';
 import 'privacy_policy_screen.dart';
 import 'settings_screen.dart';
@@ -44,6 +45,14 @@ class MoreScreen extends StatelessWidget {
                 subtitle: l10n.moreLensSubtitle,
                 onTap: () => Navigator.of(context).push(
                     MaterialPageRoute(builder: (_) => const LensScreen())),
+              ),
+              const SizedBox(height: 6),
+              _ToolTile(
+                icon: Icons.radar_rounded,
+                title: l10n.moreTrackerTitle,
+                subtitle: l10n.moreTrackerSubtitle,
+                onTap: () => Navigator.of(context).push(
+                    MaterialPageRoute(builder: (_) => const TrackerScreen())),
               ),
               const SizedBox(height: 6),
               _ToolTile(
@@ -112,7 +121,6 @@ class _ProCard extends StatelessWidget {
       listenable: ProStore.instance,
       builder: (context, _) {
         final pro = ProStore.instance;
-        final remaining = pro.remainingToday;
         return SectionCard(
           child: Row(
             children: [
@@ -141,9 +149,7 @@ class _ProCard extends StatelessWidget {
                             fontSize: 15, fontWeight: FontWeight.w600)),
                     const SizedBox(height: 4),
                     Text(
-                      pro.isPro
-                          ? _proDetail(l10n, pro)
-                          : l10n.proLimitLeft(remaining),
+                      pro.isPro ? _proDetail(l10n, pro) : l10n.proSubtitle,
                       style: const TextStyle(
                           fontSize: 12,
                           color: AppColors.textSecondary,
@@ -169,7 +175,7 @@ class _ProCard extends StatelessWidget {
                 )
               else
                 FilledButton(
-                  onPressed: () => ensureAccess(context, consume: false),
+                  onPressed: () => ensureAccess(context),
                   child: Text(l10n.proUnlock),
                 ),
             ],

@@ -7,7 +7,6 @@ import 'package:flutter/services.dart';
 import 'package:privacy_camera/l10n/app_localizations.dart';
 
 import '../../core/permissions/permission_helper.dart';
-import '../../core/pro/upgrade_dialog.dart';
 import '../../core/report/report_store.dart';
 import '../../core/stats/stat_store.dart';
 import '../../core/theme/app_theme.dart';
@@ -33,8 +32,6 @@ class _LensScreenState extends State<LensScreen> with WidgetsBindingObserver {
   bool _confirmed = false;
   bool _hint = false;
   bool _reported = false;
-  bool _accessChecked = false;
-  bool _blocked = false;
   List<BrightSpot> _spots = const [];
   String? _error;
 
@@ -77,13 +74,6 @@ class _LensScreenState extends State<LensScreen> with WidgetsBindingObserver {
 
   Future<void> _init() async {
     if (!mounted) return;
-    if (!_accessChecked) {
-      _accessChecked = true;
-      if (!await ensureAccess(context)) {
-        if (mounted) setState(() => _blocked = true);
-        return;
-      }
-    }
     setState(() {
       _initializing = true;
       _permissionDenied = false;
@@ -228,14 +218,6 @@ class _LensScreenState extends State<LensScreen> with WidgetsBindingObserver {
 
   @override
   Widget build(BuildContext context) {
-    if (_blocked) {
-      return ProLockedView(
-        onUnlock: () {
-          setState(() => _blocked = false);
-          _init();
-        },
-      );
-    }
     if (_permissionDenied) return _buildPermissionDenied();
     if (_error != null) return _buildError();
     if (_initializing || _controller == null) return const _LoadingView();

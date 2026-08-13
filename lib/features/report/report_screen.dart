@@ -5,7 +5,6 @@ import 'package:intl/intl.dart';
 import 'package:printing/printing.dart';
 
 import '../../core/l10n/app_localizations_ext.dart';
-import '../../core/pro/upgrade_dialog.dart';
 import '../../core/report/report_archive.dart';
 import '../../core/report/report_store.dart';
 import '../../core/theme/app_theme.dart';
@@ -52,7 +51,6 @@ class _ReportScreenState extends State<ReportScreen> {
   Future<void> _export() async {
     if (_exporting) return;
     final l10n = AppLocalizations.of(context)!;
-    if (!await ensureAccess(context, consume: false)) return;
     final entries = ReportStore.instance.entries;
     if (entries.isEmpty) {
       setState(() => _error = l10n.reportEmptyError);

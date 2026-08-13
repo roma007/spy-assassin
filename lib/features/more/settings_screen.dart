@@ -101,6 +101,7 @@ class _StatsSection extends StatelessWidget {
           (l10n.featureWifi, stats.wifiCount),
           (l10n.featureMagnet, stats.magnetCount),
           (l10n.featureBluetooth, stats.bleCount),
+          (l10n.featureTracker, stats.trackerCount),
         ];
         final empty = stats.checkStarted == 0 &&
             toolRows.every((r) => r.$2 == 0);

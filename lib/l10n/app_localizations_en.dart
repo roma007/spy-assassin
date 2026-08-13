@@ -18,7 +18,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get proTitle => 'Pro';
 
   @override
-  String get proSubtitle => 'Unlimited detections + PDF report export';
+  String get proSubtitle => 'Unlimited history archive + advanced AI features';
 
   @override
   String get proUnlock => 'Unlock now';
@@ -27,18 +27,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get proUnlocked => 'Pro activated';
 
   @override
-  String get proLimitTitle => 'Daily free limit reached';
-
-  @override
-  String get proUpgradePrompt => 'Upgrade to Pro for unlimited use of all detection tools and PDF report export.';
-
-  @override
-  String get proLater => 'Not now';
-
-  @override
-  String proLimitLeft(Object count) {
-    return '$count free detection(s) left today';
-  }
+  String get proUpgradePrompt => 'Upgrade to Pro for unlimited history archive and future advanced AI detection features.';
 
   @override
   String get proPlanMonthly => 'Monthly';
@@ -77,9 +66,6 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get proLocalSimUnlock => 'Developer · simulate unlock';
-
-  @override
-  String get navTabCheck => 'Check';
 
   @override
   String get navTabIr => 'IR';
@@ -978,4 +964,163 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get featureMagnet => 'Magnet Scan';
+
+  @override
+  String get featureTracker => 'Tracker Scan';
+
+  @override
+  String get navTabHub => 'Anti-Spy';
+
+  @override
+  String get tabTitleHub => 'Anti-Surveillance';
+
+  @override
+  String get hubTagline => 'Find hidden cameras in your room and trackers that follow you';
+
+  @override
+  String get hubTaglineSub => 'Anti-voyeurism · anti-tracking, all on-device';
+
+  @override
+  String get hubRoomCheckTitle => 'Room Check';
+
+  @override
+  String get hubRoomCheckSubtitle => '4-step scan for hidden cameras (IR / lens / WiFi / magnet)';
+
+  @override
+  String get hubTrackerTitle => 'Tracker Scan';
+
+  @override
+  String get hubTrackerSubtitle => 'Scan nearby Bluetooth for trackers following you';
+
+  @override
+  String get trackerTitle => 'Tracker Scan';
+
+  @override
+  String get trackerIntro => 'Scans nearby Bluetooth devices for known trackers such as AirTags. Scan a few times from different spots to check whether any device keeps following you. Everything stays on your device.';
+
+  @override
+  String get trackerStartScan => 'Start scan';
+
+  @override
+  String get trackerScanning => 'Scanning (about 10s)…';
+
+  @override
+  String get trackerScanAgain => 'Scan again';
+
+  @override
+  String get trackerScanFailed => 'Scan failed. Make sure Bluetooth permission is granted, then try again.';
+
+  @override
+  String trackerRoundsDone(Object count) {
+    return '$count scan(s) completed';
+  }
+
+  @override
+  String get trackerRoundsTip => 'Move to another spot or outside, then scan again to confirm whether a device keeps following you.';
+
+  @override
+  String get trackerMoveHint => 'Tracker candidates found. Confirm their location, or scan again for more confidence.';
+
+  @override
+  String get trackerFinish => 'Finish check';
+
+  @override
+  String get trackerRestart => 'Start over';
+
+  @override
+  String get trackerNoTracker => 'No known trackers found';
+
+  @override
+  String get trackerNoTrackerTip => 'Keep relying on the system\'s built-in unknown-tracker alerts and stay alert.';
+
+  @override
+  String trackerFoundCandidates(Object count) {
+    return '$count candidate(s) found';
+  }
+
+  @override
+  String get trackerSectionTrackers => 'Tracker candidates';
+
+  @override
+  String trackerSectionOthers(Object count) {
+    return 'Other Bluetooth devices ($count)';
+  }
+
+  @override
+  String get trackerBrandFindMy => 'AirTag / Find My accessory';
+
+  @override
+  String get trackerBrandSamsung => 'Samsung SmartTag';
+
+  @override
+  String get trackerBrandTile => 'Tile tracker';
+
+  @override
+  String get trackerBrandGoogle => 'Google tracker';
+
+  @override
+  String get trackerMotionRepeated => 'Possibly following';
+
+  @override
+  String get trackerMotionOnce => 'Seen once';
+
+  @override
+  String get trackerMotionRegular => 'Regular device';
+
+  @override
+  String get trackerDistanceNear => 'Very close';
+
+  @override
+  String get trackerDistanceMid => 'Close';
+
+  @override
+  String get trackerDistanceFar => 'Far';
+
+  @override
+  String get trackerGuidanceTitle => 'Suspicious tracker found, what to do';
+
+  @override
+  String get trackerGuidance1 => 'Check your belongings, bags, and inside/outside your vehicle for unfamiliar small devices';
+
+  @override
+  String get trackerGuidance2 => 'For an AirTag, open the Find My app on any nearby iPhone → Items, and try playing a sound to locate it';
+
+  @override
+  String get trackerGuidance3 => 'Do not remove it hastily — photograph it as evidence first; if confirmed, contact the police';
+
+  @override
+  String get trackerDisclaimer => 'Note: this scan runs in the foreground and only recognizes known tracker brands. Devices actively paired to their owner\'s phone may be missed. Results are for reference only, not legal evidence.';
+
+  @override
+  String get trackerSafeTitle => 'Nothing unusual';
+
+  @override
+  String get trackerSafeDesc => 'No known trackers found in this round. Stay alert and rescan from another spot if needed.';
+
+  @override
+  String get trackerRiskTitle => 'Tracker candidate(s) found';
+
+  @override
+  String trackerRiskRepeated(Object count) {
+    return '$count device(s) kept appearing near you across scans — check now';
+  }
+
+  @override
+  String trackerRiskOnce(Object count) {
+    return '$count tracker candidate(s) found — follow the guidance below';
+  }
+
+  @override
+  String trackerReportSummary(Object candidates, Object repeated, Object rounds) {
+    return 'Tracker scan $rounds time(s): $candidates candidate(s), $repeated possibly following';
+  }
+
+  @override
+  String get trackerReportSummaryNone => 'Tracker scan found no known trackers';
+
+  @override
+  String get moreTrackerTitle => 'Tracker Scan';
+
+  @override
+  String get moreTrackerSubtitle => 'Detect nearby AirTags, SmartTags and other trackers';
 }

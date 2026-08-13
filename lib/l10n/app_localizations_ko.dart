@@ -18,7 +18,7 @@ class AppLocalizationsKo extends AppLocalizations {
   String get proTitle => 'Pro';
 
   @override
-  String get proSubtitle => '무제한 감지 + PDF 보고서 내보내기';
+  String get proSubtitle => '무제한 기록 보관 + AI 고급 감지';
 
   @override
   String get proUnlock => '지금 잠금 해제';
@@ -27,18 +27,7 @@ class AppLocalizationsKo extends AppLocalizations {
   String get proUnlocked => 'Pro 활성화됨';
 
   @override
-  String get proLimitTitle => '일일 무료 사용 횟수 초과';
-
-  @override
-  String get proUpgradePrompt => 'Pro로 업그레이드하면 모든 감지 도구를 무제한 사용하고 PDF 보고서를 내보낼 수 있습니다.';
-
-  @override
-  String get proLater => '나중에';
-
-  @override
-  String proLimitLeft(Object count) {
-    return '오늘 남은 무료 감지 $count회';
-  }
+  String get proUpgradePrompt => 'Pro로 업그레이드하면 무제한 기록 보관과 향후 AI 고급 감지 기능을 이용할 수 있습니다.';
 
   @override
   String get proPlanMonthly => '월간';
@@ -77,9 +66,6 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get proLocalSimUnlock => '개발자 · 로컬 시뮬레이션 잠금 해제';
-
-  @override
-  String get navTabCheck => '점검';
 
   @override
   String get navTabIr => '적외선';
@@ -978,4 +964,163 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get featureMagnet => '자력 감지';
+
+  @override
+  String get featureTracker => '추적기 스캔';
+
+  @override
+  String get navTabHub => '반감시';
+
+  @override
+  String get tabTitleHub => '반감시 센터';
+
+  @override
+  String get hubTagline => '방에 숨겨진 카메라와 나를 따라오는 추적기를 찾아보세요';
+
+  @override
+  String get hubTaglineSub => '몰카 방지 · 추적 방지, 전부 기기에서 처리';
+
+  @override
+  String get hubRoomCheckTitle => '방 점검';
+
+  @override
+  String get hubRoomCheckSubtitle => '적외선·렌즈·WiFi·자력 4단계로 숨은 카메라 점검';
+
+  @override
+  String get hubTrackerTitle => '추적기 스캔';
+
+  @override
+  String get hubTrackerSubtitle => '주변 블루투스를 스캔해 AirTag 등 추적기가 나를 따라오는지 확인';
+
+  @override
+  String get trackerTitle => '추적기 스캔';
+
+  @override
+  String get trackerIntro => '주변 블루투스를 스캔해 AirTag 같은 알려진 추적기를 탐지합니다. 여러 번 위치를 바꿔 가며 스캔하면 나를 계속 따라오는 기기가 있는지 판단할 수 있습니다. 모든 처리는 기기에서만.';
+
+  @override
+  String get trackerStartScan => '스캔 시작';
+
+  @override
+  String get trackerScanning => '스캔 중 (약 10초)…';
+
+  @override
+  String get trackerScanAgain => '다시 스캔';
+
+  @override
+  String get trackerScanFailed => '스캔에 실패했습니다. 블루투스 스캔 권한을 확인한 뒤 다시 시도하세요.';
+
+  @override
+  String trackerRoundsDone(Object count) {
+    return '$count회 스캔 완료';
+  }
+
+  @override
+  String get trackerRoundsTip => '다른 위치나 문 밖으로 이동한 뒤 다시 스캔해, 나를 계속 따라오는 기기가 있는지 확인하세요.';
+
+  @override
+  String get trackerMoveHint => '추적기 후보가 발견되었습니다. 위치를 확인하거나 다시 스캔해 신뢰도를 높이세요.';
+
+  @override
+  String get trackerFinish => '점검 완료';
+
+  @override
+  String get trackerRestart => '다시 시작';
+
+  @override
+  String get trackerNoTracker => '알려진 추적기 없음';
+
+  @override
+  String get trackerNoTrackerTip => '시스템의 기본 제공 알 수 없는 추적기 알림과 함께 경계를 유지하세요.';
+
+  @override
+  String trackerFoundCandidates(Object count) {
+    return '후보 $count개 발견';
+  }
+
+  @override
+  String get trackerSectionTrackers => '추적기 후보';
+
+  @override
+  String trackerSectionOthers(Object count) {
+    return '기타 블루투스 기기 ($count)';
+  }
+
+  @override
+  String get trackerBrandFindMy => 'AirTag / Find My 액세서리';
+
+  @override
+  String get trackerBrandSamsung => '삼성 스마트태그';
+
+  @override
+  String get trackerBrandTile => 'Tile 추적기';
+
+  @override
+  String get trackerBrandGoogle => 'Google 추적기';
+
+  @override
+  String get trackerMotionRepeated => '따라오는 것으로 의심';
+
+  @override
+  String get trackerMotionOnce => '이번에만 발견';
+
+  @override
+  String get trackerMotionRegular => '일반 기기';
+
+  @override
+  String get trackerDistanceNear => '아주 가까움';
+
+  @override
+  String get trackerDistanceMid => '가까움';
+
+  @override
+  String get trackerDistanceFar => '멀리';
+
+  @override
+  String get trackerGuidanceTitle => '의심스러운 추적기를 발견했다면';
+
+  @override
+  String get trackerGuidance1 => '가방, 소지품, 차량 안팎에 낯선 소형 기기가 없는지 확인하세요';
+
+  @override
+  String get trackerGuidance2 => 'AirTag는 가까운 iPhone에서 \'나의 찾기\' 앱 → \'물품\'에서 소리를 재생해 위치를 확인하세요';
+
+  @override
+  String get trackerGuidance3 => '함부로 떼지 말고 먼저 사진으로 증거를 남기세요. 추적이 확인되면 경찰에 신고하세요';
+
+  @override
+  String get trackerDisclaimer => '안내: 이 스캔은 화면을 켠 상태에서만 진행되며 알려진 브랜드의 추적기만 인식합니다. 소유자 휴대폰과 연결된 기기는 발견되지 않을 수 있습니다. 결과는 참고용이며 법적 증거가 아닙니다.';
+
+  @override
+  String get trackerSafeTitle => '이상 없음';
+
+  @override
+  String get trackerSafeDesc => '이번 점검에서 알려진 추적기를 찾지 못했습니다. 필요하면 다른 위치에서 다시 스캔하세요.';
+
+  @override
+  String get trackerRiskTitle => '추적기 후보 발견';
+
+  @override
+  String trackerRiskRepeated(Object count) {
+    return '$count개 기기가 여러 스캔에서 계속 가까이 있습니다. 지금 확인하세요';
+  }
+
+  @override
+  String trackerRiskOnce(Object count) {
+    return '추적기 후보 $count개 발견 — 아래 안내에 따라 확인하세요';
+  }
+
+  @override
+  String trackerReportSummary(Object candidates, Object repeated, Object rounds) {
+    return '추적기 스캔 $rounds회: 후보 $candidates개, 따라오는 것으로 의심 $repeated개';
+  }
+
+  @override
+  String get trackerReportSummaryNone => '추적기 스캔 결과 알려진 추적기 없음';
+
+  @override
+  String get moreTrackerTitle => '추적기 스캔';
+
+  @override
+  String get moreTrackerSubtitle => '주변 AirTag, SmartTag 등 추적기 탐지';
 }

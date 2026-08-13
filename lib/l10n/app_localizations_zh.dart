@@ -18,7 +18,7 @@ class AppLocalizationsZh extends AppLocalizations {
   String get proTitle => 'Pro 版';
 
   @override
-  String get proSubtitle => '无限次检测 + 导出 PDF 报告';
+  String get proSubtitle => '无限历史存档 + AI 高级识别';
 
   @override
   String get proUnlock => '立即解锁';
@@ -27,18 +27,7 @@ class AppLocalizationsZh extends AppLocalizations {
   String get proUnlocked => 'Pro 已激活';
 
   @override
-  String get proLimitTitle => '已达每日免费次数上限';
-
-  @override
-  String get proUpgradePrompt => '升级 Pro 后可无限次使用全部检测工具，并解锁 PDF 报告导出。';
-
-  @override
-  String get proLater => '暂不升级';
-
-  @override
-  String proLimitLeft(Object count) {
-    return '今日剩余免费检测 $count 次';
-  }
+  String get proUpgradePrompt => '升级 Pro：解锁无限历史存档与后续 AI 高级识别功能。';
 
   @override
   String get proPlanMonthly => '月度';
@@ -77,9 +66,6 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get proLocalSimUnlock => '开发者 · 本地模拟解锁';
-
-  @override
-  String get navTabCheck => '检查';
 
   @override
   String get navTabIr => '红外';
@@ -978,4 +964,163 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get featureMagnet => '磁力检测';
+
+  @override
+  String get featureTracker => '防跟踪扫描';
+
+  @override
+  String get navTabHub => '反监视';
+
+  @override
+  String get tabTitleHub => '反监视中心';
+
+  @override
+  String get hubTagline => '检测藏在房间的摄像头，也扫描跟着你的追踪器';
+
+  @override
+  String get hubTaglineSub => '防偷拍 · 防追踪，全程本地检测';
+
+  @override
+  String get hubRoomCheckTitle => '房间检查';
+
+  @override
+  String get hubRoomCheckSubtitle => '红外 / 镜头反光 / WiFi / 磁力，四步排查隐藏摄像头';
+
+  @override
+  String get hubTrackerTitle => '随身防跟踪';
+
+  @override
+  String get hubTrackerSubtitle => '扫描周边蓝牙，识别 AirTag 等追踪器是否跟着你';
+
+  @override
+  String get trackerTitle => '随身防跟踪';
+
+  @override
+  String get trackerIntro => '扫描周边蓝牙设备，识别 AirTag 等已知追踪器。多扫几次、换个位置，可判断是否有设备一直跟着你。全程本地处理，不上传任何数据。';
+
+  @override
+  String get trackerStartScan => '开始扫描';
+
+  @override
+  String get trackerScanning => '扫描中（约 10 秒）…';
+
+  @override
+  String get trackerScanAgain => '再扫一次';
+
+  @override
+  String get trackerScanFailed => '扫描失败，请确认已授予蓝牙扫描权限后重试';
+
+  @override
+  String trackerRoundsDone(Object count) {
+    return '已完成 $count 次扫描';
+  }
+
+  @override
+  String get trackerRoundsTip => '建议走到房间另一处或门外，再扫一次，确认是否有设备一直跟着你。';
+
+  @override
+  String get trackerMoveHint => '已发现追踪器候选。建议先完成定位确认，或继续再扫一次增加可信度。';
+
+  @override
+  String get trackerFinish => '完成检查';
+
+  @override
+  String get trackerRestart => '重新检查';
+
+  @override
+  String get trackerNoTracker => '未发现已知追踪器';
+
+  @override
+  String get trackerNoTrackerTip => '继续使用系统自带的未知追踪器提醒，并保持警惕。';
+
+  @override
+  String trackerFoundCandidates(Object count) {
+    return '发现 $count 个候选';
+  }
+
+  @override
+  String get trackerSectionTrackers => '追踪器候选';
+
+  @override
+  String trackerSectionOthers(Object count) {
+    return '其他蓝牙设备（$count）';
+  }
+
+  @override
+  String get trackerBrandFindMy => 'AirTag / Find My 配件';
+
+  @override
+  String get trackerBrandSamsung => '三星 SmartTag';
+
+  @override
+  String get trackerBrandTile => 'Tile 追踪器';
+
+  @override
+  String get trackerBrandGoogle => 'Google 追踪器';
+
+  @override
+  String get trackerMotionRepeated => '疑似同行';
+
+  @override
+  String get trackerMotionOnce => '仅本次发现';
+
+  @override
+  String get trackerMotionRegular => '普通设备';
+
+  @override
+  String get trackerDistanceNear => '很近';
+
+  @override
+  String get trackerDistanceMid => '较近';
+
+  @override
+  String get trackerDistanceFar => '较远';
+
+  @override
+  String get trackerGuidanceTitle => '发现可疑追踪器怎么办';
+
+  @override
+  String get trackerGuidance1 => '检查随身物品、包、车内外是否有陌生的小型设备';
+
+  @override
+  String get trackerGuidance2 => 'AirTag 可用身边任一部 iPhone 打开「查找」App →「物品」，尝试播放声音定位';
+
+  @override
+  String get trackerGuidance3 => '不要贸然取下，先拍照留证；如确认被跟踪，请联系警方';
+
+  @override
+  String get trackerDisclaimer => '说明：本扫描在前台进行，仅能识别已知品牌的追踪器；与主人手机关联并保持连接的设备可能无法被发现；结果仅供参考，不作为执法证据。';
+
+  @override
+  String get trackerSafeTitle => '未发现异常';
+
+  @override
+  String get trackerSafeDesc => '本轮未发现已知追踪器。保持警惕，必要时可换个位置再扫一次。';
+
+  @override
+  String get trackerRiskTitle => '发现追踪器候选';
+
+  @override
+  String trackerRiskRepeated(Object count) {
+    return '$count 个设备多次扫描仍在你附近，建议立即排查';
+  }
+
+  @override
+  String trackerRiskOnce(Object count) {
+    return '发现 $count 个追踪器候选，建议按下方指引处置';
+  }
+
+  @override
+  String trackerReportSummary(Object candidates, Object repeated, Object rounds) {
+    return '防跟踪扫描 $rounds 次，发现追踪器候选 $candidates 个，其中疑似同行 $repeated 个';
+  }
+
+  @override
+  String get trackerReportSummaryNone => '防跟踪扫描未发现已知追踪器';
+
+  @override
+  String get moreTrackerTitle => '防跟踪扫描';
+
+  @override
+  String get moreTrackerSubtitle => '识别周边 AirTag / SmartTag 等追踪器';
 }
