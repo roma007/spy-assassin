@@ -6,7 +6,7 @@ import '../../core/widgets/common_widgets.dart';
 import '../tracker/tracker_screen.dart';
 import 'room_check_screen.dart';
 
-/// 反监视中心首页：两个等权入口 —— 房间检查（防偷拍）与随身防跟踪。
+/// 反监视中心首页：两个等权入口 —— 防偷拍（房间四步排查）与随身防跟踪。
 class CheckScreen extends StatelessWidget {
   const CheckScreen({super.key});
 

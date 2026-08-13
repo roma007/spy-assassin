@@ -13,7 +13,7 @@ void main() {
 
     expect(find.text('反监视中心'), findsOneWidget);
     expect(find.text('反监视'), findsOneWidget);
-    expect(find.text('房间检查'), findsOneWidget);
+    expect(find.text('防偷拍'), findsOneWidget);
     expect(find.text('红外'), findsOneWidget);
     expect(find.text('WiFi'), findsOneWidget);
     expect(find.text('磁力'), findsOneWidget);
@@ -28,7 +28,7 @@ void main() {
 
     expect(find.text('Anti-Surveillance'), findsOneWidget);
     expect(find.text('Anti-Spy'), findsOneWidget);
-    expect(find.text('Room Check'), findsOneWidget);
+    expect(find.text('Anti-Peeping'), findsOneWidget);
     expect(find.text('IR'), findsOneWidget);
     expect(find.text('WiFi'), findsOneWidget);
     expect(find.text('Magnet'), findsOneWidget);
@@ -43,7 +43,7 @@ void main() {
 
     expect(find.text('반감시 센터'), findsOneWidget);
     expect(find.text('반감시'), findsOneWidget);
-    expect(find.text('방 점검'), findsOneWidget);
+    expect(find.text('몰래카메라 방지'), findsOneWidget);
     expect(find.text('적외선'), findsOneWidget);
     expect(find.text('자력'), findsOneWidget);
     expect(find.text('더보기'), findsOneWidget);

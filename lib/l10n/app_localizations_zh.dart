@@ -80,7 +80,7 @@ class AppLocalizationsZh extends AppLocalizations {
   String get navTabMore => '更多';
 
   @override
-  String get tabTitleCheck => '房间检查';
+  String get tabTitleCheck => '防偷拍';
 
   @override
   String get tabTitleIr => '红外检测';
@@ -162,58 +162,6 @@ class AppLocalizationsZh extends AppLocalizations {
   String get checkAllDoneTip => '若任一环节发现可疑信号，请拍照留存证据，并联系前台/房东或报警处理。';
 
   @override
-  String get quickScanTitle => '一键扫描';
-
-  @override
-  String get quickScanSubtitle => '红外 → WiFi → 磁力，全自动完成';
-
-  @override
-  String get quickScanStart => '开始一键扫描';
-
-  @override
-  String quickScanRunning(Object step) {
-    return '正在执行：$step';
-  }
-
-  @override
-  String get quickScanStepIr => '红外检测（约 20 秒）';
-
-  @override
-  String get quickScanStepWifi => 'WiFi 扫描（约 15 秒）';
-
-  @override
-  String get quickScanStepMagnet => '磁力检测（约 15 秒）';
-
-  @override
-  String get quickScanDone => '一键扫描完成，查看结论';
-
-  @override
-  String get verdictTitle => '扫描结论';
-
-  @override
-  String get verdictSafe => '安全：未发现可疑信号';
-
-  @override
-  String verdictRisk(Object count) {
-    return '发现风险：$count 个可疑项';
-  }
-
-  @override
-  String get verdictHighRisk => '高风险：疑似隐藏摄像头';
-
-  @override
-  String get verdictViewEvidence => '查看证据明细';
-
-  @override
-  String get verdictExportPdf => '导出 PDF';
-
-  @override
-  String get verdictNextActions => '下一步行动';
-
-  @override
-  String get verdictDone => '完成';
-
-  @override
   String get nextActionsTitle => '发现摄像头怎么办';
 
   @override
@@ -223,22 +171,26 @@ class AppLocalizationsZh extends AppLocalizations {
   String get nextAction1Title => '1. 拍照取证（先做）';
 
   @override
-  String get nextAction1Desc => '用另一台手机对可疑设备多角度拍照，拍下安装位置与房间全貌；不要触碰、拆卸或破坏设备，保持现场原样，这是报警和处理的关键证据。';
+  String get nextAction1Desc =>
+      '用另一台手机对可疑设备多角度拍照，拍下安装位置与房间全貌；不要触碰、拆卸或破坏设备，保持现场原样，这是报警和处理的关键证据。';
 
   @override
   String get nextAction2Title => '2. 告知场所负责人';
 
   @override
-  String get nextAction2Desc => '酒店/民宿：立刻告知前台或房东，要求换房或到场处理，并索要书面记录；被偷拍是场所的违约甚至违法责任，别在没人见证的情况下私下沟通。';
+  String get nextAction2Desc =>
+      '酒店/民宿：立刻告知前台或房东，要求换房或到场处理，并索要书面记录；被偷拍是场所的违约甚至违法责任，别在没人见证的情况下私下沟通。';
 
   @override
   String get nextAction3Title => '3. 报警';
 
   @override
-  String get nextAction3Desc => '拨打 110（中国）/ 当地报警电话，说明\"疑似被偷拍\"，警察会到场取证；警方可对设备进行司法鉴定，个人不要自行拆除或销毁可疑设备。';
+  String get nextAction3Desc =>
+      '拨打 110（中国）/ 当地报警电话，说明\"疑似被偷拍\"，警察会到场取证；警方可对设备进行司法鉴定，个人不要自行拆除或销毁可疑设备。';
 
   @override
-  String get nextActionsRightsTip => '维权提示：在中国，《个人信息保护法》与各地\"反偷拍\"立法明确禁止在酒店等隐私场所安装摄像头，你可以要求场所赔偿，并可向 12315 或当地消协投诉。';
+  String get nextActionsRightsTip =>
+      '维权提示：在中国，《个人信息保护法》与各地\"反偷拍\"立法明确禁止在酒店等隐私场所安装摄像头，你可以要求场所赔偿，并可向 12315 或当地消协投诉。';
 
   @override
   String permissionDenial(Object feature) {
@@ -366,13 +318,16 @@ class AppLocalizationsZh extends AppLocalizations {
   }
 
   @override
-  String get wifiVerdictInternet => '能访问公网(1.1.1.1:80)，但无法访问局域网——说明手机与局域网设备被隔离或屏蔽。最常见原因：① 手机开着 VPN/代理（会屏蔽局域网，请关闭）；② 手机连的是路由器的「访客网络」或开启了「设备隔离/AP 隔离」；③ iOS 本地网络权限仍未生效（设置 > 隐私与安全性 > 本地网络，确认「间谍刺客」开关为绿色；不行就重启手机后重试）。';
+  String get wifiVerdictInternet =>
+      '能访问公网(1.1.1.1:80)，但无法访问局域网——说明手机与局域网设备被隔离或屏蔽。最常见原因：① 手机开着 VPN/代理（会屏蔽局域网，请关闭）；② 手机连的是路由器的「访客网络」或开启了「设备隔离/AP 隔离」；③ iOS 本地网络权限仍未生效（设置 > 隐私与安全性 > 本地网络，确认「间谍刺客」开关为绿色；不行就重启手机后重试）。';
 
   @override
-  String get wifiVerdictNone => '公网与局域网均不可达——请检查是否开了飞行模式、VPN 全局模式，或确认 WiFi 是否真的可上网。';
+  String get wifiVerdictNone =>
+      '公网与局域网均不可达——请检查是否开了飞行模式、VPN 全局模式，或确认 WiFi 是否真的可上网。';
 
   @override
-  String get wifiDisclaimer => '说明：仅检测当前 WiFi 下的联网设备，离线或本地存储的摄像头无法被发现；结果仅供参考，非执法证据。长按设备可快速标记为\"我的设备\"。';
+  String get wifiDisclaimer =>
+      '说明：仅检测当前 WiFi 下的联网设备，离线或本地存储的摄像头无法被发现；结果仅供参考，非执法证据。长按设备可快速标记为\"我的设备\"。';
 
   @override
   String get wifiNotConnected => '未连接 WiFi';
@@ -491,7 +446,8 @@ class AppLocalizationsZh extends AppLocalizations {
   }
 
   @override
-  String get bleDisclaimer => '说明：蓝牙摄像头使用率低，本工具仅作辅助线索。名称含摄像头/录音关键词或未命名设备值得留意；已连接的耳机、手环、音箱等均为正常设备。';
+  String get bleDisclaimer =>
+      '说明：蓝牙摄像头使用率低，本工具仅作辅助线索。名称含摄像头/录音关键词或未命名设备值得留意；已连接的耳机、手环、音箱等均为正常设备。';
 
   @override
   String get bleOn => '蓝牙已开启';
@@ -705,6 +661,58 @@ class AppLocalizationsZh extends AppLocalizations {
   String get guideP9Hint => '光源附近的光晕会干扰肉眼，用红外检测扫过更可靠';
 
   @override
+  String get quickScanTitle => '一键扫描';
+
+  @override
+  String get quickScanSubtitle => '红外 → WiFi → 磁力，全自动完成';
+
+  @override
+  String get quickScanStepIr => '红外检测（约 20 秒）';
+
+  @override
+  String get quickScanStepWifi => 'WiFi 扫描（约 15 秒）';
+
+  @override
+  String get quickScanStepMagnet => '磁力检测（约 15 秒）';
+
+  @override
+  String get quickScanDone => '一键扫描完成，查看结论';
+
+  @override
+  String quickScanRunning(Object step) {
+    return '正在执行：$step';
+  }
+
+  @override
+  String get quickScanStart => '开始一键扫描';
+
+  @override
+  String get verdictTitle => '扫描结论';
+
+  @override
+  String get verdictSafe => '安全：未发现可疑信号';
+
+  @override
+  String get verdictHighRisk => '高风险：疑似隐藏摄像头';
+
+  @override
+  String verdictRisk(Object count) {
+    return '发现风险：$count 个可疑项';
+  }
+
+  @override
+  String get verdictViewEvidence => '查看证据明细';
+
+  @override
+  String get verdictExportPdf => '导出 PDF';
+
+  @override
+  String get verdictNextActions => '下一步行动';
+
+  @override
+  String get verdictDone => '完成';
+
+  @override
   String get morePrivacy => '隐私政策';
 
   @override
@@ -884,7 +892,8 @@ class AppLocalizationsZh extends AppLocalizations {
   String get reportExportPdf => '导出 PDF 并分享';
 
   @override
-  String get reportLocalNote => '报告在本地生成并通过系统分享面板发送，不会上传。本次检查会自动保存到本机（免费版保留最近 5 份）。';
+  String get reportLocalNote =>
+      '报告在本地生成并通过系统分享面板发送，不会上传。本次检查会自动保存到本机（免费版保留最近 5 份）。';
 
   @override
   String reportSummary(Object count, Object riskCount) {
@@ -936,7 +945,8 @@ class AppLocalizationsZh extends AppLocalizations {
   String get reportPdfAction3 => '拨打 110 报警，由警方到场取证与司法鉴定';
 
   @override
-  String get reportPdfDisclaimer => '免责声明：红外/反光检测依赖手机 CMOS 对红外光的敏感度，WiFi 扫描仅能发现当前局域网内联网设备，磁力与蓝牙检测仅作辅助。本报告不构成任何法律证据，请以警方取证为准。';
+  String get reportPdfDisclaimer =>
+      '免责声明：红外/反光检测依赖手机 CMOS 对红外光的敏感度，WiFi 扫描仅能发现当前局域网内联网设备，磁力与蓝牙检测仅作辅助。本报告不构成任何法律证据，请以警方取证为准。';
 
   @override
   String get reportPdfFooter => '由「间谍刺客」生成 · 数据仅在本地处理';
@@ -981,7 +991,7 @@ class AppLocalizationsZh extends AppLocalizations {
   String get hubTaglineSub => '防偷拍 · 防追踪，全程本地检测';
 
   @override
-  String get hubRoomCheckTitle => '房间检查';
+  String get hubRoomCheckTitle => '防偷拍';
 
   @override
   String get hubRoomCheckSubtitle => '红外 / 镜头反光 / WiFi / 磁力，四步排查隐藏摄像头';
@@ -996,7 +1006,8 @@ class AppLocalizationsZh extends AppLocalizations {
   String get trackerTitle => '随身防跟踪';
 
   @override
-  String get trackerIntro => '扫描周边蓝牙设备，识别 AirTag 等已知追踪器。多扫几次、换个位置，可判断是否有设备一直跟着你。全程本地处理，不上传任何数据。';
+  String get trackerIntro =>
+      '扫描周边蓝牙设备，识别 AirTag 等已知追踪器。多扫几次、换个位置，可判断是否有设备一直跟着你。全程本地处理，不上传任何数据。';
 
   @override
   String get trackerStartScan => '开始扫描';
@@ -1083,13 +1094,15 @@ class AppLocalizationsZh extends AppLocalizations {
   String get trackerGuidance1 => '检查随身物品、包、车内外是否有陌生的小型设备';
 
   @override
-  String get trackerGuidance2 => 'AirTag 可用身边任一部 iPhone 打开「查找」App →「物品」，尝试播放声音定位';
+  String get trackerGuidance2 =>
+      'AirTag 可用身边任一部 iPhone 打开「查找」App →「物品」，尝试播放声音定位';
 
   @override
   String get trackerGuidance3 => '不要贸然取下，先拍照留证；如确认被跟踪，请联系警方';
 
   @override
-  String get trackerDisclaimer => '说明：本扫描在前台进行，仅能识别已知品牌的追踪器；与主人手机关联并保持连接的设备可能无法被发现；结果仅供参考，不作为执法证据。';
+  String get trackerDisclaimer =>
+      '说明：本扫描在前台进行，仅能识别已知品牌的追踪器；与主人手机关联并保持连接的设备可能无法被发现；结果仅供参考，不作为执法证据。';
 
   @override
   String get trackerSafeTitle => '未发现异常';
@@ -1111,7 +1124,11 @@ class AppLocalizationsZh extends AppLocalizations {
   }
 
   @override
-  String trackerReportSummary(Object candidates, Object repeated, Object rounds) {
+  String trackerReportSummary(
+    Object candidates,
+    Object repeated,
+    Object rounds,
+  ) {
     return '防跟踪扫描 $rounds 次，发现追踪器候选 $candidates 个，其中疑似同行 $repeated 个';
   }
 

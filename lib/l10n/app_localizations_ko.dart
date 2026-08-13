@@ -12,7 +12,8 @@ class AppLocalizationsKo extends AppLocalizations {
   String get appTitle => '스파이 어쌔신 - 숨은 카메라 탐지';
 
   @override
-  String get privacyPromiseBanner => '계정 없음 · 광고 없음 · 클라우드 업로드 없음 · 데이터는 기기에서만 처리';
+  String get privacyPromiseBanner =>
+      '계정 없음 · 광고 없음 · 클라우드 업로드 없음 · 데이터는 기기에서만 처리';
 
   @override
   String get proTitle => 'Pro';
@@ -27,7 +28,8 @@ class AppLocalizationsKo extends AppLocalizations {
   String get proUnlocked => 'Pro 활성화됨';
 
   @override
-  String get proUpgradePrompt => 'Pro로 업그레이드하면 무제한 기록 보관과 향후 AI 고급 감지 기능을 이용할 수 있습니다.';
+  String get proUpgradePrompt =>
+      'Pro로 업그레이드하면 무제한 기록 보관과 향후 AI 고급 감지 기능을 이용할 수 있습니다.';
 
   @override
   String get proPlanMonthly => '월간';
@@ -80,7 +82,7 @@ class AppLocalizationsKo extends AppLocalizations {
   String get navTabMore => '더보기';
 
   @override
-  String get tabTitleCheck => '방 점검';
+  String get tabTitleCheck => '몰래카메라 방지';
 
   @override
   String get tabTitleIr => '적외선 감지';
@@ -98,7 +100,8 @@ class AppLocalizationsKo extends AppLocalizations {
   String get checkVisualTitle => '육안 점검';
 
   @override
-  String get checkVisualDesc => '거울, 화재 감지기, 콘센트 구멍, 액자, 에어컨 배출구, 전자시계 등 흔한 은닉 장소를 확인하세요';
+  String get checkVisualDesc =>
+      '거울, 화재 감지기, 콘센트 구멍, 액자, 에어컨 배출구, 전자시계 등 흔한 은닉 장소를 확인하세요';
 
   @override
   String get checkStep1Min => '약 1분';
@@ -159,86 +162,40 @@ class AppLocalizationsKo extends AppLocalizations {
   String get checkAllFourDone => '4단계 점검 완료';
 
   @override
-  String get checkAllDoneTip => '어느 단계에서든 의심 신호를 발견하면 사진으로 증거를 남기고, 프런트/집주인에게 알리거나 경찰에 신고하세요.';
-
-  @override
-  String get quickScanTitle => '빠른 검사';
-
-  @override
-  String get quickScanSubtitle => '적외선 → WiFi → 자력, 완전 자동';
-
-  @override
-  String get quickScanStart => '빠른 검사 시작';
-
-  @override
-  String quickScanRunning(Object step) {
-    return '실행 중: $step';
-  }
-
-  @override
-  String get quickScanStepIr => '적외선 검사 (약 20초)';
-
-  @override
-  String get quickScanStepWifi => 'WiFi 검사 (약 15초)';
-
-  @override
-  String get quickScanStepMagnet => '자력 검사 (약 15초)';
-
-  @override
-  String get quickScanDone => '빠른 검사 완료. 결론 보기';
-
-  @override
-  String get verdictTitle => '검사 결론';
-
-  @override
-  String get verdictSafe => '안전: 의심 신호 없음';
-
-  @override
-  String verdictRisk(Object count) {
-    return '위험 발견: $count개 의심 항목';
-  }
-
-  @override
-  String get verdictHighRisk => '고위험: 숨은 카메라 의심';
-
-  @override
-  String get verdictViewEvidence => '증거 보기';
-
-  @override
-  String get verdictExportPdf => 'PDF 내보내기';
-
-  @override
-  String get verdictNextActions => '다음 조치';
-
-  @override
-  String get verdictDone => '완료';
+  String get checkAllDoneTip =>
+      '어느 단계에서든 의심 신호를 발견하면 사진으로 증거를 남기고, 프런트/집주인에게 알리거나 경찰에 신고하세요.';
 
   @override
   String get nextActionsTitle => '카메라를 발견했다면';
 
   @override
-  String get nextActionsTip => '침착하게, 먼저 증거를 확보하고, 기기를 분해하지 마세요. 인명 안전이 우선이며 필요하면 즉시 방을 떠나세요.';
+  String get nextActionsTip =>
+      '침착하게, 먼저 증거를 확보하고, 기기를 분해하지 마세요. 인명 안전이 우선이며 필요하면 즉시 방을 떠나세요.';
 
   @override
   String get nextAction1Title => '1. 사진으로 증거 확보 (먼저)';
 
   @override
-  String get nextAction1Desc => '다른 휴대폰으로 의심 기기를 여러 각도에서 촬영하고, 설치 위치와 방 전체 모습도 찍으세요. 기기를 만지거나 분해·훼손하지 말고 현장을 그대로 두세요. 신고와 처리의 핵심 증거입니다.';
+  String get nextAction1Desc =>
+      '다른 휴대폰으로 의심 기기를 여러 각도에서 촬영하고, 설치 위치와 방 전체 모습도 찍으세요. 기기를 만지거나 분해·훼손하지 말고 현장을 그대로 두세요. 신고와 처리의 핵심 증거입니다.';
 
   @override
   String get nextAction2Title => '2. 시설 책임자에게 알리기';
 
   @override
-  String get nextAction2Desc => '호텔/민박: 즉시 프런트나 집주인에게 알리고 방 교체 또는 현장 처리를 요구하며 서면 기록을 요청하세요. 몰래 촬영은 시설의 위반 내지 불법이며, 목격자 없이 개인적으로 협상하지 마세요.';
+  String get nextAction2Desc =>
+      '호텔/민박: 즉시 프런트나 집주인에게 알리고 방 교체 또는 현장 처리를 요구하며 서면 기록을 요청하세요. 몰래 촬영은 시설의 위반 내지 불법이며, 목격자 없이 개인적으로 협상하지 마세요.';
 
   @override
   String get nextAction3Title => '3. 경찰 신고';
 
   @override
-  String get nextAction3Desc => '110(중국) 또는 현지 경찰에 전화해 \'몰래 촬영 의심\'이라고 알리세요. 경찰이 현장 증거를 확보하고 기기를 사법 감정할 수 있습니다. 개인이 임의로 분해하거나 폐기하지 마세요.';
+  String get nextAction3Desc =>
+      '110(중국) 또는 현지 경찰에 전화해 \'몰래 촬영 의심\'이라고 알리세요. 경찰이 현장 증거를 확보하고 기기를 사법 감정할 수 있습니다. 개인이 임의로 분해하거나 폐기하지 마세요.';
 
   @override
-  String get nextActionsRightsTip => '권리 안내: 중국의 개인정보보호법과 각지 \'몰래카메라 근절\' 법령은 호텔 등 사적 공간에 카메라 설치를 금지합니다. 배상을 요구할 수 있으며 12315 또는 소비자협회에 신고할 수 있습니다.';
+  String get nextActionsRightsTip =>
+      '권리 안내: 중국의 개인정보보호법과 각지 \'몰래카메라 근절\' 법령은 호텔 등 사적 공간에 카메라 설치를 금지합니다. 배상을 요구할 수 있으며 12315 또는 소비자협회에 신고할 수 있습니다.';
 
   @override
   String permissionDenial(Object feature) {
@@ -299,7 +256,8 @@ class AppLocalizationsKo extends AppLocalizations {
   String get irAlarmBanner => '적외선 광원이 지속 감지됨. 천천히 움직이며 여러 각도에서 확인하세요';
 
   @override
-  String get irAlertBanner => '간헐적 점이 감지됨. TV 리모컨(버튼을 누를 때만 적외선)이나 반사일 수 있으므로, 지속되는 점만 의심하세요';
+  String get irAlertBanner =>
+      '간헐적 점이 감지됨. TV 리모컨(버튼을 누를 때만 적외선)이나 반사일 수 있으므로, 지속되는 점만 의심하세요';
 
   @override
   String get stabilityChip => '기기가 움직이고 있습니다. 안정적으로 유지하세요';
@@ -366,13 +324,16 @@ class AppLocalizationsKo extends AppLocalizations {
   }
 
   @override
-  String get wifiVerdictInternet => '공용 인터넷(1.1.1.1:80)은 연결되지만 LAN이 되지 않습니다 — 휴대폰이 LAN 기기와 격리/차단되어 있습니다. 흔한 원인: ① VPN/프록시가 켜짐(LAN 차단, 꺼 주세요); ② \'게스트 네트워크\' 또는 \'기기 격리/AP 격리\'가 켜짐; ③ iOS 로컬 네트워크 권한이 아직 적용 안 됨(설정 > 개인 정보 보호 및 보안 > 로컬 네트워크에서 \'스파이 어쌔신\' 스위치가 초록색인지 확인, 안 되면 재시동 후 재시도).';
+  String get wifiVerdictInternet =>
+      '공용 인터넷(1.1.1.1:80)은 연결되지만 LAN이 되지 않습니다 — 휴대폰이 LAN 기기와 격리/차단되어 있습니다. 흔한 원인: ① VPN/프록시가 켜짐(LAN 차단, 꺼 주세요); ② \'게스트 네트워크\' 또는 \'기기 격리/AP 격리\'가 켜짐; ③ iOS 로컬 네트워크 권한이 아직 적용 안 됨(설정 > 개인 정보 보호 및 보안 > 로컬 네트워크에서 \'스파이 어쌔신\' 스위치가 초록색인지 확인, 안 되면 재시동 후 재시도).';
 
   @override
-  String get wifiVerdictNone => '공용 인터넷과 LAN 모두 연결되지 않습니다 — 비행기 모드나 전역 VPN을 확인하고, WiFi가 실제로 인터넷에 연결되는지 확인하세요.';
+  String get wifiVerdictNone =>
+      '공용 인터넷과 LAN 모두 연결되지 않습니다 — 비행기 모드나 전역 VPN을 확인하고, WiFi가 실제로 인터넷에 연결되는지 확인하세요.';
 
   @override
-  String get wifiDisclaimer => '안내: 현재 WiFi에 연결된 기기만 탐지됩니다. 오프라인이거나 로컬 저장 카메라는 발견할 수 없으며 결과는 참고용입니다. 기기를 길게 누르면 \'내 기기\'로 표시할 수 있습니다.';
+  String get wifiDisclaimer =>
+      '안내: 현재 WiFi에 연결된 기기만 탐지됩니다. 오프라인이거나 로컬 저장 카메라는 발견할 수 없으며 결과는 참고용입니다. 기기를 길게 누르면 \'내 기기\'로 표시할 수 있습니다.';
 
   @override
   String get wifiNotConnected => 'WiFi 미연결';
@@ -406,7 +367,8 @@ class AppLocalizationsKo extends AppLocalizations {
   String get wifiPermTitle => '위치 권한 필요';
 
   @override
-  String get wifiPermDesc => 'Android는 WiFi 정보를 읽으려면 위치 권한이 필요합니다. 스캔 결과는 기기에서만 처리됩니다.';
+  String get wifiPermDesc =>
+      'Android는 WiFi 정보를 읽으려면 위치 권한이 필요합니다. 스캔 결과는 기기에서만 처리됩니다.';
 
   @override
   String wifiDetailReason(Object reason) {
@@ -491,7 +453,8 @@ class AppLocalizationsKo extends AppLocalizations {
   }
 
   @override
-  String get bleDisclaimer => '안내: 블루투스 카메라는 드물어 보조 단서일 뿐입니다. 카메라/녹음 키워드가 있는 이름이나 이름 없는 기기를 주목하세요. 연결된 이어폰, 밴드, 스피커는 정상 기기입니다.';
+  String get bleDisclaimer =>
+      '안내: 블루투스 카메라는 드물어 보조 단서일 뿐입니다. 카메라/녹음 키워드가 있는 이름이나 이름 없는 기기를 주목하세요. 연결된 이어폰, 밴드, 스피커는 정상 기기입니다.';
 
   @override
   String get bleOn => '블루투스 켜짐';
@@ -612,7 +575,8 @@ class AppLocalizationsKo extends AppLocalizations {
   String get guideTitle => '점검 가이드';
 
   @override
-  String get guideIntro => '먼저 육안으로 확인한 뒤 도구로 하나씩 검증하세요. 아래는 가장 흔한 은닉 위치이며 순서대로 살펴보는 것을 권장합니다.';
+  String get guideIntro =>
+      '먼저 육안으로 확인한 뒤 도구로 하나씩 검증하세요. 아래는 가장 흔한 은닉 위치이며 순서대로 살펴보는 것을 권장합니다.';
 
   @override
   String get guideCta => '의심되는 것이 보이나요? 다음 행동 보기';
@@ -627,7 +591,8 @@ class AppLocalizationsKo extends AppLocalizations {
   String get guideP1Title => '연기 감지기';
 
   @override
-  String get guideP1Check => '바로 아래에서 위/측면으로 살펴보세요. 금속과 플라스틱 이음새에 바늘구멍이 자주 있습니다';
+  String get guideP1Check =>
+      '바로 아래에서 위/측면으로 살펴보세요. 금속과 플라스틱 이음새에 바늘구멍이 자주 있습니다';
 
   @override
   String get guideP1Hint => '검은 본체 안에 바늘구멍 렌즈가 가장 숨기 쉽습니다. 가까이서 여러 각도로 확인하세요';
@@ -645,7 +610,8 @@ class AppLocalizationsKo extends AppLocalizations {
   String get guideP3Title => '거울 (양면거울)';
 
   @override
-  String get guideP3Check => '손톱을 거울에 대세요. 손톱과 반사 사이에 틈이 있으면 일반 거울, 틈이 없으면 주의하세요';
+  String get guideP3Check =>
+      '손톱을 거울에 대세요. 손톱과 반사 사이에 틈이 있으면 일반 거울, 틈이 없으면 주의하세요';
 
   @override
   String get guideP3Hint => '양면거울 뒤에는 방이 있을 수 있고 거울 자체에도 초소형 렌즈를 숨길 수 있습니다';
@@ -657,7 +623,8 @@ class AppLocalizationsKo extends AppLocalizations {
   String get guideP4Check => '액자 가장자리와 그림 뒤쪽 틈에 불필요한 구멍이 있는지 확인하세요';
 
   @override
-  String get guideP4Hint => '액자 뒤 은닉공간은 전형적인 장소입니다. 테두리를 살짝 눌러 이상한 느낌이 있는지 확인하세요';
+  String get guideP4Hint =>
+      '액자 뒤 은닉공간은 전형적인 장소입니다. 테두리를 살짝 눌러 이상한 느낌이 있는지 확인하세요';
 
   @override
   String get guideP5Title => '에어컨 배출구';
@@ -703,6 +670,58 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get guideP9Hint => '광원 주변의 눈부심은 육안을 방해하므로 적외선 감지가 더 정확합니다';
+
+  @override
+  String get quickScanTitle => '빠른 검사';
+
+  @override
+  String get quickScanSubtitle => '적외선 → WiFi → 자력, 완전 자동';
+
+  @override
+  String get quickScanStepIr => '적외선 검사 (약 20초)';
+
+  @override
+  String get quickScanStepWifi => 'WiFi 검사 (약 15초)';
+
+  @override
+  String get quickScanStepMagnet => '자력 검사 (약 15초)';
+
+  @override
+  String get quickScanDone => '빠른 검사 완료. 결론 보기';
+
+  @override
+  String quickScanRunning(Object step) {
+    return '실행 중: $step';
+  }
+
+  @override
+  String get quickScanStart => '빠른 검사 시작';
+
+  @override
+  String get verdictTitle => '검사 결론';
+
+  @override
+  String get verdictSafe => '안전: 의심 신호 없음';
+
+  @override
+  String get verdictHighRisk => '고위험: 숨은 카메라 의심';
+
+  @override
+  String verdictRisk(Object count) {
+    return '위험 발견: $count개 의심 항목';
+  }
+
+  @override
+  String get verdictViewEvidence => '증거 보기';
+
+  @override
+  String get verdictExportPdf => 'PDF 내보내기';
+
+  @override
+  String get verdictNextActions => '다음 조치';
+
+  @override
+  String get verdictDone => '완료';
 
   @override
   String get morePrivacy => '개인정보 처리방침';
@@ -785,13 +804,15 @@ class AppLocalizationsKo extends AppLocalizations {
   String get settingsCancel => '취소';
 
   @override
-  String get settingsDataNote => '모든 통계와 검사 기록은 이 기기에만 저장되며 업로드되지 않습니다. 스캔 기록은 기기에 저장되며, 무료는 최근 5개를 보관합니다.';
+  String get settingsDataNote =>
+      '모든 통계와 검사 기록은 이 기기에만 저장되며 업로드되지 않습니다. 스캔 기록은 기기에 저장되며, 무료는 최근 5개를 보관합니다.';
 
   @override
   String get morePrivacyDesign => '개인정보 우선 설계';
 
   @override
-  String get morePrivacyDesc => '모든 감지는 기기에서만 진행되며, 계정이 필요 없고 어떤 이미지나 네트워크 데이터도 수집·업로드하지 않습니다.';
+  String get morePrivacyDesc =>
+      '모든 감지는 기기에서만 진행되며, 계정이 필요 없고 어떤 이미지나 네트워크 데이터도 수집·업로드하지 않습니다.';
 
   @override
   String get reportTitle => '점검 보고서';
@@ -809,7 +830,8 @@ class AppLocalizationsKo extends AppLocalizations {
   String get historyTitle => '스캔 기록';
 
   @override
-  String get historyEmpty => '저장된 검사 기록이 없습니다. 검사를 마친 후 \'보고서\' 화면에서 \'이번 검사 완료 및 저장\'을 눌러 보관하세요.';
+  String get historyEmpty =>
+      '저장된 검사 기록이 없습니다. 검사를 마친 후 \'보고서\' 화면에서 \'이번 검사 완료 및 저장\'을 눌러 보관하세요.';
 
   @override
   String historyProNote(Object count) {
@@ -854,7 +876,8 @@ class AppLocalizationsKo extends AppLocalizations {
   String get reportPhotos => '현장 사진';
 
   @override
-  String get reportPhotosEmpty => '사진이 아직 없습니다. 의심 기기나 위치를 촬영해 저장하면 내보낸 보고서에 포함됩니다.';
+  String get reportPhotosEmpty =>
+      '사진이 아직 없습니다. 의심 기기나 위치를 촬영해 저장하면 내보낸 보고서에 포함됩니다.';
 
   @override
   String get reportAddPhoto => '사진 추가';
@@ -869,7 +892,8 @@ class AppLocalizationsKo extends AppLocalizations {
   String get reportPhotoFailed => '사진 추가 실패, 다시 시도하세요';
 
   @override
-  String get reportEmptyHint => '기록이 없습니다. 적외선, 반사, WiFi, 블루투스 또는 자력 감지 후 결과가 자동으로 모입니다.';
+  String get reportEmptyHint =>
+      '기록이 없습니다. 적외선, 반사, WiFi, 블루투스 또는 자력 감지 후 결과가 자동으로 모입니다.';
 
   @override
   String get reportDetails => '점검 내역';
@@ -884,7 +908,8 @@ class AppLocalizationsKo extends AppLocalizations {
   String get reportExportPdf => 'PDF 내보내기 및 공유';
 
   @override
-  String get reportLocalNote => '보고서는 기기에서 생성되어 시스템 공유 시트로 전송됩니다. 어떤 서버에도 업로드되지 않습니다. 이번 검사는 기기에 저장됩니다(무료는 최근 5개 유지).';
+  String get reportLocalNote =>
+      '보고서는 기기에서 생성되어 시스템 공유 시트로 전송됩니다. 어떤 서버에도 업로드되지 않습니다. 이번 검사는 기기에 저장됩니다(무료는 최근 5개 유지).';
 
   @override
   String reportSummary(Object count, Object riskCount) {
@@ -936,7 +961,8 @@ class AppLocalizationsKo extends AppLocalizations {
   String get reportPdfAction3 => '110(중국) 또는 현지 경찰에 신고해 현장 증거 확보와 사법 감정을 요청하세요';
 
   @override
-  String get reportPdfDisclaimer => '면책: 적외선/반사 감지는 휴대폰 CMOS의 적외선 감도에 의존하며, WiFi 스캔은 현재 LAN에 연결된 기기만 찾을 수 있고, 자력·블루투스 감지는 보조 수단입니다. 본 보고서는 법적 증거가 아니며 경찰의 현장 감정을 따르세요.';
+  String get reportPdfDisclaimer =>
+      '면책: 적외선/반사 감지는 휴대폰 CMOS의 적외선 감도에 의존하며, WiFi 스캔은 현재 LAN에 연결된 기기만 찾을 수 있고, 자력·블루투스 감지는 보조 수단입니다. 본 보고서는 법적 증거가 아니며 경찰의 현장 감정을 따르세요.';
 
   @override
   String get reportPdfFooter => '\'스파이 어쌔신\'로 생성 · 데이터는 기기에서만 처리';
@@ -981,7 +1007,7 @@ class AppLocalizationsKo extends AppLocalizations {
   String get hubTaglineSub => '몰카 방지 · 추적 방지, 전부 기기에서 처리';
 
   @override
-  String get hubRoomCheckTitle => '방 점검';
+  String get hubRoomCheckTitle => '몰래카메라 방지';
 
   @override
   String get hubRoomCheckSubtitle => '적외선·렌즈·WiFi·자력 4단계로 숨은 카메라 점검';
@@ -996,7 +1022,8 @@ class AppLocalizationsKo extends AppLocalizations {
   String get trackerTitle => '추적기 스캔';
 
   @override
-  String get trackerIntro => '주변 블루투스를 스캔해 AirTag 같은 알려진 추적기를 탐지합니다. 여러 번 위치를 바꿔 가며 스캔하면 나를 계속 따라오는 기기가 있는지 판단할 수 있습니다. 모든 처리는 기기에서만.';
+  String get trackerIntro =>
+      '주변 블루투스를 스캔해 AirTag 같은 알려진 추적기를 탐지합니다. 여러 번 위치를 바꿔 가며 스캔하면 나를 계속 따라오는 기기가 있는지 판단할 수 있습니다. 모든 처리는 기기에서만.';
 
   @override
   String get trackerStartScan => '스캔 시작';
@@ -1016,7 +1043,8 @@ class AppLocalizationsKo extends AppLocalizations {
   }
 
   @override
-  String get trackerRoundsTip => '다른 위치나 문 밖으로 이동한 뒤 다시 스캔해, 나를 계속 따라오는 기기가 있는지 확인하세요.';
+  String get trackerRoundsTip =>
+      '다른 위치나 문 밖으로 이동한 뒤 다시 스캔해, 나를 계속 따라오는 기기가 있는지 확인하세요.';
 
   @override
   String get trackerMoveHint => '추적기 후보가 발견되었습니다. 위치를 확인하거나 다시 스캔해 신뢰도를 높이세요.';
@@ -1083,19 +1111,23 @@ class AppLocalizationsKo extends AppLocalizations {
   String get trackerGuidance1 => '가방, 소지품, 차량 안팎에 낯선 소형 기기가 없는지 확인하세요';
 
   @override
-  String get trackerGuidance2 => 'AirTag는 가까운 iPhone에서 \'나의 찾기\' 앱 → \'물품\'에서 소리를 재생해 위치를 확인하세요';
+  String get trackerGuidance2 =>
+      'AirTag는 가까운 iPhone에서 \'나의 찾기\' 앱 → \'물품\'에서 소리를 재생해 위치를 확인하세요';
 
   @override
-  String get trackerGuidance3 => '함부로 떼지 말고 먼저 사진으로 증거를 남기세요. 추적이 확인되면 경찰에 신고하세요';
+  String get trackerGuidance3 =>
+      '함부로 떼지 말고 먼저 사진으로 증거를 남기세요. 추적이 확인되면 경찰에 신고하세요';
 
   @override
-  String get trackerDisclaimer => '안내: 이 스캔은 화면을 켠 상태에서만 진행되며 알려진 브랜드의 추적기만 인식합니다. 소유자 휴대폰과 연결된 기기는 발견되지 않을 수 있습니다. 결과는 참고용이며 법적 증거가 아닙니다.';
+  String get trackerDisclaimer =>
+      '안내: 이 스캔은 화면을 켠 상태에서만 진행되며 알려진 브랜드의 추적기만 인식합니다. 소유자 휴대폰과 연결된 기기는 발견되지 않을 수 있습니다. 결과는 참고용이며 법적 증거가 아닙니다.';
 
   @override
   String get trackerSafeTitle => '이상 없음';
 
   @override
-  String get trackerSafeDesc => '이번 점검에서 알려진 추적기를 찾지 못했습니다. 필요하면 다른 위치에서 다시 스캔하세요.';
+  String get trackerSafeDesc =>
+      '이번 점검에서 알려진 추적기를 찾지 못했습니다. 필요하면 다른 위치에서 다시 스캔하세요.';
 
   @override
   String get trackerRiskTitle => '추적기 후보 발견';
@@ -1111,7 +1143,11 @@ class AppLocalizationsKo extends AppLocalizations {
   }
 
   @override
-  String trackerReportSummary(Object candidates, Object repeated, Object rounds) {
+  String trackerReportSummary(
+    Object candidates,
+    Object repeated,
+    Object rounds,
+  ) {
     return '추적기 스캔 $rounds회: 후보 $candidates개, 따라오는 것으로 의심 $repeated개';
   }
 

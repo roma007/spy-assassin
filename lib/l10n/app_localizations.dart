@@ -63,7 +63,8 @@ import 'app_localizations_zh.dart';
 /// be consistent with the languages listed in the AppLocalizations.supportedLocales
 /// property.
 abstract class AppLocalizations {
-  AppLocalizations(String locale) : localeName = intl.Intl.canonicalizedLocale(locale.toString());
+  AppLocalizations(String locale)
+    : localeName = intl.Intl.canonicalizedLocale(locale.toString());
 
   final String localeName;
 
@@ -71,7 +72,8 @@ abstract class AppLocalizations {
     return Localizations.of<AppLocalizations>(context, AppLocalizations);
   }
 
-  static const LocalizationsDelegate<AppLocalizations> delegate = _AppLocalizationsDelegate();
+  static const LocalizationsDelegate<AppLocalizations> delegate =
+      _AppLocalizationsDelegate();
 
   /// A list of this localizations delegate along with the default localizations
   /// delegates.
@@ -83,2122 +85,2128 @@ abstract class AppLocalizations {
   /// Additional delegates can be added by appending to this list in
   /// MaterialApp. This list does not have to be used at all if a custom list
   /// of delegates is preferred or required.
-  static const List<LocalizationsDelegate<dynamic>> localizationsDelegates = <LocalizationsDelegate<dynamic>>[
-    delegate,
-    GlobalMaterialLocalizations.delegate,
-    GlobalCupertinoLocalizations.delegate,
-    GlobalWidgetsLocalizations.delegate,
-  ];
+  static const List<LocalizationsDelegate<dynamic>> localizationsDelegates =
+      <LocalizationsDelegate<dynamic>>[
+        delegate,
+        GlobalMaterialLocalizations.delegate,
+        GlobalCupertinoLocalizations.delegate,
+        GlobalWidgetsLocalizations.delegate,
+      ];
 
   /// A list of this localizations delegate's supported locales.
   static const List<Locale> supportedLocales = <Locale>[
     Locale('en'),
     Locale('ko'),
-    Locale('zh')
+    Locale('zh'),
   ];
 
   /// No description provided for @appTitle.
   ///
-  /// In en, this message translates to:
-  /// **'Spy Assassin - Hidden Camera Detector'**
+  /// In zh, this message translates to:
+  /// **'间谍刺客 - 隐藏摄像头检测'**
   String get appTitle;
 
   /// No description provided for @privacyPromiseBanner.
   ///
-  /// In en, this message translates to:
-  /// **'No account · no ads · no cloud upload · no data saved — all detection runs on-device'**
+  /// In zh, this message translates to:
+  /// **'无账号 · 无广告 · 无云上传 · 数据不落盘，全程本地检测'**
   String get privacyPromiseBanner;
 
   /// No description provided for @proTitle.
   ///
-  /// In en, this message translates to:
-  /// **'Pro'**
+  /// In zh, this message translates to:
+  /// **'Pro 版'**
   String get proTitle;
 
   /// No description provided for @proSubtitle.
   ///
-  /// In en, this message translates to:
-  /// **'Unlimited history archive + advanced AI features'**
+  /// In zh, this message translates to:
+  /// **'无限历史存档 + AI 高级识别'**
   String get proSubtitle;
 
   /// No description provided for @proUnlock.
   ///
-  /// In en, this message translates to:
-  /// **'Unlock now'**
+  /// In zh, this message translates to:
+  /// **'立即解锁'**
   String get proUnlock;
 
   /// No description provided for @proUnlocked.
   ///
-  /// In en, this message translates to:
-  /// **'Pro activated'**
+  /// In zh, this message translates to:
+  /// **'Pro 已激活'**
   String get proUnlocked;
 
   /// No description provided for @proUpgradePrompt.
   ///
-  /// In en, this message translates to:
-  /// **'Upgrade to Pro for unlimited history archive and future advanced AI detection features.'**
+  /// In zh, this message translates to:
+  /// **'升级 Pro：解锁无限历史存档与后续 AI 高级识别功能。'**
   String get proUpgradePrompt;
 
   /// No description provided for @proPlanMonthly.
   ///
-  /// In en, this message translates to:
-  /// **'Monthly'**
+  /// In zh, this message translates to:
+  /// **'月度'**
   String get proPlanMonthly;
 
   /// No description provided for @proPlanYearly.
   ///
-  /// In en, this message translates to:
-  /// **'Yearly'**
+  /// In zh, this message translates to:
+  /// **'年度'**
   String get proPlanYearly;
 
   /// No description provided for @proPlanMonthlySub.
   ///
-  /// In en, this message translates to:
-  /// **'Cancel anytime'**
+  /// In zh, this message translates to:
+  /// **'随时取消'**
   String get proPlanMonthlySub;
 
   /// No description provided for @proPlanYearlySub.
   ///
-  /// In en, this message translates to:
-  /// **'Best value, 2 months free'**
+  /// In zh, this message translates to:
+  /// **'最划算，送 2 个月'**
   String get proPlanYearlySub;
 
   /// No description provided for @proBestValue.
   ///
-  /// In en, this message translates to:
-  /// **'BEST VALUE'**
+  /// In zh, this message translates to:
+  /// **'超值'**
   String get proBestValue;
 
   /// No description provided for @proRestore.
   ///
-  /// In en, this message translates to:
-  /// **'Restore purchases'**
+  /// In zh, this message translates to:
+  /// **'恢复购买'**
   String get proRestore;
 
   /// No description provided for @proRestoreEmpty.
   ///
-  /// In en, this message translates to:
-  /// **'No previous purchases found'**
+  /// In zh, this message translates to:
+  /// **'未找到可恢复的购买记录'**
   String get proRestoreEmpty;
 
   /// No description provided for @proPurchasing.
   ///
-  /// In en, this message translates to:
-  /// **'Processing…'**
+  /// In zh, this message translates to:
+  /// **'正在处理…'**
   String get proPurchasing;
 
   /// No description provided for @proStoreUnavailable.
   ///
-  /// In en, this message translates to:
-  /// **'Store is not available. Please try again later.'**
+  /// In zh, this message translates to:
+  /// **'商店暂不可用，请稍后重试'**
   String get proStoreUnavailable;
 
   /// No description provided for @proIapError.
   ///
-  /// In en, this message translates to:
-  /// **'Purchase failed. Please try again.'**
+  /// In zh, this message translates to:
+  /// **'购买失败，请稍后重试'**
   String get proIapError;
 
   /// No description provided for @proActiveUntil.
   ///
-  /// In en, this message translates to:
-  /// **'Active until {date}'**
+  /// In zh, this message translates to:
+  /// **'有效期至 {date}'**
   String proActiveUntil(Object date);
 
   /// No description provided for @proLocalSimUnlock.
   ///
-  /// In en, this message translates to:
-  /// **'Developer · simulate unlock'**
+  /// In zh, this message translates to:
+  /// **'开发者 · 本地模拟解锁'**
   String get proLocalSimUnlock;
 
   /// No description provided for @navTabIr.
   ///
-  /// In en, this message translates to:
-  /// **'IR'**
+  /// In zh, this message translates to:
+  /// **'红外'**
   String get navTabIr;
 
   /// No description provided for @navTabWifi.
   ///
-  /// In en, this message translates to:
+  /// In zh, this message translates to:
   /// **'WiFi'**
   String get navTabWifi;
 
   /// No description provided for @navTabMagnet.
   ///
-  /// In en, this message translates to:
-  /// **'Magnet'**
+  /// In zh, this message translates to:
+  /// **'磁力'**
   String get navTabMagnet;
 
   /// No description provided for @navTabMore.
   ///
-  /// In en, this message translates to:
-  /// **'More'**
+  /// In zh, this message translates to:
+  /// **'更多'**
   String get navTabMore;
 
   /// No description provided for @tabTitleCheck.
   ///
-  /// In en, this message translates to:
-  /// **'Room Check'**
+  /// In zh, this message translates to:
+  /// **'防偷拍'**
   String get tabTitleCheck;
 
   /// No description provided for @tabTitleIr.
   ///
-  /// In en, this message translates to:
-  /// **'IR Detection'**
+  /// In zh, this message translates to:
+  /// **'红外检测'**
   String get tabTitleIr;
 
   /// No description provided for @tabTitleWifi.
   ///
-  /// In en, this message translates to:
-  /// **'WiFi Scan'**
+  /// In zh, this message translates to:
+  /// **'WiFi 扫描'**
   String get tabTitleWifi;
 
   /// No description provided for @tabTitleMagnet.
   ///
-  /// In en, this message translates to:
-  /// **'Magnet Scan'**
+  /// In zh, this message translates to:
+  /// **'磁力检测'**
   String get tabTitleMagnet;
 
   /// No description provided for @tabTitleMore.
   ///
-  /// In en, this message translates to:
-  /// **'More'**
+  /// In zh, this message translates to:
+  /// **'更多'**
   String get tabTitleMore;
 
   /// No description provided for @checkVisualTitle.
   ///
-  /// In en, this message translates to:
-  /// **'Visual Check'**
+  /// In zh, this message translates to:
+  /// **'视觉排查'**
   String get checkVisualTitle;
 
   /// No description provided for @checkVisualDesc.
   ///
-  /// In en, this message translates to:
-  /// **'Inspect mirrors, smoke detectors, outlet holes, wall art, air-conditioning vents, digital clocks and other common hiding spots'**
+  /// In zh, this message translates to:
+  /// **'检查镜面、烟雾报警器、插座孔、装饰画、空调出风口、电子钟等常见隐藏点'**
   String get checkVisualDesc;
 
   /// No description provided for @checkStep1Min.
   ///
-  /// In en, this message translates to:
-  /// **'~1 min'**
+  /// In zh, this message translates to:
+  /// **'约 1 分钟'**
   String get checkStep1Min;
 
   /// No description provided for @checkStep1_5Min.
   ///
-  /// In en, this message translates to:
-  /// **'~1.5 min'**
+  /// In zh, this message translates to:
+  /// **'约 1.5 分钟'**
   String get checkStep1_5Min;
 
   /// No description provided for @checkIrTitle.
   ///
-  /// In en, this message translates to:
-  /// **'IR Scan'**
+  /// In zh, this message translates to:
+  /// **'红外扫描'**
   String get checkIrTitle;
 
   /// No description provided for @checkIrDesc.
   ///
-  /// In en, this message translates to:
-  /// **'Turn off the lights, open \"IR Detection\" and slowly sweep every corner of the room'**
+  /// In zh, this message translates to:
+  /// **'关闭灯光后进入「红外检测」，缓慢扫描房间每个角落'**
   String get checkIrDesc;
 
   /// No description provided for @checkNetTitle.
   ///
-  /// In en, this message translates to:
-  /// **'Network Scan'**
+  /// In zh, this message translates to:
+  /// **'网络扫描'**
   String get checkNetTitle;
 
   /// No description provided for @checkNetDesc.
   ///
-  /// In en, this message translates to:
-  /// **'Connect to the room WiFi, open \"WiFi Scan\" to look for suspicious networked devices'**
+  /// In zh, this message translates to:
+  /// **'连接房间 WiFi，进入「WiFi 扫描」查看是否有可疑联网设备'**
   String get checkNetDesc;
 
   /// No description provided for @checkMagnetTitle.
   ///
-  /// In en, this message translates to:
-  /// **'Magnet Check'**
+  /// In zh, this message translates to:
+  /// **'磁力排查'**
   String get checkMagnetTitle;
 
   /// No description provided for @checkMagnetDesc.
   ///
-  /// In en, this message translates to:
-  /// **'Use \"Magnet Scan\" close to suspicious chargers, clocks, smoke detectors and other objects'**
+  /// In zh, this message translates to:
+  /// **'用「磁力检测」贴近可疑的充电器、时钟、烟雾报警器等物体'**
   String get checkMagnetDesc;
 
   /// No description provided for @checkDone.
   ///
-  /// In en, this message translates to:
-  /// **'Check complete. You can relax now.'**
+  /// In zh, this message translates to:
+  /// **'检查完成，已获得安心。'**
   String get checkDone;
 
   /// No description provided for @checkInProgress.
   ///
-  /// In en, this message translates to:
-  /// **'Finish the 4 steps in order, about 4 minutes in total'**
+  /// In zh, this message translates to:
+  /// **'按顺序完成 4 步检查，全程约 4 分钟'**
   String get checkInProgress;
 
   /// No description provided for @checkSuspiciousFound.
   ///
-  /// In en, this message translates to:
-  /// **'Found {count} suspicious signal(s), check the next steps'**
+  /// In zh, this message translates to:
+  /// **'发现 {count} 处可疑信号，建议查看下一步行动'**
   String checkSuspiciousFound(Object count);
 
   /// No description provided for @checkNextActions.
   ///
-  /// In en, this message translates to:
-  /// **'View next steps'**
+  /// In zh, this message translates to:
+  /// **'查看下一步行动'**
   String get checkNextActions;
 
   /// No description provided for @checkStepN.
   ///
-  /// In en, this message translates to:
-  /// **'Step {n}'**
+  /// In zh, this message translates to:
+  /// **'第 {n} 步'**
   String checkStepN(Object n);
 
   /// No description provided for @checkHideoutList.
   ///
-  /// In en, this message translates to:
-  /// **'Hiding spots list'**
+  /// In zh, this message translates to:
+  /// **'查看藏匿点清单'**
   String get checkHideoutList;
 
   /// No description provided for @checkSkip.
   ///
-  /// In en, this message translates to:
-  /// **'Skip'**
+  /// In zh, this message translates to:
+  /// **'跳过'**
   String get checkSkip;
 
   /// No description provided for @checkMarkedSuspicious.
   ///
-  /// In en, this message translates to:
-  /// **'Marked suspicious'**
+  /// In zh, this message translates to:
+  /// **'已标记可疑'**
   String get checkMarkedSuspicious;
 
   /// No description provided for @checkMarkSuspicious.
   ///
-  /// In en, this message translates to:
-  /// **'Mark suspicious'**
+  /// In zh, this message translates to:
+  /// **'标记可疑'**
   String get checkMarkSuspicious;
 
   /// No description provided for @checkAllFourDone.
   ///
-  /// In en, this message translates to:
-  /// **'All 4 steps complete'**
+  /// In zh, this message translates to:
+  /// **'4 步检查全部完成'**
   String get checkAllFourDone;
 
   /// No description provided for @checkAllDoneTip.
   ///
-  /// In en, this message translates to:
-  /// **'If any step raised a suspicious signal, take photos as evidence and contact the front desk / landlord or call the police.'**
+  /// In zh, this message translates to:
+  /// **'若任一环节发现可疑信号，请拍照留存证据，并联系前台/房东或报警处理。'**
   String get checkAllDoneTip;
-
-  /// No description provided for @quickScanTitle.
-  ///
-  /// In en, this message translates to:
-  /// **'Quick Scan'**
-  String get quickScanTitle;
-
-  /// No description provided for @quickScanSubtitle.
-  ///
-  /// In en, this message translates to:
-  /// **'IR → WiFi → Magnet, fully automated'**
-  String get quickScanSubtitle;
-
-  /// No description provided for @quickScanStart.
-  ///
-  /// In en, this message translates to:
-  /// **'Start Quick Scan'**
-  String get quickScanStart;
-
-  /// No description provided for @quickScanRunning.
-  ///
-  /// In en, this message translates to:
-  /// **'Running: {step}'**
-  String quickScanRunning(Object step);
-
-  /// No description provided for @quickScanStepIr.
-  ///
-  /// In en, this message translates to:
-  /// **'IR scan (≈ 20s)'**
-  String get quickScanStepIr;
-
-  /// No description provided for @quickScanStepWifi.
-  ///
-  /// In en, this message translates to:
-  /// **'WiFi scan (≈ 15s)'**
-  String get quickScanStepWifi;
-
-  /// No description provided for @quickScanStepMagnet.
-  ///
-  /// In en, this message translates to:
-  /// **'Magnet scan (≈ 15s)'**
-  String get quickScanStepMagnet;
-
-  /// No description provided for @quickScanDone.
-  ///
-  /// In en, this message translates to:
-  /// **'Quick scan complete. View verdict.'**
-  String get quickScanDone;
-
-  /// No description provided for @verdictTitle.
-  ///
-  /// In en, this message translates to:
-  /// **'Scan Verdict'**
-  String get verdictTitle;
-
-  /// No description provided for @verdictSafe.
-  ///
-  /// In en, this message translates to:
-  /// **'Safe: no suspicious signals found'**
-  String get verdictSafe;
-
-  /// No description provided for @verdictRisk.
-  ///
-  /// In en, this message translates to:
-  /// **'Risk found: {count} suspicious items'**
-  String verdictRisk(Object count);
-
-  /// No description provided for @verdictHighRisk.
-  ///
-  /// In en, this message translates to:
-  /// **'High risk: suspected hidden camera'**
-  String get verdictHighRisk;
-
-  /// No description provided for @verdictViewEvidence.
-  ///
-  /// In en, this message translates to:
-  /// **'View evidence'**
-  String get verdictViewEvidence;
-
-  /// No description provided for @verdictExportPdf.
-  ///
-  /// In en, this message translates to:
-  /// **'Export PDF'**
-  String get verdictExportPdf;
-
-  /// No description provided for @verdictNextActions.
-  ///
-  /// In en, this message translates to:
-  /// **'Next actions'**
-  String get verdictNextActions;
-
-  /// No description provided for @verdictDone.
-  ///
-  /// In en, this message translates to:
-  /// **'Done'**
-  String get verdictDone;
 
   /// No description provided for @nextActionsTitle.
   ///
-  /// In en, this message translates to:
-  /// **'Camera found, what to do'**
+  /// In zh, this message translates to:
+  /// **'发现摄像头怎么办'**
   String get nextActionsTitle;
 
   /// No description provided for @nextActionsTip.
   ///
-  /// In en, this message translates to:
-  /// **'Stay calm, secure evidence first, do not dismantle anything. Personal safety comes first; leave the room immediately if necessary.'**
+  /// In zh, this message translates to:
+  /// **'先冷静、先取证、不拆机。人身安全优先，必要时立刻离开房间。'**
   String get nextActionsTip;
 
   /// No description provided for @nextAction1Title.
   ///
-  /// In en, this message translates to:
-  /// **'1. Photograph evidence (do this first)'**
+  /// In zh, this message translates to:
+  /// **'1. 拍照取证（先做）'**
   String get nextAction1Title;
 
   /// No description provided for @nextAction1Desc.
   ///
-  /// In en, this message translates to:
-  /// **'Use another phone to photograph the suspicious device from multiple angles, including its location and the whole room. Do not touch, dismantle or damage it; keep the scene untouched. This is key evidence for reporting and handling.'**
+  /// In zh, this message translates to:
+  /// **'用另一台手机对可疑设备多角度拍照，拍下安装位置与房间全貌；不要触碰、拆卸或破坏设备，保持现场原样，这是报警和处理的关键证据。'**
   String get nextAction1Desc;
 
   /// No description provided for @nextAction2Title.
   ///
-  /// In en, this message translates to:
-  /// **'2. Notify the venue manager'**
+  /// In zh, this message translates to:
+  /// **'2. 告知场所负责人'**
   String get nextAction2Title;
 
   /// No description provided for @nextAction2Desc.
   ///
-  /// In en, this message translates to:
-  /// **'Hotels/B&Bs: immediately inform the front desk or landlord, ask for a room change or on-site handling, and request a written record. Being secretly filmed is the venue\'s contractual or even legal liability; never negotiate privately without witnesses.'**
+  /// In zh, this message translates to:
+  /// **'酒店/民宿：立刻告知前台或房东，要求换房或到场处理，并索要书面记录；被偷拍是场所的违约甚至违法责任，别在没人见证的情况下私下沟通。'**
   String get nextAction2Desc;
 
   /// No description provided for @nextAction3Title.
   ///
-  /// In en, this message translates to:
-  /// **'3. Call the police'**
+  /// In zh, this message translates to:
+  /// **'3. 报警'**
   String get nextAction3Title;
 
   /// No description provided for @nextAction3Desc.
   ///
-  /// In en, this message translates to:
-  /// **'Call 110 (China) or the local police number and say \"suspected secret filming\"; police will come to collect evidence. Law enforcement can perform forensic analysis; do not remove or destroy the device yourself.'**
+  /// In zh, this message translates to:
+  /// **'拨打 110（中国）/ 当地报警电话，说明\"疑似被偷拍\"，警察会到场取证；警方可对设备进行司法鉴定，个人不要自行拆除或销毁可疑设备。'**
   String get nextAction3Desc;
 
   /// No description provided for @nextActionsRightsTip.
   ///
-  /// In en, this message translates to:
-  /// **'Rights reminder: In China, the Personal Information Protection Law and local \"anti-voyeurism\" legislation explicitly prohibit installing cameras in private venues such as hotels. You may demand compensation and file complaints with 12315 or the local consumers association.'**
+  /// In zh, this message translates to:
+  /// **'维权提示：在中国，《个人信息保护法》与各地\"反偷拍\"立法明确禁止在酒店等隐私场所安装摄像头，你可以要求场所赔偿，并可向 12315 或当地消协投诉。'**
   String get nextActionsRightsTip;
 
   /// No description provided for @permissionDenial.
   ///
-  /// In en, this message translates to:
-  /// **'The {feature} permission is required for this feature. Please enable it in Settings.'**
+  /// In zh, this message translates to:
+  /// **'需要 {feature} 权限才能使用此功能，请在设置中开启。'**
   String permissionDenial(Object feature);
 
   /// No description provided for @permissionCameraName.
   ///
-  /// In en, this message translates to:
-  /// **'Camera'**
+  /// In zh, this message translates to:
+  /// **'相机'**
   String get permissionCameraName;
 
   /// No description provided for @goToSettings.
   ///
-  /// In en, this message translates to:
-  /// **'Open Settings'**
+  /// In zh, this message translates to:
+  /// **'去设置开启'**
   String get goToSettings;
 
   /// No description provided for @irNoCamera.
   ///
-  /// In en, this message translates to:
-  /// **'No camera detected'**
+  /// In zh, this message translates to:
+  /// **'未检测到相机'**
   String get irNoCamera;
 
   /// No description provided for @irInitFailed.
   ///
-  /// In en, this message translates to:
-  /// **'Camera initialization failed: {error}'**
+  /// In zh, this message translates to:
+  /// **'相机初始化失败：{error}'**
   String irInitFailed(Object error);
 
   /// No description provided for @irSustainedSummary.
   ///
-  /// In en, this message translates to:
-  /// **'Persistent suspected infrared light source (clear IR illuminator signature)'**
+  /// In zh, this message translates to:
+  /// **'持续发现疑似红外光源（红外补光特征明显）'**
   String get irSustainedSummary;
 
   /// No description provided for @irOccasionalSummary.
   ///
-  /// In en, this message translates to:
-  /// **'Occasional infrared spot detected (may be a remote control / reflection)'**
+  /// In zh, this message translates to:
+  /// **'检测到偶发红外光点（可能是遥控器/反光）'**
   String get irOccasionalSummary;
 
   /// No description provided for @irGuidance.
   ///
-  /// In en, this message translates to:
-  /// **'Turn off the lights and draw the curtains. Slowly sweep smoke detectors, outlets, mirrors and other spots.'**
+  /// In zh, this message translates to:
+  /// **'关闭灯光、拉上窗帘。缓慢扫描烟雾报警器、插座、镜子等位置。'**
   String get irGuidance;
 
   /// No description provided for @torchOn.
   ///
-  /// In en, this message translates to:
-  /// **'Torch on'**
+  /// In zh, this message translates to:
+  /// **'手电已开'**
   String get torchOn;
 
   /// No description provided for @torchOff.
   ///
-  /// In en, this message translates to:
-  /// **'Torch on'**
+  /// In zh, this message translates to:
+  /// **'打开手电'**
   String get torchOff;
 
   /// No description provided for @irFlipTooltip.
   ///
-  /// In en, this message translates to:
-  /// **'Switch camera (front camera is more IR-sensitive)'**
+  /// In zh, this message translates to:
+  /// **'切换摄像头（前摄对红外更敏感）'**
   String get irFlipTooltip;
 
   /// No description provided for @irResTooltip.
   ///
-  /// In en, this message translates to:
-  /// **'Resolution (lower = higher frame rate)'**
+  /// In zh, this message translates to:
+  /// **'画面分辨率（降低可提升帧率）'**
   String get irResTooltip;
 
   /// No description provided for @irResLow.
   ///
-  /// In en, this message translates to:
-  /// **'Smooth (480p, highest frame rate)'**
+  /// In zh, this message translates to:
+  /// **'流畅（480p，最高帧率）'**
   String get irResLow;
 
   /// No description provided for @irResMedium.
   ///
-  /// In en, this message translates to:
-  /// **'Standard (720p, recommended)'**
+  /// In zh, this message translates to:
+  /// **'标准（720p，推荐）'**
   String get irResMedium;
 
   /// No description provided for @irResHigh.
   ///
-  /// In en, this message translates to:
-  /// **'HD (1080p, lower frame rate)'**
+  /// In zh, this message translates to:
+  /// **'高清（1080p，帧率较低）'**
   String get irResHigh;
 
   /// No description provided for @irPermTitle.
   ///
-  /// In en, this message translates to:
-  /// **'Camera permission required'**
+  /// In zh, this message translates to:
+  /// **'需要相机权限'**
   String get irPermTitle;
 
   /// No description provided for @irErrorTitle.
   ///
-  /// In en, this message translates to:
-  /// **'IR detection unavailable'**
+  /// In zh, this message translates to:
+  /// **'无法使用红外检测'**
   String get irErrorTitle;
 
   /// No description provided for @irAlarmBanner.
   ///
-  /// In en, this message translates to:
-  /// **'Persistent suspected IR light source, move slowly and confirm from multiple angles'**
+  /// In zh, this message translates to:
+  /// **'持续发现疑似红外光源，请缓慢移动并从多角度确认'**
   String get irAlarmBanner;
 
   /// No description provided for @irAlertBanner.
   ///
-  /// In en, this message translates to:
-  /// **'Occasional spot detected — likely a TV remote (IR only when pressing buttons) or a reflection; only sustained spots are suspicious'**
+  /// In zh, this message translates to:
+  /// **'检测到偶发光点，可能是电视遥控器（仅在按键瞬间发红外）或反光，连续亮点才可疑'**
   String get irAlertBanner;
 
   /// No description provided for @stabilityChip.
   ///
-  /// In en, this message translates to:
-  /// **'Device is moving, keep it steady'**
+  /// In zh, this message translates to:
+  /// **'设备在移动，请保持稳定'**
   String get stabilityChip;
 
   /// No description provided for @startingCamera.
   ///
-  /// In en, this message translates to:
-  /// **'Starting camera…'**
+  /// In zh, this message translates to:
+  /// **'正在启动相机…'**
   String get startingCamera;
 
   /// No description provided for @lensInitFailed.
   ///
-  /// In en, this message translates to:
-  /// **'Camera initialization failed: {error}'**
+  /// In zh, this message translates to:
+  /// **'相机初始化失败：{error}'**
   String lensInitFailed(Object error);
 
   /// No description provided for @lensConfirmedSummary.
   ///
-  /// In en, this message translates to:
-  /// **'Suspected lens reflection spot found, change angle to confirm'**
+  /// In zh, this message translates to:
+  /// **'发现疑似镜头反光光斑，请变换角度确认'**
   String get lensConfirmedSummary;
 
   /// No description provided for @lensGuidance.
   ///
-  /// In en, this message translates to:
-  /// **'Keep the torch on with light coaxial to the lens, slowly pan across walls and objects'**
+  /// In zh, this message translates to:
+  /// **'保持手电常亮、手机与光源同轴，缓慢横移扫描墙面与物体'**
   String get lensGuidance;
 
   /// No description provided for @lensFlipTooltip.
   ///
-  /// In en, this message translates to:
-  /// **'Switch camera'**
+  /// In zh, this message translates to:
+  /// **'切换摄像头'**
   String get lensFlipTooltip;
 
   /// No description provided for @lensPermTitle.
   ///
-  /// In en, this message translates to:
-  /// **'Camera permission required'**
+  /// In zh, this message translates to:
+  /// **'需要相机权限'**
   String get lensPermTitle;
 
   /// No description provided for @lensErrorTitle.
   ///
-  /// In en, this message translates to:
-  /// **'Reflection scan unavailable'**
+  /// In zh, this message translates to:
+  /// **'无法使用反光扫描'**
   String get lensErrorTitle;
 
   /// No description provided for @lensConfirmBanner.
   ///
-  /// In en, this message translates to:
-  /// **'Suspected lens reflection, change angle to confirm'**
+  /// In zh, this message translates to:
+  /// **'疑似镜头反光，请变换角度确认'**
   String get lensConfirmBanner;
 
   /// No description provided for @lensHintBanner.
   ///
-  /// In en, this message translates to:
-  /// **'Bright circular spot detected, keep scanning to confirm reflection (glass/metal can cause false positives)'**
+  /// In zh, this message translates to:
+  /// **'检测到高亮圆斑，持续扫描确认是否反光（玻璃/金属会误报）'**
   String get lensHintBanner;
 
   /// No description provided for @retry.
   ///
-  /// In en, this message translates to:
-  /// **'Retry'**
+  /// In zh, this message translates to:
+  /// **'重试'**
   String get retry;
 
   /// No description provided for @wifiNeedInfo.
   ///
-  /// In en, this message translates to:
-  /// **'Could not get current WiFi info, make sure you are connected to WiFi'**
+  /// In zh, this message translates to:
+  /// **'未能获取当前 WiFi 信息，请确认已连接 WiFi'**
   String get wifiNeedInfo;
 
   /// No description provided for @wifiHighCount.
   ///
-  /// In en, this message translates to:
-  /// **'{count} high-risk device(s)'**
+  /// In zh, this message translates to:
+  /// **'高风险设备 {count} 台'**
   String wifiHighCount(Object count);
 
   /// No description provided for @wifiMediumCount.
   ///
-  /// In en, this message translates to:
-  /// **'{count} suspicious device(s)'**
+  /// In zh, this message translates to:
+  /// **'可疑设备 {count} 台'**
   String wifiMediumCount(Object count);
 
   /// No description provided for @wifiNoOpenDevices.
   ///
-  /// In en, this message translates to:
-  /// **'No devices with open probe ports found'**
+  /// In zh, this message translates to:
+  /// **'未发现开放探测端口的设备'**
   String get wifiNoOpenDevices;
 
   /// No description provided for @wifiSummary.
   ///
-  /// In en, this message translates to:
-  /// **'WiFi {ssid}, {count} device(s) found. {detail}'**
+  /// In zh, this message translates to:
+  /// **'WiFi {ssid}，共发现设备 {count} 台。{detail}'**
   String wifiSummary(Object count, Object detail, Object ssid);
 
   /// No description provided for @wifiUnknown.
   ///
-  /// In en, this message translates to:
-  /// **'Unknown'**
+  /// In zh, this message translates to:
+  /// **'未知'**
   String get wifiUnknown;
 
   /// No description provided for @wifiVerdictGw.
   ///
-  /// In en, this message translates to:
-  /// **'No devices with open probe ports found (gateway {gw} reachable). Make sure: the camera is on the same WiFi and AP isolation is off; some brands are cloud-only by default and need local access enabled in their official app.'**
+  /// In zh, this message translates to:
+  /// **'未发现开放探测端口的设备（网关 {gw} 连通正常）。请确认：摄像头与本机在同一 WiFi、未开 AP 隔离；部分品牌摄像头默认仅云端，需在官方 App 开启本地访问。'**
   String wifiVerdictGw(Object gw);
 
   /// No description provided for @wifiVerdictInternet.
   ///
-  /// In en, this message translates to:
-  /// **'Public internet (1.1.1.1:80) is reachable but the LAN is not — your phone is isolated or blocked from LAN devices. Most common causes: 1) VPN/proxy is on (it blocks the LAN, please turn it off); 2) phone is on the router\'s \"guest network\" or \"device isolation/AP isolation\" is enabled; 3) iOS local network permission has not taken effect (Settings > Privacy & Security > Local Network, make sure \"Spy Assassin\" is green; if not, restart the phone and retry).'**
+  /// In zh, this message translates to:
+  /// **'能访问公网(1.1.1.1:80)，但无法访问局域网——说明手机与局域网设备被隔离或屏蔽。最常见原因：① 手机开着 VPN/代理（会屏蔽局域网，请关闭）；② 手机连的是路由器的「访客网络」或开启了「设备隔离/AP 隔离」；③ iOS 本地网络权限仍未生效（设置 > 隐私与安全性 > 本地网络，确认「间谍刺客」开关为绿色；不行就重启手机后重试）。'**
   String get wifiVerdictInternet;
 
   /// No description provided for @wifiVerdictNone.
   ///
-  /// In en, this message translates to:
-  /// **'Neither public internet nor LAN is reachable — check if Airplane Mode or a global VPN is on, or confirm the WiFi actually has internet.'**
+  /// In zh, this message translates to:
+  /// **'公网与局域网均不可达——请检查是否开了飞行模式、VPN 全局模式，或确认 WiFi 是否真的可上网。'**
   String get wifiVerdictNone;
 
   /// No description provided for @wifiDisclaimer.
   ///
-  /// In en, this message translates to:
-  /// **'Note: only devices on the current WiFi can be found; offline or local-storage cameras are invisible. Results are for reference only, not legal evidence. Long-press a device to quickly mark it as \"my device\".'**
+  /// In zh, this message translates to:
+  /// **'说明：仅检测当前 WiFi 下的联网设备，离线或本地存储的摄像头无法被发现；结果仅供参考，非执法证据。长按设备可快速标记为\"我的设备\"。'**
   String get wifiDisclaimer;
 
   /// No description provided for @wifiNotConnected.
   ///
-  /// In en, this message translates to:
-  /// **'Not connected to WiFi'**
+  /// In zh, this message translates to:
+  /// **'未连接 WiFi'**
   String get wifiNotConnected;
 
   /// No description provided for @wifiGettingInfo.
   ///
-  /// In en, this message translates to:
-  /// **'Getting network info…'**
+  /// In zh, this message translates to:
+  /// **'正在获取网络信息…'**
   String get wifiGettingInfo;
 
   /// No description provided for @wifiGatewayMask.
   ///
-  /// In en, this message translates to:
-  /// **'Gateway {gateway} · Mask {mask}'**
+  /// In zh, this message translates to:
+  /// **'网关 {gateway} · 掩码 {mask}'**
   String wifiGatewayMask(Object gateway, Object mask);
 
   /// No description provided for @wifiScanning.
   ///
-  /// In en, this message translates to:
-  /// **'Scanning subnet…'**
+  /// In zh, this message translates to:
+  /// **'正在扫描网段…'**
   String get wifiScanning;
 
   /// No description provided for @wifiStartScan.
   ///
-  /// In en, this message translates to:
-  /// **'Scan LAN devices'**
+  /// In zh, this message translates to:
+  /// **'开始扫描局域网设备'**
   String get wifiStartScan;
 
   /// No description provided for @wifiResults.
   ///
-  /// In en, this message translates to:
-  /// **'Scan results'**
+  /// In zh, this message translates to:
+  /// **'扫描结果'**
   String get wifiResults;
 
   /// No description provided for @wifiRiskCounts.
   ///
-  /// In en, this message translates to:
-  /// **'{high} high-risk · {medium} suspicious'**
+  /// In zh, this message translates to:
+  /// **'高风险 {high} · 可疑 {medium}'**
   String wifiRiskCounts(Object high, Object medium);
 
   /// No description provided for @wifiMyDevices.
   ///
-  /// In en, this message translates to:
-  /// **'My devices (marked)'**
+  /// In zh, this message translates to:
+  /// **'我的设备（已标记）'**
   String get wifiMyDevices;
 
   /// No description provided for @wifiPermTitle.
   ///
-  /// In en, this message translates to:
-  /// **'Location permission required'**
+  /// In zh, this message translates to:
+  /// **'需要定位权限'**
   String get wifiPermTitle;
 
   /// No description provided for @wifiPermDesc.
   ///
-  /// In en, this message translates to:
-  /// **'Android requires location permission to read WiFi info. Scan results stay on your device.'**
+  /// In zh, this message translates to:
+  /// **'Android 系统要求定位权限才能读取 WiFi 信息。扫描结果仅在本地处理。'**
   String get wifiPermDesc;
 
   /// No description provided for @wifiDetailReason.
   ///
-  /// In en, this message translates to:
-  /// **'Risk: {reason}'**
+  /// In zh, this message translates to:
+  /// **'风险判定：{reason}'**
   String wifiDetailReason(Object reason);
 
   /// No description provided for @wifiDetailIp.
   ///
-  /// In en, this message translates to:
-  /// **'IP address'**
+  /// In zh, this message translates to:
+  /// **'IP 地址'**
   String get wifiDetailIp;
 
   /// No description provided for @wifiDetailHostname.
   ///
-  /// In en, this message translates to:
-  /// **'Device name'**
+  /// In zh, this message translates to:
+  /// **'设备名称'**
   String get wifiDetailHostname;
 
   /// No description provided for @wifiDetailMac.
   ///
-  /// In en, this message translates to:
-  /// **'MAC address'**
+  /// In zh, this message translates to:
+  /// **'MAC 地址'**
   String get wifiDetailMac;
 
   /// No description provided for @wifiDetailVendor.
   ///
-  /// In en, this message translates to:
-  /// **'Vendor match'**
+  /// In zh, this message translates to:
+  /// **'厂商匹配'**
   String get wifiDetailVendor;
 
   /// No description provided for @wifiDetailPorts.
   ///
-  /// In en, this message translates to:
-  /// **'Open ports'**
+  /// In zh, this message translates to:
+  /// **'开放端口'**
   String get wifiDetailPorts;
 
   /// No description provided for @wifiNone.
   ///
-  /// In en, this message translates to:
-  /// **'None'**
+  /// In zh, this message translates to:
+  /// **'无'**
   String get wifiNone;
 
   /// No description provided for @wifiPortUnknown.
   ///
-  /// In en, this message translates to:
-  /// **'Unknown'**
+  /// In zh, this message translates to:
+  /// **'未知'**
   String get wifiPortUnknown;
 
   /// No description provided for @wifiDetailUpnp.
   ///
-  /// In en, this message translates to:
-  /// **'UPnP discovery'**
+  /// In zh, this message translates to:
+  /// **'UPnP 发现'**
   String get wifiDetailUpnp;
 
   /// No description provided for @wifiDetailRtsp.
   ///
-  /// In en, this message translates to:
-  /// **'RTSP fingerprint'**
+  /// In zh, this message translates to:
+  /// **'RTSP 指纹'**
   String get wifiDetailRtsp;
 
   /// No description provided for @wifiDetailHttp.
   ///
-  /// In en, this message translates to:
-  /// **'HTTP fingerprint'**
+  /// In zh, this message translates to:
+  /// **'HTTP 指纹'**
   String get wifiDetailHttp;
 
   /// No description provided for @wifiNoMacIos.
   ///
-  /// In en, this message translates to:
-  /// **'iOS cannot read the MAC address, so hardware vendor info is unavailable'**
+  /// In zh, this message translates to:
+  /// **'iOS 无法读取 MAC 地址，不含硬件厂商线索'**
   String get wifiNoMacIos;
 
   /// No description provided for @wifiStaleChip.
   ///
-  /// In en, this message translates to:
-  /// **'Likely sleeping'**
+  /// In zh, this message translates to:
+  /// **'可能休眠'**
   String get wifiStaleChip;
 
   /// No description provided for @wifiStaleSection.
   ///
-  /// In en, this message translates to:
-  /// **'Sleeping / unreachable (history)'**
+  /// In zh, this message translates to:
+  /// **'休眠/未响应（历史记录）'**
   String get wifiStaleSection;
 
   /// No description provided for @wifiStaleLastSeen.
   ///
-  /// In en, this message translates to:
-  /// **'Last online {time}'**
+  /// In zh, this message translates to:
+  /// **'上次在线 {time}'**
   String wifiStaleLastSeen(Object time);
 
   /// No description provided for @wifiStaleNote.
   ///
-  /// In en, this message translates to:
-  /// **'No response this time; may be sleeping. From the last scan.'**
+  /// In zh, this message translates to:
+  /// **'本次扫描未响应，可能处于休眠。来自上次扫描记录。'**
   String get wifiStaleNote;
 
   /// No description provided for @wifiStaleCount.
   ///
-  /// In en, this message translates to:
-  /// **'{count} more sleeping / unreachable (history)'**
+  /// In zh, this message translates to:
+  /// **'另有 {count} 台休眠/未响应（历史记录）'**
   String wifiStaleCount(Object count);
 
   /// No description provided for @wifiMarkedCancel.
   ///
-  /// In en, this message translates to:
-  /// **'My device (tap to unmark)'**
+  /// In zh, this message translates to:
+  /// **'我的设备（点击取消标记）'**
   String get wifiMarkedCancel;
 
   /// No description provided for @wifiMarkAsMine.
   ///
-  /// In en, this message translates to:
-  /// **'Mark as my device'**
+  /// In zh, this message translates to:
+  /// **'标记为我的设备'**
   String get wifiMarkAsMine;
 
   /// No description provided for @wifiMyDeviceChip.
   ///
-  /// In en, this message translates to:
-  /// **'My device'**
+  /// In zh, this message translates to:
+  /// **'我的设备'**
   String get wifiMyDeviceChip;
 
   /// No description provided for @wifiPorts.
   ///
-  /// In en, this message translates to:
-  /// **'Port {text}'**
+  /// In zh, this message translates to:
+  /// **'端口 {text}'**
   String wifiPorts(Object text);
 
   /// No description provided for @wifiNoOpenPort.
   ///
-  /// In en, this message translates to:
-  /// **'No open port found'**
+  /// In zh, this message translates to:
+  /// **'未探到开放端口'**
   String get wifiNoOpenPort;
 
   /// No description provided for @bleUnnamed.
   ///
-  /// In en, this message translates to:
-  /// **'Unnamed device'**
+  /// In zh, this message translates to:
+  /// **'未命名设备'**
   String get bleUnnamed;
 
   /// No description provided for @bleSummary.
   ///
-  /// In en, this message translates to:
-  /// **'{count} Bluetooth device(s) nearby. {high} high-risk, {medium} suspicious. {names}'**
+  /// In zh, this message translates to:
+  /// **'周边蓝牙设备共 {count} 个。高风险 {high}、可疑 {medium}。{names}'**
   String bleSummary(Object count, Object high, Object medium, Object names);
 
   /// No description provided for @bleDisclaimer.
   ///
-  /// In en, this message translates to:
-  /// **'Note: Bluetooth cameras are uncommon, this tool is only a supplementary clue. Names containing camera/recorder keywords or unnamed devices are worth attention; connected earbuds, bands and speakers are normal devices.'**
+  /// In zh, this message translates to:
+  /// **'说明：蓝牙摄像头使用率低，本工具仅作辅助线索。名称含摄像头/录音关键词或未命名设备值得留意；已连接的耳机、手环、音箱等均为正常设备。'**
   String get bleDisclaimer;
 
   /// No description provided for @bleOn.
   ///
-  /// In en, this message translates to:
-  /// **'Bluetooth on'**
+  /// In zh, this message translates to:
+  /// **'蓝牙已开启'**
   String get bleOn;
 
   /// No description provided for @bleTurningOn.
   ///
-  /// In en, this message translates to:
-  /// **'Turning on…'**
+  /// In zh, this message translates to:
+  /// **'正在开启…'**
   String get bleTurningOn;
 
   /// No description provided for @bleOff.
   ///
-  /// In en, this message translates to:
-  /// **'Bluetooth off'**
+  /// In zh, this message translates to:
+  /// **'蓝牙未开启'**
   String get bleOff;
 
   /// No description provided for @bleOnDesc.
   ///
-  /// In en, this message translates to:
-  /// **'Ready to scan nearby devices'**
+  /// In zh, this message translates to:
+  /// **'可以开始扫描周边设备'**
   String get bleOnDesc;
 
   /// No description provided for @bleOffDesc.
   ///
-  /// In en, this message translates to:
-  /// **'Bluetooth must be on to scan'**
+  /// In zh, this message translates to:
+  /// **'需要开启蓝牙才能扫描'**
   String get bleOffDesc;
 
   /// No description provided for @bleTurnOn.
   ///
-  /// In en, this message translates to:
-  /// **'Turn on'**
+  /// In zh, this message translates to:
+  /// **'开启'**
   String get bleTurnOn;
 
   /// No description provided for @bleScanning.
   ///
-  /// In en, this message translates to:
-  /// **'Scanning (about 5s)…'**
+  /// In zh, this message translates to:
+  /// **'正在扫描（约 5 秒）…'**
   String get bleScanning;
 
   /// No description provided for @bleStartScan.
   ///
-  /// In en, this message translates to:
-  /// **'Scan nearby Bluetooth devices'**
+  /// In zh, this message translates to:
+  /// **'开始扫描周边蓝牙设备'**
   String get bleStartScan;
 
   /// No description provided for @bleRiskHigh.
   ///
-  /// In en, this message translates to:
-  /// **'High risk'**
+  /// In zh, this message translates to:
+  /// **'高风险'**
   String get bleRiskHigh;
 
   /// No description provided for @bleRiskMedium.
   ///
-  /// In en, this message translates to:
-  /// **'Suspicious'**
+  /// In zh, this message translates to:
+  /// **'可疑'**
   String get bleRiskMedium;
 
   /// No description provided for @bleRiskLow.
   ///
-  /// In en, this message translates to:
-  /// **'Low risk'**
+  /// In zh, this message translates to:
+  /// **'低风险'**
   String get bleRiskLow;
 
   /// No description provided for @magnetSummary.
   ///
-  /// In en, this message translates to:
-  /// **'Field delta {delta} µT above ambient, exceeds threshold of {threshold} µT'**
+  /// In zh, this message translates to:
+  /// **'相对环境磁场增量 {delta} µT，超过阈值 {threshold} µT'**
   String magnetSummary(Object delta, Object threshold);
 
   /// No description provided for @magnetUsageTitle.
   ///
-  /// In en, this message translates to:
-  /// **'Usage tips'**
+  /// In zh, this message translates to:
+  /// **'使用提示'**
   String get magnetUsageTitle;
 
   /// No description provided for @magnetTip1.
   ///
-  /// In en, this message translates to:
-  /// **'• Hold the phone 3~10 cm from the suspicious object and move slowly'**
+  /// In zh, this message translates to:
+  /// **'• 将手机贴近可疑物体 3~10cm 缓慢移动'**
   String get magnetTip1;
 
   /// No description provided for @magnetTip2.
   ///
-  /// In en, this message translates to:
-  /// **'• Magnetometer location: near the top-right corner on iPhone, near the top-center on most Android phones'**
+  /// In zh, this message translates to:
+  /// **'• 磁力传感器位置：iPhone 在机身右上角附近，多数 Android 在顶部中段'**
   String get magnetTip2;
 
   /// No description provided for @magnetTip3.
   ///
-  /// In en, this message translates to:
-  /// **'• Only act when above the threshold line for over 1 second'**
+  /// In zh, this message translates to:
+  /// **'• 超过阈值线并持续 1 秒以上，才值得进一步确认'**
   String get magnetTip3;
 
   /// No description provided for @magnetTip4.
   ///
-  /// In en, this message translates to:
-  /// **'• Dense electronics areas (outlet walls, near routers) cause more false positives'**
+  /// In zh, this message translates to:
+  /// **'• 电子设备密集区域（插座墙、路由器旁）误报较多'**
   String get magnetTip4;
 
   /// No description provided for @magnetCalibrating.
   ///
-  /// In en, this message translates to:
-  /// **'Calibrating ambient magnetic field (keep the phone still)…'**
+  /// In zh, this message translates to:
+  /// **'正在校准环境磁场（请保持手机静止）…'**
   String get magnetCalibrating;
 
   /// No description provided for @magnetCalibrated.
   ///
-  /// In en, this message translates to:
-  /// **'Calibrated, you can start scanning suspicious objects'**
+  /// In zh, this message translates to:
+  /// **'已校准，可以开始贴近可疑物体扫描'**
   String get magnetCalibrated;
 
   /// No description provided for @magnetRecalibrate.
   ///
-  /// In en, this message translates to:
-  /// **'Recalibrate'**
+  /// In zh, this message translates to:
+  /// **'重新校准'**
   String get magnetRecalibrate;
 
   /// No description provided for @magnetAlarm.
   ///
-  /// In en, this message translates to:
-  /// **'Magnetic anomaly detected, please confirm!'**
+  /// In zh, this message translates to:
+  /// **'检测到磁场异常，请确认！'**
   String get magnetAlarm;
 
   /// No description provided for @magnetDelta.
   ///
-  /// In en, this message translates to:
-  /// **'Field delta vs ambient'**
+  /// In zh, this message translates to:
+  /// **'相对环境磁场增量'**
   String get magnetDelta;
 
   /// No description provided for @magnetThresholdValue.
   ///
-  /// In en, this message translates to:
-  /// **'Threshold {value} µT'**
+  /// In zh, this message translates to:
+  /// **'阈值 {value} µT'**
   String magnetThresholdValue(Object value);
 
   /// No description provided for @magnetThresholdTitle.
   ///
-  /// In en, this message translates to:
-  /// **'Alarm threshold'**
+  /// In zh, this message translates to:
+  /// **'报警阈值'**
   String get magnetThresholdTitle;
 
   /// No description provided for @magnetThresholdHint.
   ///
-  /// In en, this message translates to:
-  /// **'Raise to reduce false positives (lower for more sensitive scenes)'**
+  /// In zh, this message translates to:
+  /// **'调高可减少误报（更灵敏的场景调低）'**
   String get magnetThresholdHint;
 
   /// No description provided for @magnetChart.
   ///
-  /// In en, this message translates to:
-  /// **'Live chart'**
+  /// In zh, this message translates to:
+  /// **'实时曲线'**
   String get magnetChart;
 
   /// No description provided for @moreTools.
   ///
-  /// In en, this message translates to:
-  /// **'Detection tools'**
+  /// In zh, this message translates to:
+  /// **'检测工具'**
   String get moreTools;
 
   /// No description provided for @moreLensTitle.
   ///
-  /// In en, this message translates to:
-  /// **'Lens reflection scan'**
+  /// In zh, this message translates to:
+  /// **'镜头反光扫描'**
   String get moreLensTitle;
 
   /// No description provided for @moreLensSubtitle.
   ///
-  /// In en, this message translates to:
-  /// **'Coaxial torch light to find lens retro-reflection spots'**
+  /// In zh, this message translates to:
+  /// **'手电同轴光查找镜头回反射光斑'**
   String get moreLensSubtitle;
 
   /// No description provided for @moreBleTitle.
   ///
-  /// In en, this message translates to:
-  /// **'Bluetooth scan'**
+  /// In zh, this message translates to:
+  /// **'蓝牙扫描'**
   String get moreBleTitle;
 
   /// No description provided for @moreBleSubtitle.
   ///
-  /// In en, this message translates to:
-  /// **'Supplementary scan of nearby Bluetooth devices'**
+  /// In zh, this message translates to:
+  /// **'辅助排查周边蓝牙设备'**
   String get moreBleSubtitle;
 
   /// No description provided for @moreReportTitle.
   ///
-  /// In en, this message translates to:
-  /// **'Inspection report'**
+  /// In zh, this message translates to:
+  /// **'检测报告'**
   String get moreReportTitle;
 
   /// No description provided for @moreReportSubtitle.
   ///
-  /// In en, this message translates to:
-  /// **'Summarize results and export as PDF'**
+  /// In zh, this message translates to:
+  /// **'汇总检测结论，导出 PDF 存档'**
   String get moreReportSubtitle;
 
   /// No description provided for @moreHistoryTitle.
   ///
-  /// In en, this message translates to:
-  /// **'Scan History'**
+  /// In zh, this message translates to:
+  /// **'扫描历史'**
   String get moreHistoryTitle;
 
   /// No description provided for @moreHistorySubtitle.
   ///
-  /// In en, this message translates to:
-  /// **'Saved inspection records and photos'**
+  /// In zh, this message translates to:
+  /// **'已保存的检查记录与现场照片'**
   String get moreHistorySubtitle;
 
   /// No description provided for @moreGuide.
   ///
-  /// In en, this message translates to:
-  /// **'Hiding spots guide'**
+  /// In zh, this message translates to:
+  /// **'排查指南'**
   String get moreGuide;
 
   /// No description provided for @moreGuideSubtitle.
   ///
-  /// In en, this message translates to:
-  /// **'Common hiding places and anti-voyeurism tips'**
+  /// In zh, this message translates to:
+  /// **'常见隐藏位置与反偷拍技巧'**
   String get moreGuideSubtitle;
 
   /// No description provided for @guideTitle.
   ///
-  /// In en, this message translates to:
-  /// **'Inspection Guide'**
+  /// In zh, this message translates to:
+  /// **'排查指南'**
   String get guideTitle;
 
   /// No description provided for @guideIntro.
   ///
-  /// In en, this message translates to:
-  /// **'Check by eye first, then verify each spot with the tools. Below are the most common hiding places — go through them in order.'**
+  /// In zh, this message translates to:
+  /// **'先视觉排查，再用工具逐个验证。以下是最常见的藏匿位置，建议按顺序过一遍。'**
   String get guideIntro;
 
   /// No description provided for @guideCta.
   ///
-  /// In en, this message translates to:
-  /// **'Found something suspicious? See next steps'**
+  /// In zh, this message translates to:
+  /// **'发现可疑？查看下一步行动'**
   String get guideCta;
 
   /// No description provided for @guideHow.
   ///
-  /// In en, this message translates to:
-  /// **'How to check: '**
+  /// In zh, this message translates to:
+  /// **'怎么看：'**
   String get guideHow;
 
   /// No description provided for @guideHint.
   ///
-  /// In en, this message translates to:
-  /// **'Tip: '**
+  /// In zh, this message translates to:
+  /// **'提示：'**
   String get guideHint;
 
   /// No description provided for @guideP1Title.
   ///
-  /// In en, this message translates to:
-  /// **'Smoke detector'**
+  /// In zh, this message translates to:
+  /// **'烟雾报警器'**
   String get guideP1Title;
 
   /// No description provided for @guideP1Check.
   ///
-  /// In en, this message translates to:
-  /// **'Stand directly beneath it and look up / from the side; pinholes often hide at metal-plastic seams'**
+  /// In zh, this message translates to:
+  /// **'站在正下方从下往上 / 侧向观察，金属与塑料接缝处常有针孔'**
   String get guideP1Check;
 
   /// No description provided for @guideP1Hint.
   ///
-  /// In en, this message translates to:
-  /// **'Black housings hide pinhole lenses easily — get close and check several angles'**
+  /// In zh, this message translates to:
+  /// **'黑色机身里最容易藏针孔镜头，务必贴近多看几个角度'**
   String get guideP1Hint;
 
   /// No description provided for @guideP2Title.
   ///
-  /// In en, this message translates to:
-  /// **'Outlets & power strips'**
+  /// In zh, this message translates to:
+  /// **'插座孔与插线板'**
   String get guideP2Title;
 
   /// No description provided for @guideP2Check.
   ///
-  /// In en, this message translates to:
-  /// **'Look for unnatural holes or bulges on the panel; shine a flashlight inside'**
+  /// In zh, this message translates to:
+  /// **'观察插座面板是否有不自然的孔洞或凸起，用手电照内部'**
   String get guideP2Check;
 
   /// No description provided for @guideP2Hint.
   ///
-  /// In en, this message translates to:
-  /// **'USB ports, charger holes and power-strip sides are common hiding spots'**
+  /// In zh, this message translates to:
+  /// **'USB 插口、充电口、排插侧面都是藏镜头高发区'**
   String get guideP2Hint;
 
   /// No description provided for @guideP3Title.
   ///
-  /// In en, this message translates to:
-  /// **'Mirror (two-way)'**
+  /// In zh, this message translates to:
+  /// **'镜子（双面镜）'**
   String get guideP3Title;
 
   /// No description provided for @guideP3Check.
   ///
-  /// In en, this message translates to:
-  /// **'Press a fingernail to the glass: a gap means a normal mirror; no gap means caution'**
+  /// In zh, this message translates to:
+  /// **'指甲贴镜面：指甲与倒影之间有空隙为普通镜，无空隙需警惕'**
   String get guideP3Check;
 
   /// No description provided for @guideP3Hint.
   ///
-  /// In en, this message translates to:
-  /// **'A two-way mirror may hide a room behind it — but the mirror itself can also hold a micro lens'**
+  /// In zh, this message translates to:
+  /// **'双面镜后方可能是一间房，但镜子本身也能藏微型镜头'**
   String get guideP3Hint;
 
   /// No description provided for @guideP4Title.
   ///
-  /// In en, this message translates to:
-  /// **'Wall art & frames'**
+  /// In zh, this message translates to:
+  /// **'装饰画'**
   String get guideP4Title;
 
   /// No description provided for @guideP4Check.
   ///
-  /// In en, this message translates to:
-  /// **'Check the frame edges and the gap behind the painting for extra holes'**
+  /// In zh, this message translates to:
+  /// **'检查画框四周、挂画背后的缝隙，是否有多余的洞'**
   String get guideP4Check;
 
   /// No description provided for @guideP4Hint.
   ///
-  /// In en, this message translates to:
-  /// **'Hidden compartments behind frames are classic — gently press the frame to feel for oddities'**
+  /// In zh, this message translates to:
+  /// **'画框暗格是经典藏匿点，轻轻按压边框感受是否有异'**
   String get guideP4Hint;
 
   /// No description provided for @guideP5Title.
   ///
-  /// In en, this message translates to:
-  /// **'AC vents'**
+  /// In zh, this message translates to:
+  /// **'空调出风口'**
   String get guideP5Title;
 
   /// No description provided for @guideP5Check.
   ///
-  /// In en, this message translates to:
-  /// **'Shine a flashlight into the vent and look for unusual reflections between the fins'**
+  /// In zh, this message translates to:
+  /// **'对出风口内部用手电照射，观察格栅间是否有异常反光体'**
   String get guideP5Check;
 
   /// No description provided for @guideP5Hint.
   ///
-  /// In en, this message translates to:
-  /// **'The gap above a wall-mounted AC and the wall can hide micro devices'**
+  /// In zh, this message translates to:
+  /// **'挂机空调顶部与墙体之间也容易塞入微型设备'**
   String get guideP5Hint;
 
   /// No description provided for @guideP6Title.
   ///
-  /// In en, this message translates to:
-  /// **'Bedside clock / lamp'**
+  /// In zh, this message translates to:
+  /// **'床头电子钟 / 台灯'**
   String get guideP6Title;
 
   /// No description provided for @guideP6Check.
   ///
-  /// In en, this message translates to:
-  /// **'Check the screen, button gaps and base for extra holes'**
+  /// In zh, this message translates to:
+  /// **'屏幕面板、按键缝隙、底座是否有额外的孔'**
   String get guideP6Check;
 
   /// No description provided for @guideP6Hint.
   ///
-  /// In en, this message translates to:
-  /// **'Devices right by the bed are both hidden and close to you — check them first'**
+  /// In zh, this message translates to:
+  /// **'紧贴床头的电子设备既是隐蔽点又贴近你，优先级最高'**
   String get guideP6Hint;
 
   /// No description provided for @guideP7Title.
   ///
-  /// In en, this message translates to:
-  /// **'Router / TV box'**
+  /// In zh, this message translates to:
+  /// **'路由器 / 电视盒子'**
   String get guideP7Title;
 
   /// No description provided for @guideP7Check.
   ///
-  /// In en, this message translates to:
-  /// **'Look for extra LEDs or pinholes beyond the normal lights'**
+  /// In zh, this message translates to:
+  /// **'观察 LED 是否有异常的额外指示灯或针孔'**
   String get guideP7Check;
 
   /// No description provided for @guideP7Hint.
   ///
-  /// In en, this message translates to:
-  /// **'Routers are often repurposed as a \"legitimate\" disguise for a camera'**
+  /// In zh, this message translates to:
+  /// **'路由器常被改装成“合法外衣”藏摄像头'**
   String get guideP7Hint;
 
   /// No description provided for @guideP8Title.
   ///
-  /// In en, this message translates to:
-  /// **'Plant pots'**
+  /// In zh, this message translates to:
+  /// **'花盆 / 绿植'**
   String get guideP8Title;
 
   /// No description provided for @guideP8Check.
   ///
-  /// In en, this message translates to:
-  /// **'Check the pot and the foliage above the soil for foreign objects'**
+  /// In zh, this message translates to:
+  /// **'检查花盆、土壤上方枝叶间是否有异物'**
   String get guideP8Check;
 
   /// No description provided for @guideP8Hint.
   ///
-  /// In en, this message translates to:
-  /// **'Micro lenses under foliage are hard to spot — combine with the IR scan'**
+  /// In zh, this message translates to:
+  /// **'叶片遮挡下的微型镜头很难被直接看到，配合红外扫描'**
   String get guideP8Hint;
 
   /// No description provided for @guideP9Title.
   ///
-  /// In en, this message translates to:
-  /// **'Lights / smoke detector'**
+  /// In zh, this message translates to:
+  /// **'灯具 / 烟雾探测器'**
   String get guideP9Title;
 
   /// No description provided for @guideP9Check.
   ///
-  /// In en, this message translates to:
-  /// **'Check inside lamp shades, chandelier joints and behind bedside wall lamps'**
+  /// In zh, this message translates to:
+  /// **'灯罩内、吊灯连接处、床头壁灯背面逐一检查'**
   String get guideP9Check;
 
   /// No description provided for @guideP9Hint.
   ///
-  /// In en, this message translates to:
-  /// **'Glare near light sources fools the eye — the IR detector is more reliable here'**
+  /// In zh, this message translates to:
+  /// **'光源附近的光晕会干扰肉眼，用红外检测扫过更可靠'**
   String get guideP9Hint;
+
+  /// No description provided for @quickScanTitle.
+  ///
+  /// In zh, this message translates to:
+  /// **'一键扫描'**
+  String get quickScanTitle;
+
+  /// No description provided for @quickScanSubtitle.
+  ///
+  /// In zh, this message translates to:
+  /// **'红外 → WiFi → 磁力，全自动完成'**
+  String get quickScanSubtitle;
+
+  /// No description provided for @quickScanStepIr.
+  ///
+  /// In zh, this message translates to:
+  /// **'红外检测（约 20 秒）'**
+  String get quickScanStepIr;
+
+  /// No description provided for @quickScanStepWifi.
+  ///
+  /// In zh, this message translates to:
+  /// **'WiFi 扫描（约 15 秒）'**
+  String get quickScanStepWifi;
+
+  /// No description provided for @quickScanStepMagnet.
+  ///
+  /// In zh, this message translates to:
+  /// **'磁力检测（约 15 秒）'**
+  String get quickScanStepMagnet;
+
+  /// No description provided for @quickScanDone.
+  ///
+  /// In zh, this message translates to:
+  /// **'一键扫描完成，查看结论'**
+  String get quickScanDone;
+
+  /// No description provided for @quickScanRunning.
+  ///
+  /// In zh, this message translates to:
+  /// **'正在执行：{step}'**
+  String quickScanRunning(Object step);
+
+  /// No description provided for @quickScanStart.
+  ///
+  /// In zh, this message translates to:
+  /// **'开始一键扫描'**
+  String get quickScanStart;
+
+  /// No description provided for @verdictTitle.
+  ///
+  /// In zh, this message translates to:
+  /// **'扫描结论'**
+  String get verdictTitle;
+
+  /// No description provided for @verdictSafe.
+  ///
+  /// In zh, this message translates to:
+  /// **'安全：未发现可疑信号'**
+  String get verdictSafe;
+
+  /// No description provided for @verdictHighRisk.
+  ///
+  /// In zh, this message translates to:
+  /// **'高风险：疑似隐藏摄像头'**
+  String get verdictHighRisk;
+
+  /// No description provided for @verdictRisk.
+  ///
+  /// In zh, this message translates to:
+  /// **'发现风险：{count} 个可疑项'**
+  String verdictRisk(Object count);
+
+  /// No description provided for @verdictViewEvidence.
+  ///
+  /// In zh, this message translates to:
+  /// **'查看证据明细'**
+  String get verdictViewEvidence;
+
+  /// No description provided for @verdictExportPdf.
+  ///
+  /// In zh, this message translates to:
+  /// **'导出 PDF'**
+  String get verdictExportPdf;
+
+  /// No description provided for @verdictNextActions.
+  ///
+  /// In zh, this message translates to:
+  /// **'下一步行动'**
+  String get verdictNextActions;
+
+  /// No description provided for @verdictDone.
+  ///
+  /// In zh, this message translates to:
+  /// **'完成'**
+  String get verdictDone;
 
   /// No description provided for @morePrivacy.
   ///
-  /// In en, this message translates to:
-  /// **'Privacy policy'**
+  /// In zh, this message translates to:
+  /// **'隐私政策'**
   String get morePrivacy;
 
   /// No description provided for @morePrivacySubtitle.
   ///
-  /// In en, this message translates to:
-  /// **'No account · no ads · no cloud upload · no data saved'**
+  /// In zh, this message translates to:
+  /// **'无账号 · 无广告 · 无云上传 · 数据不落盘'**
   String get morePrivacySubtitle;
 
   /// No description provided for @moreAbout.
   ///
-  /// In en, this message translates to:
-  /// **'About'**
+  /// In zh, this message translates to:
+  /// **'关于'**
   String get moreAbout;
 
   /// No description provided for @moreAboutSubtitle.
   ///
-  /// In en, this message translates to:
-  /// **'Version 1.0.0'**
+  /// In zh, this message translates to:
+  /// **'版本 1.0.0'**
   String get moreAboutSubtitle;
 
   /// No description provided for @moreSettings.
   ///
-  /// In en, this message translates to:
-  /// **'Settings'**
+  /// In zh, this message translates to:
+  /// **'设置'**
   String get moreSettings;
 
   /// No description provided for @moreSettingsSubtitle.
   ///
-  /// In en, this message translates to:
-  /// **'Language · local stats · data'**
+  /// In zh, this message translates to:
+  /// **'语言 · 本地统计 · 数据'**
   String get moreSettingsSubtitle;
 
   /// No description provided for @settingsTitle.
   ///
-  /// In en, this message translates to:
-  /// **'Settings'**
+  /// In zh, this message translates to:
+  /// **'设置'**
   String get settingsTitle;
 
   /// No description provided for @settingsLanguage.
   ///
-  /// In en, this message translates to:
-  /// **'Language'**
+  /// In zh, this message translates to:
+  /// **'语言'**
   String get settingsLanguage;
 
   /// No description provided for @settingsLanguageSystem.
   ///
-  /// In en, this message translates to:
-  /// **'Follow system'**
+  /// In zh, this message translates to:
+  /// **'跟随系统'**
   String get settingsLanguageSystem;
 
   /// No description provided for @settingsLanguageZh.
   ///
-  /// In en, this message translates to:
+  /// In zh, this message translates to:
   /// **'简体中文'**
   String get settingsLanguageZh;
 
   /// No description provided for @settingsLanguageEn.
   ///
-  /// In en, this message translates to:
+  /// In zh, this message translates to:
   /// **'English'**
   String get settingsLanguageEn;
 
   /// No description provided for @settingsLanguageKo.
   ///
-  /// In en, this message translates to:
+  /// In zh, this message translates to:
   /// **'한국어'**
   String get settingsLanguageKo;
 
   /// No description provided for @settingsStatsTitle.
   ///
-  /// In en, this message translates to:
-  /// **'Local stats'**
+  /// In zh, this message translates to:
+  /// **'本地统计'**
   String get settingsStatsTitle;
 
   /// No description provided for @statsCheckStarted.
   ///
-  /// In en, this message translates to:
-  /// **'Checks started'**
+  /// In zh, this message translates to:
+  /// **'开始检查次数'**
   String get statsCheckStarted;
 
   /// No description provided for @statsCheckDone.
   ///
-  /// In en, this message translates to:
-  /// **'Checks completed'**
+  /// In zh, this message translates to:
+  /// **'完成检查次数'**
   String get statsCheckDone;
 
   /// No description provided for @statsCompletionRate.
   ///
-  /// In en, this message translates to:
-  /// **'Completion rate'**
+  /// In zh, this message translates to:
+  /// **'完成率'**
   String get statsCompletionRate;
 
   /// No description provided for @statsAvgDuration.
   ///
-  /// In en, this message translates to:
-  /// **'Avg. duration'**
+  /// In zh, this message translates to:
+  /// **'平均时长'**
   String get statsAvgDuration;
 
   /// No description provided for @statsTools.
   ///
-  /// In en, this message translates to:
-  /// **'Tool usage'**
+  /// In zh, this message translates to:
+  /// **'各工具使用次数'**
   String get statsTools;
 
   /// No description provided for @statsEmpty.
   ///
-  /// In en, this message translates to:
-  /// **'No data yet. Complete a room check or use a detection tool and it will be recorded here (on-device only).'**
+  /// In zh, this message translates to:
+  /// **'暂无数据：完成一次房间检查或使用任一检测工具后，这里会记录（仅本机）。'**
   String get statsEmpty;
 
   /// No description provided for @statsDurationFormat.
   ///
-  /// In en, this message translates to:
-  /// **'{m}m {s}s'**
+  /// In zh, this message translates to:
+  /// **'{m}分 {s}秒'**
   String statsDurationFormat(Object m, Object s);
 
   /// No description provided for @settingsDataTitle.
   ///
-  /// In en, this message translates to:
-  /// **'Data'**
+  /// In zh, this message translates to:
+  /// **'数据'**
   String get settingsDataTitle;
 
   /// No description provided for @settingsClearStats.
   ///
-  /// In en, this message translates to:
-  /// **'Clear local stats'**
+  /// In zh, this message translates to:
+  /// **'清除本地统计'**
   String get settingsClearStats;
 
   /// No description provided for @settingsClearReport.
   ///
-  /// In en, this message translates to:
-  /// **'Clear check records'**
+  /// In zh, this message translates to:
+  /// **'清空检测记录'**
   String get settingsClearReport;
 
   /// No description provided for @settingsClearConfirm.
   ///
-  /// In en, this message translates to:
-  /// **'This cannot be undone. Continue?'**
+  /// In zh, this message translates to:
+  /// **'该操作不可撤销，确定继续？'**
   String get settingsClearConfirm;
 
   /// No description provided for @settingsClearDone.
   ///
-  /// In en, this message translates to:
-  /// **'Clear'**
+  /// In zh, this message translates to:
+  /// **'清除'**
   String get settingsClearDone;
 
   /// No description provided for @settingsCancel.
   ///
-  /// In en, this message translates to:
-  /// **'Cancel'**
+  /// In zh, this message translates to:
+  /// **'取消'**
   String get settingsCancel;
 
   /// No description provided for @settingsDataNote.
   ///
-  /// In en, this message translates to:
-  /// **'All stats are stored only on this device and never uploaded. Scan history is saved on-device; the free tier keeps the last 5 records.'**
+  /// In zh, this message translates to:
+  /// **'所有统计数据与检测报告均保存在本机，不会上传。免费版扫描历史保留最近 5 份。'**
   String get settingsDataNote;
 
   /// No description provided for @morePrivacyDesign.
   ///
-  /// In en, this message translates to:
-  /// **'Privacy-first design'**
+  /// In zh, this message translates to:
+  /// **'隐私优先设计'**
   String get morePrivacyDesign;
 
   /// No description provided for @morePrivacyDesc.
   ///
-  /// In en, this message translates to:
-  /// **'All detection runs on-device: no account, no collection, no upload of any image or network data.'**
+  /// In zh, this message translates to:
+  /// **'所有检测均在本机完成，无需账号，不收集、不上传任何图像或网络数据。'**
   String get morePrivacyDesc;
 
   /// No description provided for @reportTitle.
   ///
-  /// In en, this message translates to:
-  /// **'Inspection report'**
+  /// In zh, this message translates to:
+  /// **'检测报告'**
   String get reportTitle;
 
   /// No description provided for @reportHistoryTitle.
   ///
-  /// In en, this message translates to:
-  /// **'Scan History'**
+  /// In zh, this message translates to:
+  /// **'扫描历史'**
   String get reportHistoryTitle;
 
   /// No description provided for @reportOpenHistory.
   ///
-  /// In en, this message translates to:
-  /// **'View all'**
+  /// In zh, this message translates to:
+  /// **'查看全部'**
   String get reportOpenHistory;
 
   /// No description provided for @reportSeal.
   ///
-  /// In en, this message translates to:
-  /// **'Finish & save this check'**
+  /// In zh, this message translates to:
+  /// **'完成并保存本次检查'**
   String get reportSeal;
 
   /// No description provided for @historyTitle.
   ///
-  /// In en, this message translates to:
-  /// **'Scan History'**
+  /// In zh, this message translates to:
+  /// **'扫描历史'**
   String get historyTitle;
 
   /// No description provided for @historyEmpty.
   ///
-  /// In en, this message translates to:
-  /// **'No saved checks yet. Finish a check, then tap \"Finish & save this check\" on the Report screen to archive it.'**
+  /// In zh, this message translates to:
+  /// **'还没有保存的检查记录。完成检测后，在「检测报告」页点「完成并保存本次检查」即可归档。'**
   String get historyEmpty;
 
   /// No description provided for @historyProNote.
   ///
-  /// In en, this message translates to:
-  /// **'Free keeps the last {count} scan records. Upgrade to Pro for unlimited storage'**
+  /// In zh, this message translates to:
+  /// **'免费版保留最近 {count} 份扫描记录，升级 Pro 无限保存'**
   String historyProNote(Object count);
 
   /// No description provided for @historyProUnlimited.
   ///
-  /// In en, this message translates to:
-  /// **'Pro: unlimited scan history'**
+  /// In zh, this message translates to:
+  /// **'Pro：扫描记录无限保存'**
   String get historyProUnlimited;
 
   /// No description provided for @historyPlace.
   ///
-  /// In en, this message translates to:
-  /// **'Place: {place}'**
+  /// In zh, this message translates to:
+  /// **'地点：{place}'**
   String historyPlace(Object place);
 
   /// No description provided for @historyOpen.
   ///
-  /// In en, this message translates to:
-  /// **'Open'**
+  /// In zh, this message translates to:
+  /// **'打开'**
   String get historyOpen;
 
   /// No description provided for @historyDelete.
   ///
-  /// In en, this message translates to:
-  /// **'Delete'**
+  /// In zh, this message translates to:
+  /// **'删除'**
   String get historyDelete;
 
   /// No description provided for @historyDeleteConfirm.
   ///
-  /// In en, this message translates to:
-  /// **'Delete this scan record? Its details and photos will be removed permanently.'**
+  /// In zh, this message translates to:
+  /// **'确定删除这份扫描记录？检测明细与现场照片将一并删除，不可恢复。'**
   String get historyDeleteConfirm;
 
   /// No description provided for @reportEmptyError.
   ///
-  /// In en, this message translates to:
-  /// **'No inspection records yet, complete at least one detection first'**
+  /// In zh, this message translates to:
+  /// **'暂无检测记录，请先完成至少一项检测'**
   String get reportEmptyError;
 
   /// No description provided for @reportShareCancelled.
   ///
-  /// In en, this message translates to:
-  /// **'Share cancelled'**
+  /// In zh, this message translates to:
+  /// **'分享已取消'**
   String get reportShareCancelled;
 
   /// No description provided for @reportExportFailed.
   ///
-  /// In en, this message translates to:
-  /// **'Export failed: {error}'**
+  /// In zh, this message translates to:
+  /// **'导出失败：{error}'**
   String reportExportFailed(Object error);
 
   /// No description provided for @reportPlaceLabel.
   ///
-  /// In en, this message translates to:
-  /// **'Inspection place (optional, e.g. hotel / room no.)'**
+  /// In zh, this message translates to:
+  /// **'检查地点（可选，如酒店名/房号）'**
   String get reportPlaceLabel;
 
   /// No description provided for @reportPlaceHint.
   ///
-  /// In en, this message translates to:
-  /// **'Only shown in the report, no location access'**
+  /// In zh, this message translates to:
+  /// **'仅用于报告展示，不涉及定位'**
   String get reportPlaceHint;
 
   /// No description provided for @reportPhotos.
   ///
-  /// In en, this message translates to:
-  /// **'Photos'**
+  /// In zh, this message translates to:
+  /// **'现场照片'**
   String get reportPhotos;
 
   /// No description provided for @reportPhotosEmpty.
   ///
-  /// In en, this message translates to:
-  /// **'No photos yet. Photograph suspicious devices or spots; they will be included when you export.'**
+  /// In zh, this message translates to:
+  /// **'尚未添加照片。发现可疑设备或位置时可拍照存档，导出报告会一并包含。'**
   String get reportPhotosEmpty;
 
   /// No description provided for @reportAddPhoto.
   ///
-  /// In en, this message translates to:
-  /// **'Add photo'**
+  /// In zh, this message translates to:
+  /// **'添加照片'**
   String get reportAddPhoto;
 
   /// No description provided for @reportAddPhotoCamera.
   ///
-  /// In en, this message translates to:
-  /// **'Take photo'**
+  /// In zh, this message translates to:
+  /// **'拍照'**
   String get reportAddPhotoCamera;
 
   /// No description provided for @reportAddPhotoGallery.
   ///
-  /// In en, this message translates to:
-  /// **'Choose from library'**
+  /// In zh, this message translates to:
+  /// **'从相册选择'**
   String get reportAddPhotoGallery;
 
   /// No description provided for @reportPhotoFailed.
   ///
-  /// In en, this message translates to:
-  /// **'Failed to add photo, try again'**
+  /// In zh, this message translates to:
+  /// **'照片添加失败，请重试'**
   String get reportPhotoFailed;
 
   /// No description provided for @reportEmptyHint.
   ///
-  /// In en, this message translates to:
-  /// **'No records yet. Results are summarized here automatically after IR, reflection, WiFi, Bluetooth or magnet checks.'**
+  /// In zh, this message translates to:
+  /// **'暂无检测记录。完成红外、反光、WiFi、蓝牙或磁力检测后，结论会自动汇总到这里。'**
   String get reportEmptyHint;
 
   /// No description provided for @reportDetails.
   ///
-  /// In en, this message translates to:
-  /// **'Details'**
+  /// In zh, this message translates to:
+  /// **'检测明细'**
   String get reportDetails;
 
   /// No description provided for @reportClear.
   ///
-  /// In en, this message translates to:
-  /// **'Clear'**
+  /// In zh, this message translates to:
+  /// **'清空记录'**
   String get reportClear;
 
   /// No description provided for @reportExporting.
   ///
-  /// In en, this message translates to:
-  /// **'Generating PDF…'**
+  /// In zh, this message translates to:
+  /// **'正在生成 PDF…'**
   String get reportExporting;
 
   /// No description provided for @reportExportPdf.
   ///
-  /// In en, this message translates to:
-  /// **'Export PDF & share'**
+  /// In zh, this message translates to:
+  /// **'导出 PDF 并分享'**
   String get reportExportPdf;
 
   /// No description provided for @reportLocalNote.
   ///
-  /// In en, this message translates to:
-  /// **'The report is generated on-device and shared through the system sheet; nothing is uploaded. This check is saved on-device (free keeps the last 5).'**
+  /// In zh, this message translates to:
+  /// **'报告在本地生成并通过系统分享面板发送，不会上传。本次检查会自动保存到本机（免费版保留最近 5 份）。'**
   String get reportLocalNote;
 
   /// No description provided for @reportSummary.
   ///
-  /// In en, this message translates to:
-  /// **'{count} check(s) · {riskCount} risk(s)/uncertain'**
+  /// In zh, this message translates to:
+  /// **'{count} 项检测 · {riskCount} 项风险/存疑'**
   String reportSummary(Object count, Object riskCount);
 
   /// No description provided for @reportSummaryDesc.
   ///
-  /// In en, this message translates to:
-  /// **'Summary of this session\'s checks, exportable as PDF'**
+  /// In zh, this message translates to:
+  /// **'本次会话的检测结论汇总，可导出为 PDF'**
   String get reportSummaryDesc;
 
   /// No description provided for @reportPdfTitle.
   ///
-  /// In en, this message translates to:
-  /// **'Spy Assassin · Inspection Report'**
+  /// In zh, this message translates to:
+  /// **'间谍刺客 · 检测报告'**
   String get reportPdfTitle;
 
   /// No description provided for @reportPdfTime.
   ///
-  /// In en, this message translates to:
-  /// **'Generated at'**
+  /// In zh, this message translates to:
+  /// **'生成时间'**
   String get reportPdfTime;
 
   /// No description provided for @reportPdfPlace.
   ///
-  /// In en, this message translates to:
-  /// **'Inspection place'**
+  /// In zh, this message translates to:
+  /// **'检查地点'**
   String get reportPdfPlace;
 
   /// No description provided for @reportPdfPlaceEmpty.
   ///
-  /// In en, this message translates to:
-  /// **'Not specified'**
+  /// In zh, this message translates to:
+  /// **'未填写'**
   String get reportPdfPlaceEmpty;
 
   /// No description provided for @reportPdfWifi.
   ///
-  /// In en, this message translates to:
+  /// In zh, this message translates to:
   /// **'WiFi'**
   String get reportPdfWifi;
 
   /// No description provided for @reportPdfWifiEmpty.
   ///
-  /// In en, this message translates to:
-  /// **'Not connected to WiFi'**
+  /// In zh, this message translates to:
+  /// **'未连接 WiFi'**
   String get reportPdfWifiEmpty;
 
   /// No description provided for @reportPdfPhotos.
   ///
-  /// In en, this message translates to:
-  /// **'Photos'**
+  /// In zh, this message translates to:
+  /// **'现场照片'**
   String get reportPdfPhotos;
 
   /// No description provided for @reportPdfSummary.
   ///
-  /// In en, this message translates to:
-  /// **'{count} check(s) in total, {risk} flagged as risk/uncertain. For reference only, not legal evidence.'**
+  /// In zh, this message translates to:
+  /// **'共 {count} 项检测，其中 {risk} 项提示风险/存疑。结果仅供参考，非执法证据。'**
   String reportPdfSummary(Object count, Object risk);
 
   /// No description provided for @reportPdfEmpty.
   ///
-  /// In en, this message translates to:
-  /// **'No inspection records in this session.'**
+  /// In zh, this message translates to:
+  /// **'本次会话暂无检测记录。'**
   String get reportPdfEmpty;
 
   /// No description provided for @reportPdfNext.
   ///
-  /// In en, this message translates to:
-  /// **'Suggested next steps'**
+  /// In zh, this message translates to:
+  /// **'下一步行动建议'**
   String get reportPdfNext;
 
   /// No description provided for @reportPdfAction1.
   ///
-  /// In en, this message translates to:
-  /// **'Photograph the suspicious device\'s location and the room overview; do not touch or dismantle it'**
+  /// In zh, this message translates to:
+  /// **'拍照留存可疑设备位置与房间全貌，不触碰、不拆卸'**
   String get reportPdfAction1;
 
   /// No description provided for @reportPdfAction2.
   ///
-  /// In en, this message translates to:
-  /// **'Inform the hotel front desk / landlord and request a written record or a room change'**
+  /// In zh, this message translates to:
+  /// **'告知酒店前台 / 房东，并要求书面记录或换房'**
   String get reportPdfAction2;
 
   /// No description provided for @reportPdfAction3.
   ///
-  /// In en, this message translates to:
-  /// **'Call 110 (China) / local police for on-site forensics'**
+  /// In zh, this message translates to:
+  /// **'拨打 110 报警，由警方到场取证与司法鉴定'**
   String get reportPdfAction3;
 
   /// No description provided for @reportPdfDisclaimer.
   ///
-  /// In en, this message translates to:
-  /// **'Disclaimer: IR/reflection detection depends on the CMOS IR sensitivity of your phone; WiFi scanning only finds devices on the current LAN; magnet and Bluetooth checks are supplementary. This report is not legal evidence; rely on police forensics.'**
+  /// In zh, this message translates to:
+  /// **'免责声明：红外/反光检测依赖手机 CMOS 对红外光的敏感度，WiFi 扫描仅能发现当前局域网内联网设备，磁力与蓝牙检测仅作辅助。本报告不构成任何法律证据，请以警方取证为准。'**
   String get reportPdfDisclaimer;
 
   /// No description provided for @reportPdfFooter.
   ///
-  /// In en, this message translates to:
-  /// **'Generated by \"Spy Assassin\" · processed on-device only'**
+  /// In zh, this message translates to:
+  /// **'由「间谍刺客」生成 · 数据仅在本地处理'**
   String get reportPdfFooter;
 
   /// No description provided for @riskSafe.
   ///
-  /// In en, this message translates to:
-  /// **'Pass'**
+  /// In zh, this message translates to:
+  /// **'通过'**
   String get riskSafe;
 
   /// No description provided for @riskLow.
   ///
-  /// In en, this message translates to:
-  /// **'Uncertain'**
+  /// In zh, this message translates to:
+  /// **'存疑'**
   String get riskLow;
 
   /// No description provided for @riskHigh.
   ///
-  /// In en, this message translates to:
-  /// **'Risk'**
+  /// In zh, this message translates to:
+  /// **'风险'**
   String get riskHigh;
 
   /// No description provided for @featureIr.
   ///
-  /// In en, this message translates to:
-  /// **'IR Detection'**
+  /// In zh, this message translates to:
+  /// **'红外检测'**
   String get featureIr;
 
   /// No description provided for @featureLens.
   ///
-  /// In en, this message translates to:
-  /// **'Lens Reflection Scan'**
+  /// In zh, this message translates to:
+  /// **'镜头反光扫描'**
   String get featureLens;
 
   /// No description provided for @featureWifi.
   ///
-  /// In en, this message translates to:
-  /// **'WiFi Network Scan'**
+  /// In zh, this message translates to:
+  /// **'WiFi 网络扫描'**
   String get featureWifi;
 
   /// No description provided for @featureBluetooth.
   ///
-  /// In en, this message translates to:
-  /// **'Bluetooth Scan'**
+  /// In zh, this message translates to:
+  /// **'蓝牙扫描'**
   String get featureBluetooth;
 
   /// No description provided for @featureMagnet.
   ///
-  /// In en, this message translates to:
-  /// **'Magnet Scan'**
+  /// In zh, this message translates to:
+  /// **'磁力检测'**
   String get featureMagnet;
 
   /// No description provided for @featureTracker.
   ///
-  /// In en, this message translates to:
-  /// **'Tracker Scan'**
+  /// In zh, this message translates to:
+  /// **'防跟踪扫描'**
   String get featureTracker;
 
   /// No description provided for @navTabHub.
   ///
-  /// In en, this message translates to:
-  /// **'Anti-Spy'**
+  /// In zh, this message translates to:
+  /// **'反监视'**
   String get navTabHub;
 
   /// No description provided for @tabTitleHub.
   ///
-  /// In en, this message translates to:
-  /// **'Anti-Surveillance'**
+  /// In zh, this message translates to:
+  /// **'反监视中心'**
   String get tabTitleHub;
 
   /// No description provided for @hubTagline.
   ///
-  /// In en, this message translates to:
-  /// **'Find hidden cameras in your room and trackers that follow you'**
+  /// In zh, this message translates to:
+  /// **'检测藏在房间的摄像头，也扫描跟着你的追踪器'**
   String get hubTagline;
 
   /// No description provided for @hubTaglineSub.
   ///
-  /// In en, this message translates to:
-  /// **'Anti-voyeurism · anti-tracking, all on-device'**
+  /// In zh, this message translates to:
+  /// **'防偷拍 · 防追踪，全程本地检测'**
   String get hubTaglineSub;
 
   /// No description provided for @hubRoomCheckTitle.
   ///
-  /// In en, this message translates to:
-  /// **'Room Check'**
+  /// In zh, this message translates to:
+  /// **'防偷拍'**
   String get hubRoomCheckTitle;
 
   /// No description provided for @hubRoomCheckSubtitle.
   ///
-  /// In en, this message translates to:
-  /// **'4-step scan for hidden cameras (IR / lens / WiFi / magnet)'**
+  /// In zh, this message translates to:
+  /// **'红外 / 镜头反光 / WiFi / 磁力，四步排查隐藏摄像头'**
   String get hubRoomCheckSubtitle;
 
   /// No description provided for @hubTrackerTitle.
   ///
-  /// In en, this message translates to:
-  /// **'Tracker Scan'**
+  /// In zh, this message translates to:
+  /// **'随身防跟踪'**
   String get hubTrackerTitle;
 
   /// No description provided for @hubTrackerSubtitle.
   ///
-  /// In en, this message translates to:
-  /// **'Scan nearby Bluetooth for trackers following you'**
+  /// In zh, this message translates to:
+  /// **'扫描周边蓝牙，识别 AirTag 等追踪器是否跟着你'**
   String get hubTrackerSubtitle;
 
   /// No description provided for @trackerTitle.
   ///
-  /// In en, this message translates to:
-  /// **'Tracker Scan'**
+  /// In zh, this message translates to:
+  /// **'随身防跟踪'**
   String get trackerTitle;
 
   /// No description provided for @trackerIntro.
   ///
-  /// In en, this message translates to:
-  /// **'Scans nearby Bluetooth devices for known trackers such as AirTags. Scan a few times from different spots to check whether any device keeps following you. Everything stays on your device.'**
+  /// In zh, this message translates to:
+  /// **'扫描周边蓝牙设备，识别 AirTag 等已知追踪器。多扫几次、换个位置，可判断是否有设备一直跟着你。全程本地处理，不上传任何数据。'**
   String get trackerIntro;
 
   /// No description provided for @trackerStartScan.
   ///
-  /// In en, this message translates to:
-  /// **'Start scan'**
+  /// In zh, this message translates to:
+  /// **'开始扫描'**
   String get trackerStartScan;
 
   /// No description provided for @trackerScanning.
   ///
-  /// In en, this message translates to:
-  /// **'Scanning (about 10s)…'**
+  /// In zh, this message translates to:
+  /// **'扫描中（约 10 秒）…'**
   String get trackerScanning;
 
   /// No description provided for @trackerScanAgain.
   ///
-  /// In en, this message translates to:
-  /// **'Scan again'**
+  /// In zh, this message translates to:
+  /// **'再扫一次'**
   String get trackerScanAgain;
 
   /// No description provided for @trackerScanFailed.
   ///
-  /// In en, this message translates to:
-  /// **'Scan failed. Make sure Bluetooth permission is granted, then try again.'**
+  /// In zh, this message translates to:
+  /// **'扫描失败，请确认已授予蓝牙扫描权限后重试'**
   String get trackerScanFailed;
 
   /// No description provided for @trackerRoundsDone.
   ///
-  /// In en, this message translates to:
-  /// **'{count} scan(s) completed'**
+  /// In zh, this message translates to:
+  /// **'已完成 {count} 次扫描'**
   String trackerRoundsDone(Object count);
 
   /// No description provided for @trackerRoundsTip.
   ///
-  /// In en, this message translates to:
-  /// **'Move to another spot or outside, then scan again to confirm whether a device keeps following you.'**
+  /// In zh, this message translates to:
+  /// **'建议走到房间另一处或门外，再扫一次，确认是否有设备一直跟着你。'**
   String get trackerRoundsTip;
 
   /// No description provided for @trackerMoveHint.
   ///
-  /// In en, this message translates to:
-  /// **'Tracker candidates found. Confirm their location, or scan again for more confidence.'**
+  /// In zh, this message translates to:
+  /// **'已发现追踪器候选。建议先完成定位确认，或继续再扫一次增加可信度。'**
   String get trackerMoveHint;
 
   /// No description provided for @trackerFinish.
   ///
-  /// In en, this message translates to:
-  /// **'Finish check'**
+  /// In zh, this message translates to:
+  /// **'完成检查'**
   String get trackerFinish;
 
   /// No description provided for @trackerRestart.
   ///
-  /// In en, this message translates to:
-  /// **'Start over'**
+  /// In zh, this message translates to:
+  /// **'重新检查'**
   String get trackerRestart;
 
   /// No description provided for @trackerNoTracker.
   ///
-  /// In en, this message translates to:
-  /// **'No known trackers found'**
+  /// In zh, this message translates to:
+  /// **'未发现已知追踪器'**
   String get trackerNoTracker;
 
   /// No description provided for @trackerNoTrackerTip.
   ///
-  /// In en, this message translates to:
-  /// **'Keep relying on the system\'s built-in unknown-tracker alerts and stay alert.'**
+  /// In zh, this message translates to:
+  /// **'继续使用系统自带的未知追踪器提醒，并保持警惕。'**
   String get trackerNoTrackerTip;
 
   /// No description provided for @trackerFoundCandidates.
   ///
-  /// In en, this message translates to:
-  /// **'{count} candidate(s) found'**
+  /// In zh, this message translates to:
+  /// **'发现 {count} 个候选'**
   String trackerFoundCandidates(Object count);
 
   /// No description provided for @trackerSectionTrackers.
   ///
-  /// In en, this message translates to:
-  /// **'Tracker candidates'**
+  /// In zh, this message translates to:
+  /// **'追踪器候选'**
   String get trackerSectionTrackers;
 
   /// No description provided for @trackerSectionOthers.
   ///
-  /// In en, this message translates to:
-  /// **'Other Bluetooth devices ({count})'**
+  /// In zh, this message translates to:
+  /// **'其他蓝牙设备（{count}）'**
   String trackerSectionOthers(Object count);
 
   /// No description provided for @trackerBrandFindMy.
   ///
-  /// In en, this message translates to:
-  /// **'AirTag / Find My accessory'**
+  /// In zh, this message translates to:
+  /// **'AirTag / Find My 配件'**
   String get trackerBrandFindMy;
 
   /// No description provided for @trackerBrandSamsung.
   ///
-  /// In en, this message translates to:
-  /// **'Samsung SmartTag'**
+  /// In zh, this message translates to:
+  /// **'三星 SmartTag'**
   String get trackerBrandSamsung;
 
   /// No description provided for @trackerBrandTile.
   ///
-  /// In en, this message translates to:
-  /// **'Tile tracker'**
+  /// In zh, this message translates to:
+  /// **'Tile 追踪器'**
   String get trackerBrandTile;
 
   /// No description provided for @trackerBrandGoogle.
   ///
-  /// In en, this message translates to:
-  /// **'Google tracker'**
+  /// In zh, this message translates to:
+  /// **'Google 追踪器'**
   String get trackerBrandGoogle;
 
   /// No description provided for @trackerMotionRepeated.
   ///
-  /// In en, this message translates to:
-  /// **'Possibly following'**
+  /// In zh, this message translates to:
+  /// **'疑似同行'**
   String get trackerMotionRepeated;
 
   /// No description provided for @trackerMotionOnce.
   ///
-  /// In en, this message translates to:
-  /// **'Seen once'**
+  /// In zh, this message translates to:
+  /// **'仅本次发现'**
   String get trackerMotionOnce;
 
   /// No description provided for @trackerMotionRegular.
   ///
-  /// In en, this message translates to:
-  /// **'Regular device'**
+  /// In zh, this message translates to:
+  /// **'普通设备'**
   String get trackerMotionRegular;
 
   /// No description provided for @trackerDistanceNear.
   ///
-  /// In en, this message translates to:
-  /// **'Very close'**
+  /// In zh, this message translates to:
+  /// **'很近'**
   String get trackerDistanceNear;
 
   /// No description provided for @trackerDistanceMid.
   ///
-  /// In en, this message translates to:
-  /// **'Close'**
+  /// In zh, this message translates to:
+  /// **'较近'**
   String get trackerDistanceMid;
 
   /// No description provided for @trackerDistanceFar.
   ///
-  /// In en, this message translates to:
-  /// **'Far'**
+  /// In zh, this message translates to:
+  /// **'较远'**
   String get trackerDistanceFar;
 
   /// No description provided for @trackerGuidanceTitle.
   ///
-  /// In en, this message translates to:
-  /// **'Suspicious tracker found, what to do'**
+  /// In zh, this message translates to:
+  /// **'发现可疑追踪器怎么办'**
   String get trackerGuidanceTitle;
 
   /// No description provided for @trackerGuidance1.
   ///
-  /// In en, this message translates to:
-  /// **'Check your belongings, bags, and inside/outside your vehicle for unfamiliar small devices'**
+  /// In zh, this message translates to:
+  /// **'检查随身物品、包、车内外是否有陌生的小型设备'**
   String get trackerGuidance1;
 
   /// No description provided for @trackerGuidance2.
   ///
-  /// In en, this message translates to:
-  /// **'For an AirTag, open the Find My app on any nearby iPhone → Items, and try playing a sound to locate it'**
+  /// In zh, this message translates to:
+  /// **'AirTag 可用身边任一部 iPhone 打开「查找」App →「物品」，尝试播放声音定位'**
   String get trackerGuidance2;
 
   /// No description provided for @trackerGuidance3.
   ///
-  /// In en, this message translates to:
-  /// **'Do not remove it hastily — photograph it as evidence first; if confirmed, contact the police'**
+  /// In zh, this message translates to:
+  /// **'不要贸然取下，先拍照留证；如确认被跟踪，请联系警方'**
   String get trackerGuidance3;
 
   /// No description provided for @trackerDisclaimer.
   ///
-  /// In en, this message translates to:
-  /// **'Note: this scan runs in the foreground and only recognizes known tracker brands. Devices actively paired to their owner\'s phone may be missed. Results are for reference only, not legal evidence.'**
+  /// In zh, this message translates to:
+  /// **'说明：本扫描在前台进行，仅能识别已知品牌的追踪器；与主人手机关联并保持连接的设备可能无法被发现；结果仅供参考，不作为执法证据。'**
   String get trackerDisclaimer;
 
   /// No description provided for @trackerSafeTitle.
   ///
-  /// In en, this message translates to:
-  /// **'Nothing unusual'**
+  /// In zh, this message translates to:
+  /// **'未发现异常'**
   String get trackerSafeTitle;
 
   /// No description provided for @trackerSafeDesc.
   ///
-  /// In en, this message translates to:
-  /// **'No known trackers found in this round. Stay alert and rescan from another spot if needed.'**
+  /// In zh, this message translates to:
+  /// **'本轮未发现已知追踪器。保持警惕，必要时可换个位置再扫一次。'**
   String get trackerSafeDesc;
 
   /// No description provided for @trackerRiskTitle.
   ///
-  /// In en, this message translates to:
-  /// **'Tracker candidate(s) found'**
+  /// In zh, this message translates to:
+  /// **'发现追踪器候选'**
   String get trackerRiskTitle;
 
   /// No description provided for @trackerRiskRepeated.
   ///
-  /// In en, this message translates to:
-  /// **'{count} device(s) kept appearing near you across scans — check now'**
+  /// In zh, this message translates to:
+  /// **'{count} 个设备多次扫描仍在你附近，建议立即排查'**
   String trackerRiskRepeated(Object count);
 
   /// No description provided for @trackerRiskOnce.
   ///
-  /// In en, this message translates to:
-  /// **'{count} tracker candidate(s) found — follow the guidance below'**
+  /// In zh, this message translates to:
+  /// **'发现 {count} 个追踪器候选，建议按下方指引处置'**
   String trackerRiskOnce(Object count);
 
   /// No description provided for @trackerReportSummary.
   ///
-  /// In en, this message translates to:
-  /// **'Tracker scan {rounds} time(s): {candidates} candidate(s), {repeated} possibly following'**
-  String trackerReportSummary(Object candidates, Object repeated, Object rounds);
+  /// In zh, this message translates to:
+  /// **'防跟踪扫描 {rounds} 次，发现追踪器候选 {candidates} 个，其中疑似同行 {repeated} 个'**
+  String trackerReportSummary(
+    Object candidates,
+    Object repeated,
+    Object rounds,
+  );
 
   /// No description provided for @trackerReportSummaryNone.
   ///
-  /// In en, this message translates to:
-  /// **'Tracker scan found no known trackers'**
+  /// In zh, this message translates to:
+  /// **'防跟踪扫描未发现已知追踪器'**
   String get trackerReportSummaryNone;
 
   /// No description provided for @moreTrackerTitle.
   ///
-  /// In en, this message translates to:
-  /// **'Tracker Scan'**
+  /// In zh, this message translates to:
+  /// **'防跟踪扫描'**
   String get moreTrackerTitle;
 
   /// No description provided for @moreTrackerSubtitle.
   ///
-  /// In en, this message translates to:
-  /// **'Detect nearby AirTags, SmartTags and other trackers'**
+  /// In zh, this message translates to:
+  /// **'识别周边 AirTag / SmartTag 等追踪器'**
   String get moreTrackerSubtitle;
 }
 
-class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {
+class _AppLocalizationsDelegate
+    extends LocalizationsDelegate<AppLocalizations> {
   const _AppLocalizationsDelegate();
 
   @override
@@ -2207,26 +2215,28 @@ class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> 
   }
 
   @override
-  bool isSupported(Locale locale) => <String>['en', 'ko', 'zh'].contains(locale.languageCode);
+  bool isSupported(Locale locale) =>
+      <String>['en', 'ko', 'zh'].contains(locale.languageCode);
 
   @override
   bool shouldReload(_AppLocalizationsDelegate old) => false;
 }
 
 AppLocalizations lookupAppLocalizations(Locale locale) {
-
-
   // Lookup logic when only language code is specified.
   switch (locale.languageCode) {
-    case 'en': return AppLocalizationsEn();
-    case 'ko': return AppLocalizationsKo();
-    case 'zh': return AppLocalizationsZh();
+    case 'en':
+      return AppLocalizationsEn();
+    case 'ko':
+      return AppLocalizationsKo();
+    case 'zh':
+      return AppLocalizationsZh();
   }
 
   throw FlutterError(
     'AppLocalizations.delegate failed to load unsupported locale "$locale". This is likely '
     'an issue with the localizations generation tool. Please file an issue '
     'on GitHub with a reproducible sample app and the gen-l10n configuration '
-    'that was used.'
+    'that was used.',
   );
 }
