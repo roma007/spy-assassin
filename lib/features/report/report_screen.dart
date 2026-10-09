@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:privacy_camera/l10n/app_localizations.dart';
+import 'package:spy_assassin/l10n/app_localizations.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:intl/intl.dart';
 import 'package:printing/printing.dart';
@@ -70,7 +70,7 @@ class _ReportScreenState extends State<ReportScreen> {
       final ts = DateFormat('yyyyMMdd_HHmm').format(DateTime.now());
       final ok = await Printing.sharePdf(
         bytes: bytes,
-        filename: 'privacy_camera_report_$ts.pdf',
+        filename: 'spy_assassin_report_$ts.pdf',
         subject: l10n.reportPdfTitle,
       );
       if (!ok && mounted) {

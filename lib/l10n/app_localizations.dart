@@ -6,6 +6,7 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:intl/intl.dart' as intl;
 
 import 'app_localizations_en.dart';
+import 'app_localizations_es.dart';
 import 'app_localizations_ko.dart';
 import 'app_localizations_zh.dart';
 
@@ -96,6 +97,7 @@ abstract class AppLocalizations {
   /// A list of this localizations delegate's supported locales.
   static const List<Locale> supportedLocales = <Locale>[
     Locale('en'),
+    Locale('es'),
     Locale('ko'),
     Locale('zh'),
   ];
@@ -292,6 +294,12 @@ abstract class AppLocalizations {
   /// **'约 1.5 分钟'**
   String get checkStep1_5Min;
 
+  /// No description provided for @checkStep2Min.
+  ///
+  /// In zh, this message translates to:
+  /// **'约 2 分钟'**
+  String get checkStep2Min;
+
   /// No description provided for @checkIrTitle.
   ///
   /// In zh, this message translates to:
@@ -328,6 +336,18 @@ abstract class AppLocalizations {
   /// **'用「磁力检测」贴近可疑的充电器、时钟、烟雾报警器等物体'**
   String get checkMagnetDesc;
 
+  /// No description provided for @checkTrackerTitle.
+  ///
+  /// In zh, this message translates to:
+  /// **'随身防跟踪'**
+  String get checkTrackerTitle;
+
+  /// No description provided for @checkTrackerDesc.
+  ///
+  /// In zh, this message translates to:
+  /// **'扫描周边蓝牙设备，识别 AirTag 等追踪器是否跟着你'**
+  String get checkTrackerDesc;
+
   /// No description provided for @checkDone.
   ///
   /// In zh, this message translates to:
@@ -337,7 +357,7 @@ abstract class AppLocalizations {
   /// No description provided for @checkInProgress.
   ///
   /// In zh, this message translates to:
-  /// **'按顺序完成 4 步检查，全程约 4 分钟'**
+  /// **'按顺序完成全部步骤检查，全程约 7 分钟'**
   String get checkInProgress;
 
   /// No description provided for @checkSuspiciousFound.
@@ -385,7 +405,7 @@ abstract class AppLocalizations {
   /// No description provided for @checkAllFourDone.
   ///
   /// In zh, this message translates to:
-  /// **'4 步检查全部完成'**
+  /// **'所有步骤检查全部完成'**
   String get checkAllFourDone;
 
   /// No description provided for @checkAllDoneTip.
@@ -1312,6 +1332,24 @@ abstract class AppLocalizations {
   /// **'光源附近的光晕会干扰肉眼，用红外检测扫过更可靠'**
   String get guideP9Hint;
 
+  /// No description provided for @guideP10Title.
+  ///
+  /// In zh, this message translates to:
+  /// **'AirTag / 蓝牙追踪器'**
+  String get guideP10Title;
+
+  /// No description provided for @guideP10Check.
+  ///
+  /// In zh, this message translates to:
+  /// **'打开「随身防跟踪」扫描周边蓝牙，多扫几次并换个位置判断是否有设备一直跟着你'**
+  String get guideP10Check;
+
+  /// No description provided for @guideP10Hint.
+  ///
+  /// In zh, this message translates to:
+  /// **'追踪器常藏在背包、行李箱、车内；系统自带的未知追踪器提醒也要保持开启'**
+  String get guideP10Hint;
+
   /// No description provided for @quickScanTitle.
   ///
   /// In zh, this message translates to:
@@ -1321,7 +1359,7 @@ abstract class AppLocalizations {
   /// No description provided for @quickScanSubtitle.
   ///
   /// In zh, this message translates to:
-  /// **'红外 → WiFi → 磁力，全自动完成'**
+  /// **'红外 → WiFi → 磁力 → 防跟踪，全自动完成'**
   String get quickScanSubtitle;
 
   /// No description provided for @quickScanStepIr.
@@ -1341,6 +1379,12 @@ abstract class AppLocalizations {
   /// In zh, this message translates to:
   /// **'磁力检测（约 15 秒）'**
   String get quickScanStepMagnet;
+
+  /// No description provided for @quickScanStepTracker.
+  ///
+  /// In zh, this message translates to:
+  /// **'防跟踪扫描（约 10 秒）'**
+  String get quickScanStepTracker;
 
   /// No description provided for @quickScanDone.
   ///
@@ -1479,6 +1523,12 @@ abstract class AppLocalizations {
   /// In zh, this message translates to:
   /// **'한국어'**
   String get settingsLanguageKo;
+
+  /// No description provided for @settingsLanguageEs.
+  ///
+  /// In zh, this message translates to:
+  /// **'Español'**
+  String get settingsLanguageEs;
 
   /// No description provided for @settingsStatsTitle.
   ///
@@ -2216,7 +2266,7 @@ class _AppLocalizationsDelegate
 
   @override
   bool isSupported(Locale locale) =>
-      <String>['en', 'ko', 'zh'].contains(locale.languageCode);
+      <String>['en', 'es', 'ko', 'zh'].contains(locale.languageCode);
 
   @override
   bool shouldReload(_AppLocalizationsDelegate old) => false;
@@ -2227,6 +2277,8 @@ AppLocalizations lookupAppLocalizations(Locale locale) {
   switch (locale.languageCode) {
     case 'en':
       return AppLocalizationsEn();
+    case 'es':
+      return AppLocalizationsEs();
     case 'ko':
       return AppLocalizationsKo();
     case 'zh':

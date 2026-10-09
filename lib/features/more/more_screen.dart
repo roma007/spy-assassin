@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:privacy_camera/l10n/app_localizations.dart';
+import 'package:spy_assassin/l10n/app_localizations.dart';
 
 import '../../core/pro/iap_config.dart';
 import '../../core/pro/pro_store.dart';

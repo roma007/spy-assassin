@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart' show decodeImageFromList;
 import 'package:flutter/services.dart';
-import 'package:privacy_camera/l10n/app_localizations.dart';
+import 'package:spy_assassin/l10n/app_localizations.dart';
 import 'package:intl/intl.dart';
 import 'package:pdf/pdf.dart';
 import 'package:pdf/widgets.dart' as pw;
@@ -20,17 +20,28 @@ class ReportPdf {
   static const _photoMaxWidth = 460.0;
   static const _photoMaxHeight = 300.0;
 
+  static pw.Font? _cachedFont;
+  static String? _cachedLocale;
+
+  static Future<pw.Font> _loadFont(String locale) async {
+    if (_cachedFont != null && _cachedLocale == locale) return _cachedFont!;
+    final fontData = await rootBundle
+        .load(locale == 'ko' ? _fontAssetKo : _fontAsset);
+    _cachedFont = pw.Font.ttf(fontData);
+    _cachedLocale = locale;
+    return _cachedFont!;
+  }
+
   /// 生成 PDF 字节流；本地生成，不落服务器。
+  /// [font] 可选，用于测试或自定义字体场景。
   static Future<Uint8List> build({
     required AppLocalizations l10n,
     required String place,
     required List<ReportEntry> entries,
     List<Uint8List> photos = const [],
+    pw.Font? font,
   }) async {
-    final fontData = await rootBundle
-        .load(l10n.localeName == 'ko' ? _fontAssetKo : _fontAsset);
-    final font = pw.Font.ttf(fontData);
-    final bold = pw.Font.ttf(fontData);
+    final resolvedFont = font ?? await _loadFont(l10n.localeName);
 
     final doc = pw.Document(title: l10n.reportPdfTitle);
     final dateFmt = DateFormat('yyyy-MM-dd HH:mm');
@@ -44,7 +55,7 @@ class ReportPdf {
     doc.addPage(
       pw.MultiPage(
         pageFormat: PdfPageFormat.a4,
-        theme: pw.ThemeData.withFont(base: font, bold: bold),
+        theme: pw.ThemeData.withFont(base: resolvedFont),
         footer: (context) => pw.Text(
           l10n.reportPdfFooter,
           style: const pw.TextStyle(

@@ -5,10 +5,10 @@
 /// 插件直接使用系统 StoreKit / Google Play Billing。
 enum ProPlan {
   /// 月度自动续期订阅。
-  monthly(id: 'com.privacycam.privacyCamera.pro.monthly', days: 30),
+  monthly(id: 'com.spyassassin.app.pro.monthly', days: 30),
 
   /// 年度自动续期订阅。
-  yearly(id: 'com.privacycam.privacyCamera.pro.yearly', days: 365);
+  yearly(id: 'com.spyassassin.app.pro.yearly', days: 365);
 
   const ProPlan({required this.id, required this.days});
 

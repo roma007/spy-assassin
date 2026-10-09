@@ -3,7 +3,7 @@ import 'dart:typed_data';
 import 'package:camera/camera.dart';
 import 'package:camera_platform_interface/camera_platform_interface.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:privacy_camera/features/ir/bright_spot_detector.dart';
+import 'package:spy_assassin/features/ir/bright_spot_detector.dart';
 
 CameraImage _yImage(Uint8List bytes, {int width = 640, int height = 480}) {
   return CameraImage.fromPlatformInterface(

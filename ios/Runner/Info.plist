@@ -7,7 +7,7 @@
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleDisplayName</key>
-	<string>间谍刺客 - 隐藏摄像头检测</string>
+	<string>Spy Assassin</string>
 	<key>NSCameraUsageDescription</key>
 	<string>用于红外检测和镜头反光扫描，查找隐藏摄像头。所有图像仅在本地处理，不会上传。</string>
 	<key>NSLocalNetworkUsageDescription</key>
@@ -18,6 +18,8 @@
 	<string>用于扫描附近的蓝牙设备，排查可能隐藏的摄像头。</string>
 	<key>NSPhotoLibraryAddUsageDescription</key>
 	<string>用于保存检测报告中的证据截图。</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>用于从相册选择现场照片，添加进检测报告。照片仅在本地处理，不会上传。</string>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>
@@ -25,7 +27,7 @@
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>
-	<string>privacy_camera</string>
+	<string>spy_assassin</string>
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
@@ -36,6 +38,8 @@
 	<string>$(FLUTTER_BUILD_NUMBER)</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>ITSAppUsesNonExemptEncryption</key>
+	<false/>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>

@@ -1,3 +1,5 @@
+import 'dart:io' show Platform;
+
 import 'package:permission_handler/permission_handler.dart';
 
 /// 权限申请封装：全部按需申请、拒绝后提供"去设置"引导。
@@ -18,11 +20,14 @@ class PermissionHelper {
     return status.isGranted;
   }
 
-  /// 请求蓝牙权限。
+  /// 请求蓝牙权限；Android ≤11 BLE 扫描需要位置权限同步授予。
   static Future<bool> requestBluetooth() async {
     final status = await Permission.bluetoothScan.request();
     if (status.isGranted) {
       await Permission.bluetoothConnect.request();
+    }
+    if (Platform.isAndroid && status.isGranted) {
+      await Permission.locationWhenInUse.request();
     }
     return status.isGranted;
   }

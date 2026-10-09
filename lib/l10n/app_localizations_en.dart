@@ -111,6 +111,9 @@ class AppLocalizationsEn extends AppLocalizations {
   String get checkStep1_5Min => '~1.5 min';
 
   @override
+  String get checkStep2Min => '~2 min';
+
+  @override
   String get checkIrTitle => 'IR Scan';
 
   @override
@@ -132,11 +135,18 @@ class AppLocalizationsEn extends AppLocalizations {
       'Use \"Magnet Scan\" close to suspicious chargers, clocks, smoke detectors and other objects';
 
   @override
+  String get checkTrackerTitle => 'Tracker Scan';
+
+  @override
+  String get checkTrackerDesc =>
+      'Scan nearby Bluetooth for trackers such as AirTags that may be following you';
+
+  @override
   String get checkDone => 'Check complete. You can relax now.';
 
   @override
   String get checkInProgress =>
-      'Finish the 4 steps in order, about 4 minutes in total';
+      'Complete all steps in order, about 7 minutes in total';
 
   @override
   String checkSuspiciousFound(Object count) {
@@ -164,7 +174,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get checkMarkSuspicious => 'Mark suspicious';
 
   @override
-  String get checkAllFourDone => 'All 4 steps complete';
+  String get checkAllFourDone => 'All steps complete';
 
   @override
   String get checkAllDoneTip =>
@@ -714,10 +724,22 @@ class AppLocalizationsEn extends AppLocalizations {
       'Glare near light sources fools the eye — the IR detector is more reliable here';
 
   @override
+  String get guideP10Title => 'AirTag / Bluetooth trackers';
+
+  @override
+  String get guideP10Check =>
+      'Open Tracker Scan to scan nearby Bluetooth; scan several times from different spots to check whether any device keeps following you';
+
+  @override
+  String get guideP10Hint =>
+      'Trackers are often hidden in bags, luggage and cars; keep the system\'s built-in unknown-tracker alerts enabled';
+
+  @override
   String get quickScanTitle => 'Quick Scan';
 
   @override
-  String get quickScanSubtitle => 'IR → WiFi → Magnet, fully automated';
+  String get quickScanSubtitle =>
+      'IR → WiFi → Magnet → Tracker, fully automated';
 
   @override
   String get quickScanStepIr => 'IR scan (≈ 20s)';
@@ -727,6 +749,9 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get quickScanStepMagnet => 'Magnet scan (≈ 15s)';
+
+  @override
+  String get quickScanStepTracker => 'Tracker scan (≈ 10s)';
 
   @override
   String get quickScanDone => 'Quick scan complete. View verdict.';
@@ -801,6 +826,9 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get settingsLanguageKo => '한국어';
+
+  @override
+  String get settingsLanguageEs => 'Español';
 
   @override
   String get settingsStatsTitle => 'Local stats';

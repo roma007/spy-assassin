@@ -2,7 +2,7 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-import 'package:privacy_camera/l10n/app_localizations.dart';
+import 'package:spy_assassin/l10n/app_localizations.dart';
 
 import '../../core/pro/pro_store.dart';
 import '../../core/report/report_archive.dart';

@@ -107,6 +107,9 @@ class AppLocalizationsZh extends AppLocalizations {
   String get checkStep1_5Min => '约 1.5 分钟';
 
   @override
+  String get checkStep2Min => '约 2 分钟';
+
+  @override
   String get checkIrTitle => '红外扫描';
 
   @override
@@ -125,10 +128,16 @@ class AppLocalizationsZh extends AppLocalizations {
   String get checkMagnetDesc => '用「磁力检测」贴近可疑的充电器、时钟、烟雾报警器等物体';
 
   @override
+  String get checkTrackerTitle => '随身防跟踪';
+
+  @override
+  String get checkTrackerDesc => '扫描周边蓝牙设备，识别 AirTag 等追踪器是否跟着你';
+
+  @override
   String get checkDone => '检查完成，已获得安心。';
 
   @override
-  String get checkInProgress => '按顺序完成 4 步检查，全程约 4 分钟';
+  String get checkInProgress => '按顺序完成全部步骤检查，全程约 7 分钟';
 
   @override
   String checkSuspiciousFound(Object count) {
@@ -156,7 +165,7 @@ class AppLocalizationsZh extends AppLocalizations {
   String get checkMarkSuspicious => '标记可疑';
 
   @override
-  String get checkAllFourDone => '4 步检查全部完成';
+  String get checkAllFourDone => '所有步骤检查全部完成';
 
   @override
   String get checkAllDoneTip => '若任一环节发现可疑信号，请拍照留存证据，并联系前台/房东或报警处理。';
@@ -661,10 +670,19 @@ class AppLocalizationsZh extends AppLocalizations {
   String get guideP9Hint => '光源附近的光晕会干扰肉眼，用红外检测扫过更可靠';
 
   @override
+  String get guideP10Title => 'AirTag / 蓝牙追踪器';
+
+  @override
+  String get guideP10Check => '打开「随身防跟踪」扫描周边蓝牙，多扫几次并换个位置判断是否有设备一直跟着你';
+
+  @override
+  String get guideP10Hint => '追踪器常藏在背包、行李箱、车内；系统自带的未知追踪器提醒也要保持开启';
+
+  @override
   String get quickScanTitle => '一键扫描';
 
   @override
-  String get quickScanSubtitle => '红外 → WiFi → 磁力，全自动完成';
+  String get quickScanSubtitle => '红外 → WiFi → 磁力 → 防跟踪，全自动完成';
 
   @override
   String get quickScanStepIr => '红外检测（约 20 秒）';
@@ -674,6 +692,9 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get quickScanStepMagnet => '磁力检测（约 15 秒）';
+
+  @override
+  String get quickScanStepTracker => '防跟踪扫描（约 10 秒）';
 
   @override
   String get quickScanDone => '一键扫描完成，查看结论';
@@ -747,6 +768,9 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get settingsLanguageKo => '한국어';
+
+  @override
+  String get settingsLanguageEs => 'Español';
 
   @override
   String get settingsStatsTitle => '本地统计';

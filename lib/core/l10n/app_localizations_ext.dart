@@ -1,4 +1,4 @@
-import 'package:privacy_camera/l10n/app_localizations.dart';
+import 'package:spy_assassin/l10n/app_localizations.dart';
 
 import '../report/report_store.dart';
 

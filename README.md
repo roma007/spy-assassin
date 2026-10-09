@@ -2,7 +2,7 @@
 
 住酒店 / 在家查找隐藏摄像头的隐私检测工具。全程本地处理：无账号、无广告、无云上传。
 
-[![Android Build](https://github.com/roma007/security-Camera/actions/workflows/build_apk.yml/badge.svg)](https://github.com/roma007/security-Camera/actions/workflows/build_apk.yml)
+[![Android Build](https://github.com/roma007/spy-assassin/actions/workflows/build_apk.yml/badge.svg)](https://github.com/roma007/spy-assassin/actions/workflows/build_apk.yml)
 
 ## 功能
 
@@ -35,8 +35,8 @@ flutter build apk --release   # 产物：build/app/outputs/flutter-apk/app-relea
 
 ## 仓库
 
-- GitHub：https://github.com/roma007/security-Camera
-- Gitee（镜像）：https://gitee.com/roma007007/security-camera
+- GitHub：https://github.com/roma007/spy-assassin
+- Gitee（镜像）：https://gitee.com/roma007007/spy-assassin
 
 ## License
 

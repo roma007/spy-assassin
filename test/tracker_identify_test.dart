@@ -1,5 +1,5 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:privacy_camera/features/tracker/tracker_identify.dart';
+import 'package:spy_assassin/features/tracker/tracker_identify.dart';
 
 void main() {
   group('identifyTracker', () {

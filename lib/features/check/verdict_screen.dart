@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:privacy_camera/l10n/app_localizations.dart';
+import 'package:spy_assassin/l10n/app_localizations.dart';
 import 'package:printing/printing.dart';
 
 import '../../core/l10n/app_localizations_ext.dart';
@@ -21,6 +21,7 @@ class VerdictScreen extends StatefulWidget {
 class _VerdictScreenState extends State<VerdictScreen> {
   bool _exporting = false;
   bool _showEvidence = false;
+  String? _error;
 
   @override
   Widget build(BuildContext context) {
@@ -112,6 +113,22 @@ class _VerdictScreenState extends State<VerdictScreen> {
             ],
           ),
           const SizedBox(height: 8),
+          if (_error != null)
+            SectionCard(
+              child: Row(
+                children: [
+                  const Icon(Icons.info_outline_rounded,
+                      color: AppColors.textSecondary, size: 20),
+                  const SizedBox(width: 10),
+                  Expanded(
+                    child: Text(_error!,
+                        style: const TextStyle(
+                            fontSize: 12.5,
+                            color: AppColors.textSecondary)),
+                  ),
+                ],
+              ),
+            ),
           SizedBox(
             width: double.infinity,
             child: OutlinedButton(
@@ -131,7 +148,10 @@ class _VerdictScreenState extends State<VerdictScreen> {
     final l10n = AppLocalizations.of(context)!;
     final entries = ReportStore.instance.entries;
     if (entries.isEmpty) return;
-    setState(() => _exporting = true);
+    setState(() {
+      _exporting = true;
+      _error = null;
+    });
     try {
       final bytes = await ReportPdf.build(
         l10n: l10n,
@@ -139,12 +159,18 @@ class _VerdictScreenState extends State<VerdictScreen> {
         entries: entries,
         photos: ReportStore.instance.photos,
       );
-      await Printing.sharePdf(
+      final ok = await Printing.sharePdf(
         bytes: bytes,
-        filename: 'privacy_camera_report_${DateTime.now().millisecondsSinceEpoch}.pdf',
+        filename: 'spy_assassin_report_${DateTime.now().millisecondsSinceEpoch}.pdf',
       );
-    } catch (_) {}
-    finally {
+      if (!ok && mounted) {
+        setState(() => _error = l10n.reportShareCancelled);
+      }
+    } catch (e) {
+      if (mounted) {
+        setState(() => _error = l10n.reportExportFailed('$e'));
+      }
+    } finally {
       if (mounted) setState(() => _exporting = false);
     }
   }

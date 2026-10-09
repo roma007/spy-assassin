@@ -3,7 +3,7 @@ import 'dart:io';
 import 'package:flutter/foundation.dart';
 import 'package:flutter_test/flutter_test.dart';
 
-import 'package:privacy_camera/core/logging/error_logger.dart';
+import 'package:spy_assassin/core/logging/error_logger.dart';
 
 void main() {
   late Directory tempDir;

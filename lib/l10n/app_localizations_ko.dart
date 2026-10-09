@@ -110,6 +110,9 @@ class AppLocalizationsKo extends AppLocalizations {
   String get checkStep1_5Min => '약 1.5분';
 
   @override
+  String get checkStep2Min => '약 2분';
+
+  @override
   String get checkIrTitle => '적외선 스캔';
 
   @override
@@ -128,10 +131,16 @@ class AppLocalizationsKo extends AppLocalizations {
   String get checkMagnetDesc => '\'자력 감지\'로 의심스러운 충전기, 시계, 화재 감지기 등을 가까이 스캔하세요';
 
   @override
+  String get checkTrackerTitle => '추적기 스캔';
+
+  @override
+  String get checkTrackerDesc => '주변 블루투스를 스캔해 AirTag 등 추적기가 나를 따라오는지 확인';
+
+  @override
   String get checkDone => '점검이 완료되었습니다. 안심하세요.';
 
   @override
-  String get checkInProgress => '4단계를 순서대로 진행하세요 (약 4분 소요)';
+  String get checkInProgress => '모든 단계를 순서대로 진행하세요 (약 7분 소요)';
 
   @override
   String checkSuspiciousFound(Object count) {
@@ -159,7 +168,7 @@ class AppLocalizationsKo extends AppLocalizations {
   String get checkMarkSuspicious => '의심 표시';
 
   @override
-  String get checkAllFourDone => '4단계 점검 완료';
+  String get checkAllFourDone => '모든 단계 점검 완료';
 
   @override
   String get checkAllDoneTip =>
@@ -672,10 +681,21 @@ class AppLocalizationsKo extends AppLocalizations {
   String get guideP9Hint => '광원 주변의 눈부심은 육안을 방해하므로 적외선 감지가 더 정확합니다';
 
   @override
+  String get guideP10Title => 'AirTag / 블루투스 추적기';
+
+  @override
+  String get guideP10Check =>
+      '추적기 스캔을 열어 주변 블루투스를 스캔하세요. 여러 번 위치를 바꿔 가며 나를 계속 따라오는 기기가 있는지 확인하세요';
+
+  @override
+  String get guideP10Hint =>
+      '추적기는 가방, 짐, 차 안에 자주 숨겨집니다. 시스템의 알 수 없는 추적기 알림을 켜 두세요';
+
+  @override
   String get quickScanTitle => '빠른 검사';
 
   @override
-  String get quickScanSubtitle => '적외선 → WiFi → 자력, 완전 자동';
+  String get quickScanSubtitle => '적외선 → WiFi → 자력 → 추적기, 완전 자동';
 
   @override
   String get quickScanStepIr => '적외선 검사 (약 20초)';
@@ -685,6 +705,9 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get quickScanStepMagnet => '자력 검사 (약 15초)';
+
+  @override
+  String get quickScanStepTracker => '추적기 검사 (약 10초)';
 
   @override
   String get quickScanDone => '빠른 검사 완료. 결론 보기';
@@ -758,6 +781,9 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get settingsLanguageKo => '한국어';
+
+  @override
+  String get settingsLanguageEs => 'Español';
 
   @override
   String get settingsStatsTitle => '로컬 통계';

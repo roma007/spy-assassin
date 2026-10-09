@@ -1,6 +1,6 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:privacy_camera/features/tracker/tracker_identify.dart';
-import 'package:privacy_camera/features/tracker/tracker_session.dart';
+import 'package:spy_assassin/features/tracker/tracker_identify.dart';
+import 'package:spy_assassin/features/tracker/tracker_session.dart';
 
 TrackerSighting _sighting(String id, int rssi) =>
     TrackerSighting(deviceId: id, rssi: rssi, kind: TrackerKind.findMy);

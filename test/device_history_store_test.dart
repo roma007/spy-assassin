@@ -1,6 +1,6 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:privacy_camera/features/wifi/device_history_store.dart';
-import 'package:privacy_camera/features/wifi/lan_scanner.dart';
+import 'package:spy_assassin/features/wifi/device_history_store.dart';
+import 'package:spy_assassin/features/wifi/lan_scanner.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 void main() {

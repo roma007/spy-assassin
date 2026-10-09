@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:privacy_camera/l10n/app_localizations.dart';
+import 'package:spy_assassin/l10n/app_localizations.dart';
 
 import '../../core/locale/locale_store.dart';
 import '../../core/report/report_archive.dart';
@@ -55,6 +55,7 @@ class _LanguageSection extends StatelessWidget {
           (AppLanguage.zh, l10n.settingsLanguageZh),
           (AppLanguage.en, l10n.settingsLanguageEn),
           (AppLanguage.ko, l10n.settingsLanguageKo),
+          (AppLanguage.es, l10n.settingsLanguageEs),
         ];
         return SectionCard(
           child: Column(

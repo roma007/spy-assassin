@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:privacy_camera/l10n/app_localizations.dart';
+import 'package:spy_assassin/l10n/app_localizations.dart';
 
 import '../../core/stats/stat_store.dart';
 import '../../core/theme/app_theme.dart';
 import '../../core/widgets/common_widgets.dart';
 import '../more/guide_screen.dart';
+import '../tracker/tracker_screen.dart';
 import 'next_actions_screen.dart';
 import 'quick_scan_screen.dart';
 
@@ -17,8 +18,8 @@ class RoomCheckScreen extends StatefulWidget {
 }
 
 class _RoomCheckScreenState extends State<RoomCheckScreen> {
-  final Map<int, bool> _done = {0: false, 1: false, 2: false, 3: false};
-  final Map<int, bool> _suspicious = {0: false, 1: false, 2: false, 3: false};
+  final Map<int, bool> _done = {0: false, 1: false, 2: false, 3: false, 4: false};
+  final Map<int, bool> _suspicious = {0: false, 1: false, 2: false, 3: false, 4: false};
 
   DateTime? _startedAt;
   bool _startRecorded = false;
@@ -47,6 +48,10 @@ class _RoomCheckScreenState extends State<RoomCheckScreen> {
   }
 
   void _openGuide() => Navigator.of(context).push(GuideScreen.route());
+
+  void _openTracker() => Navigator.of(context).push(
+        MaterialPageRoute(builder: (_) => const TrackerScreen()),
+      );
 
   @override
   Widget build(BuildContext context) {
@@ -77,6 +82,13 @@ class _RoomCheckScreenState extends State<RoomCheckScreen> {
         desc: l10n.checkMagnetDesc,
         duration: l10n.checkStep1Min,
       ),
+      _StepData(
+        icon: Icons.radar_rounded,
+        title: l10n.checkTrackerTitle,
+        desc: l10n.checkTrackerDesc,
+        duration: l10n.checkStep2Min,
+        hasGuide: true,
+      ),
     ];
 
     return Scaffold(
@@ -86,7 +98,7 @@ class _RoomCheckScreenState extends State<RoomCheckScreen> {
         children: [
           _QuickScanCard(),
           const SizedBox(height: 8),
-          _buildSummaryCard(),
+          _buildSummaryCard(steps.length),
           for (var i = 0; i < steps.length; i++)
             _StepCard(
               data: steps[i],
@@ -96,7 +108,9 @@ class _RoomCheckScreenState extends State<RoomCheckScreen> {
               onToggle: () => _toggleDone(i),
               onToggleSuspicious: () => _toggleSuspicious(i),
               onSkip: () => _toggleDone(i),
-              onOpenGuide: steps[i].hasGuide ? _openGuide : null,
+              onOpenGuide: steps[i].hasGuide
+                  ? (i == 4 ? _openTracker : _openGuide)
+                  : null,
             ),
           if (_allDone && _suspiciousCount == 0) const _AllDoneCard(),
         ],
@@ -104,9 +118,9 @@ class _RoomCheckScreenState extends State<RoomCheckScreen> {
     );
   }
 
-  Widget _buildSummaryCard() {
+  Widget _buildSummaryCard(int totalSteps) {
     final l10n = AppLocalizations.of(context)!;
-    final doneRatio = _doneCount / 4;
+    final doneRatio = _doneCount / totalSteps;
     return SectionCard(
       padding: const EdgeInsets.all(16),
       child: Column(

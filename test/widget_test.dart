@@ -1,8 +1,8 @@
 import 'package:flutter/widgets.dart';
 import 'package:flutter_test/flutter_test.dart';
 
-import 'package:privacy_camera/app.dart';
-import 'package:privacy_camera/core/pro/pro_store.dart';
+import 'package:spy_assassin/app.dart';
+import 'package:spy_assassin/core/pro/pro_store.dart';
 
 void main() {
   testWidgets('App boots and shows bottom navigation', (tester) async {

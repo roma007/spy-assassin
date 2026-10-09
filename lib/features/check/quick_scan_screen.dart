@@ -1,12 +1,13 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:privacy_camera/l10n/app_localizations.dart';
+import 'package:spy_assassin/l10n/app_localizations.dart';
 
 import '../../core/theme/app_theme.dart';
 import '../../core/widgets/common_widgets.dart';
 import '../ir/ir_screen.dart';
 import '../magnet/magnet_screen.dart';
+import '../tracker/tracker_quick_step.dart';
 import '../wifi/wifi_screen.dart';
 import 'verdict_screen.dart';
 
@@ -36,6 +37,10 @@ class _QuickScanScreenState extends State<QuickScanScreen> {
     _QuickStep(
       key: 'magnet',
       screenBuilder: (context) => const MagnetScreen(),
+    ),
+    _QuickStep(
+      key: 'tracker',
+      screenBuilder: (context) => const TrackerQuickStepScreen(),
     ),
   ];
 
@@ -138,6 +143,7 @@ String _stepTitle(AppLocalizations l10n, _QuickStep step) => switch (step.key) {
       'ir' => l10n.quickScanStepIr,
       'wifi' => l10n.quickScanStepWifi,
       'magnet' => l10n.quickScanStepMagnet,
+      'tracker' => l10n.quickScanStepTracker,
       _ => step.key,
     };
 

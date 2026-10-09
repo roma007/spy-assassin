@@ -1,4 +1,4 @@
-package com.privacycam.privacy_camera
+package com.spyassassin.app
 
 import io.flutter.embedding.android.FlutterActivity
 

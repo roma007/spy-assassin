@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:privacy_camera/l10n/app_localizations.dart';
+import 'package:spy_assassin/l10n/app_localizations.dart';
 
 import '../../core/theme/app_theme.dart';
 import '../../core/widgets/common_widgets.dart';
@@ -112,6 +112,12 @@ List<_GuidePoint> _points(AppLocalizations l10n) => [
         title: l10n.guideP9Title,
         check: l10n.guideP9Check,
         hint: l10n.guideP9Hint,
+      ),
+      _GuidePoint(
+        icon: Icons.radar_rounded,
+        title: l10n.guideP10Title,
+        check: l10n.guideP10Check,
+        hint: l10n.guideP10Hint,
       ),
     ];
 

@@ -6,7 +6,8 @@ enum AppLanguage {
   system,
   zh,
   en,
-  ko;
+  ko,
+  es;
 
   String get storageValue => name;
 
@@ -15,6 +16,7 @@ enum AppLanguage {
         AppLanguage.zh => const Locale('zh', 'CN'),
         AppLanguage.en => const Locale('en', 'US'),
         AppLanguage.ko => const Locale('ko', 'KR'),
+        AppLanguage.es => const Locale('es', '419'),
       };
 }
 
