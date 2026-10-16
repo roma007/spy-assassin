@@ -3,6 +3,8 @@ import 'package:spy_assassin/l10n/app_localizations.dart';
 import 'package:printing/printing.dart';
 
 import '../../core/l10n/app_localizations_ext.dart';
+import '../../core/pro/pro_store.dart';
+import '../../core/pro/upgrade_dialog.dart';
 import '../../core/report/report_store.dart';
 import '../../core/theme/app_theme.dart';
 import '../../core/widgets/common_widgets.dart';
@@ -74,6 +76,8 @@ class _VerdictScreenState extends State<VerdictScreen> {
                     Text(l10n.reportEmptyHint,
                         style: const TextStyle(
                             fontSize: 12.5, color: AppColors.textSecondary))
+                  else if (!ProStore.instance.isPro)
+                    _LockedReportHint(onUnlock: () => ensureAccess(context))
                   else
                     ...entries.map((e) => _EvidenceTile(entry: e)),
                 ],
@@ -148,6 +152,8 @@ class _VerdictScreenState extends State<VerdictScreen> {
     final l10n = AppLocalizations.of(context)!;
     final entries = ReportStore.instance.entries;
     if (entries.isEmpty) return;
+    final allowed = await ensureAccess(context);
+    if (!allowed) return;
     setState(() {
       _exporting = true;
       _error = null;
@@ -228,6 +234,43 @@ class _VerdictCard extends StatelessWidget {
               style: const TextStyle(fontSize: 13, color: AppColors.textSecondary),
             ),
           ],
+        ],
+      ),
+    );
+  }
+}
+
+/// 免费用户查看完整证据明细时的锁定提示卡片。
+class _LockedReportHint extends StatelessWidget {
+  const _LockedReportHint({required this.onUnlock});
+
+  final Future<bool> Function() onUnlock;
+
+  @override
+  Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
+    return Container(
+      padding: const EdgeInsets.all(16),
+      decoration: BoxDecoration(
+        color: AppColors.primary.withValues(alpha: 0.06),
+        borderRadius: BorderRadius.circular(12),
+        border: Border.all(color: AppColors.primary.withValues(alpha: 0.2)),
+      ),
+      child: Column(
+        children: [
+          const Icon(Icons.lock_outline_rounded,
+              color: AppColors.primary, size: 28),
+          const SizedBox(height: 8),
+          Text(l10n.reportLockedHint,
+              textAlign: TextAlign.center,
+              style: const TextStyle(
+                  fontSize: 13, color: AppColors.textSecondary, height: 1.4)),
+          const SizedBox(height: 12),
+          FilledButton.icon(
+            onPressed: onUnlock,
+            icon: const Icon(Icons.workspace_premium_rounded, size: 18),
+            label: Text(l10n.proUnlock),
+          ),
         ],
       ),
     );

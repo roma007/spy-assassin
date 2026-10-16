@@ -8,6 +8,7 @@ import 'package:network_info_plus/network_info_plus.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../core/permissions/permission_helper.dart';
+import '../../core/pro/upgrade_dialog.dart';
 import '../../core/report/report_store.dart';
 import '../../core/stats/stat_store.dart';
 import '../../core/theme/app_theme.dart';
@@ -19,7 +20,10 @@ import 'ssdp_discoverer.dart';
 
 /// WiFi 扫描页：扫描局域网设备，识别可疑的联网摄像头。
 class WifiScreen extends StatefulWidget {
-  const WifiScreen({super.key});
+  /// [embeddedInQuickScan] 为 true 时跳过付费检查——一键扫描入口已统一扣费。
+  const WifiScreen({super.key, this.embeddedInQuickScan = false});
+
+  final bool embeddedInQuickScan;
 
   @override
   State<WifiScreen> createState() => _WifiScreenState();
@@ -147,6 +151,10 @@ class _WifiScreenState extends State<WifiScreen> {
   }
 
   Future<void> _scan() async {
+    if (!widget.embeddedInQuickScan) {
+      final allowed = await ensureScanAccess(context);
+      if (!allowed) return;
+    }
     StatStore.instance.recordWifi();
     final range = _hostRange();
     if (range == null) {

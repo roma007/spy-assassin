@@ -19,7 +19,8 @@ class AppLocalizationsEn extends AppLocalizations {
   String get proTitle => 'Pro';
 
   @override
-  String get proSubtitle => 'Unlimited history archive + advanced AI features';
+  String get proSubtitle =>
+      'Unlimited scans · PDF reports · full results · unlimited history';
 
   @override
   String get proUnlock => 'Unlock now';
@@ -29,22 +30,63 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get proUpgradePrompt =>
-      'Upgrade to Pro for unlimited history archive and future advanced AI detection features.';
+      'Upgrade to Pro for unlimited scans, PDF evidence reports, full detection details, and unlimited history archive.';
+
+  @override
+  String get proScanExhaustedTitle => 'Free scans used up';
+
+  @override
+  String get proScanExhaustedMsg =>
+      'You\'ve used your free full scan. Upgrade to Pro to keep scanning, export PDF evidence reports, and view full results.';
+
+  @override
+  String get proPlanWeekly => 'Weekly';
+
+  @override
+  String get proPlanWeeklySub => 'Auto-renews weekly';
 
   @override
   String get proPlanMonthly => 'Monthly';
 
   @override
+  String get proPlanMonthlySub => 'Auto-renews every 1 month';
+
+  @override
   String get proPlanYearly => 'Yearly';
 
   @override
-  String get proPlanMonthlySub => 'Cancel anytime';
-
-  @override
-  String get proPlanYearlySub => 'Best value, 2 months free';
+  String get proPlanYearlySub => 'Auto-renews every 1 year · best value';
 
   @override
   String get proBestValue => 'BEST VALUE';
+
+  @override
+  String get proMostPopular => 'MOST POPULAR';
+
+  @override
+  String get proFeatureUnlimitedScan => 'Unlimited full detection scans';
+
+  @override
+  String get proFeaturePdfReport => 'PDF evidence report export & share';
+
+  @override
+  String get proFeatureFullReport => 'Full detection results & device details';
+
+  @override
+  String get proFeatureUnlimitedHistory => 'Unlimited history archive';
+
+  @override
+  String get proRenewalNote =>
+      'Payment is charged to your Apple Account at confirmation of purchase. The subscription renews automatically unless cancelled at least 24 hours before the end of the current period. Manage or cancel anytime in Settings → Apple ID → Subscriptions.';
+
+  @override
+  String get proTermsOfUse => 'Terms of Use (EULA)';
+
+  @override
+  String get proPrivacyPolicy => 'Privacy Policy';
+
+  @override
+  String get proLinkOpenFailed => 'Could not open the link';
 
   @override
   String get proRestore => 'Restore purchases';
@@ -68,7 +110,11 @@ class AppLocalizationsEn extends AppLocalizations {
   }
 
   @override
-  String get proLocalSimUnlock => 'Developer · simulate unlock';
+  String get reportLockedHint =>
+      'Upgrade to Pro to view full results and device details';
+
+  @override
+  String get pdfLockedHint => 'Upgrade to Pro to export PDF evidence reports';
 
   @override
   String get navTabIr => 'IR';

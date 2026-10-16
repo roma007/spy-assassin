@@ -18,7 +18,7 @@ class AppLocalizationsZh extends AppLocalizations {
   String get proTitle => 'Pro 版';
 
   @override
-  String get proSubtitle => '无限历史存档 + AI 高级识别';
+  String get proSubtitle => '无限扫描 · PDF 报告 · 完整结果 · 无限历史';
 
   @override
   String get proUnlock => '立即解锁';
@@ -27,22 +27,63 @@ class AppLocalizationsZh extends AppLocalizations {
   String get proUnlocked => 'Pro 已激活';
 
   @override
-  String get proUpgradePrompt => '升级 Pro：解锁无限历史存档与后续 AI 高级识别功能。';
+  String get proUpgradePrompt => '升级 Pro：解锁无限次检测扫描、PDF 取证报告、完整检测结果明细与无限历史存档。';
+
+  @override
+  String get proScanExhaustedTitle => '免费扫描次数已用完';
+
+  @override
+  String get proScanExhaustedMsg =>
+      '你已使用免费的完整扫描。升级 Pro 以继续检测、导出 PDF 取证报告并查看完整结果。';
+
+  @override
+  String get proPlanWeekly => '周度';
+
+  @override
+  String get proPlanWeeklySub => '每 1 周自动续费';
 
   @override
   String get proPlanMonthly => '月度';
 
   @override
+  String get proPlanMonthlySub => '每 1 个月自动续费';
+
+  @override
   String get proPlanYearly => '年度';
 
   @override
-  String get proPlanMonthlySub => '随时取消';
-
-  @override
-  String get proPlanYearlySub => '最划算，送 2 个月';
+  String get proPlanYearlySub => '每 1 年自动续费 · 最划算';
 
   @override
   String get proBestValue => '超值';
+
+  @override
+  String get proMostPopular => '热门';
+
+  @override
+  String get proFeatureUnlimitedScan => '无限次完整检测扫描';
+
+  @override
+  String get proFeaturePdfReport => 'PDF 取证报告导出与分享';
+
+  @override
+  String get proFeatureFullReport => '完整检测结果与设备明细';
+
+  @override
+  String get proFeatureUnlimitedHistory => '无限历史报告存档';
+
+  @override
+  String get proRenewalNote =>
+      '确认购买后将从你的 Apple 账户扣款。订阅会自动续费，除非在当前订阅周期结束前至少 24 小时取消。可随时在「设置 → Apple ID → 订阅」中管理或取消。';
+
+  @override
+  String get proTermsOfUse => '使用条款（EULA）';
+
+  @override
+  String get proPrivacyPolicy => '隐私政策';
+
+  @override
+  String get proLinkOpenFailed => '无法打开该链接';
 
   @override
   String get proRestore => '恢复购买';
@@ -65,7 +106,10 @@ class AppLocalizationsZh extends AppLocalizations {
   }
 
   @override
-  String get proLocalSimUnlock => '开发者 · 本地模拟解锁';
+  String get reportLockedHint => '升级 Pro 查看完整检测结果与设备明细';
+
+  @override
+  String get pdfLockedHint => '升级 Pro 导出 PDF 取证报告';
 
   @override
   String get navTabIr => '红外';

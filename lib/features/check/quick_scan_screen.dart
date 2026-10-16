@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:spy_assassin/l10n/app_localizations.dart';
 
+import '../../core/pro/upgrade_dialog.dart';
 import '../../core/theme/app_theme.dart';
 import '../../core/widgets/common_widgets.dart';
 import '../ir/ir_screen.dart';
@@ -28,15 +29,15 @@ class _QuickScanScreenState extends State<QuickScanScreen> {
   static final _steps = [
     _QuickStep(
       key: 'ir',
-      screenBuilder: (context) => const IrScreen(),
+      screenBuilder: (context) => const IrScreen(embeddedInQuickScan: true),
     ),
     _QuickStep(
       key: 'wifi',
-      screenBuilder: (context) => const WifiScreen(),
+      screenBuilder: (context) => const WifiScreen(embeddedInQuickScan: true),
     ),
     _QuickStep(
       key: 'magnet',
-      screenBuilder: (context) => const MagnetScreen(),
+      screenBuilder: (context) => const MagnetScreen(embeddedInQuickScan: true),
     ),
     _QuickStep(
       key: 'tracker',
@@ -51,6 +52,8 @@ class _QuickScanScreenState extends State<QuickScanScreen> {
   }
 
   Future<void> _runScan() async {
+    final allowed = await ensureScanAccess(context);
+    if (!allowed || !mounted) return;
     setState(() => _running = true);
     for (int i = 0; i < _steps.length; i++) {
       if (!mounted) return;

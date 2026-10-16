@@ -2,6 +2,7 @@ import 'package:flutter/widgets.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 import 'package:spy_assassin/app.dart';
+import 'package:spy_assassin/core/pro/iap_config.dart';
 import 'package:spy_assassin/core/pro/pro_store.dart';
 
 void main() {
@@ -50,7 +51,7 @@ void main() {
   });
 
   testWidgets('Settings entry opens from More tab', (tester) async {
-    ProStore.instance.unlock();
+    ProStore.instance.activateIap(plan: ProPlan.yearly);
     tester.binding.platformDispatcher.localesTestValue = const [
       Locale('zh', 'CN'),
     ];

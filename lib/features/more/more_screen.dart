@@ -191,6 +191,7 @@ class _ProCard extends StatelessWidget {
           ? ''
           : '${expiry.year}-${expiry.month.toString().padLeft(2, '0')}-${expiry.day.toString().padLeft(2, '0')}';
       final planName = switch (pro.iapPlan) {
+        ProPlan.weekly => l10n.proPlanWeekly,
         ProPlan.monthly => l10n.proPlanMonthly,
         ProPlan.yearly => l10n.proPlanYearly,
         null => '',

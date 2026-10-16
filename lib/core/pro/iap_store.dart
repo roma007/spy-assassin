@@ -24,7 +24,11 @@ class IapStore extends ChangeNotifier {
 
   static final IapStore instance = IapStore._();
 
-  static final Set<String> _productIds = {ProPlan.monthly.id, ProPlan.yearly.id};
+  static final Set<String> _productIds = {
+    ProPlan.weekly.id,
+    ProPlan.monthly.id,
+    ProPlan.yearly.id,
+  };
 
   bool _initialized = false;
   bool _ready = false;

@@ -123,7 +123,7 @@ abstract class AppLocalizations {
   /// No description provided for @proSubtitle.
   ///
   /// In zh, this message translates to:
-  /// **'无限历史存档 + AI 高级识别'**
+  /// **'无限扫描 · PDF 报告 · 完整结果 · 无限历史'**
   String get proSubtitle;
 
   /// No description provided for @proUnlock.
@@ -141,8 +141,32 @@ abstract class AppLocalizations {
   /// No description provided for @proUpgradePrompt.
   ///
   /// In zh, this message translates to:
-  /// **'升级 Pro：解锁无限历史存档与后续 AI 高级识别功能。'**
+  /// **'升级 Pro：解锁无限次检测扫描、PDF 取证报告、完整检测结果明细与无限历史存档。'**
   String get proUpgradePrompt;
+
+  /// No description provided for @proScanExhaustedTitle.
+  ///
+  /// In zh, this message translates to:
+  /// **'免费扫描次数已用完'**
+  String get proScanExhaustedTitle;
+
+  /// No description provided for @proScanExhaustedMsg.
+  ///
+  /// In zh, this message translates to:
+  /// **'你已使用免费的完整扫描。升级 Pro 以继续检测、导出 PDF 取证报告并查看完整结果。'**
+  String get proScanExhaustedMsg;
+
+  /// No description provided for @proPlanWeekly.
+  ///
+  /// In zh, this message translates to:
+  /// **'周度'**
+  String get proPlanWeekly;
+
+  /// No description provided for @proPlanWeeklySub.
+  ///
+  /// In zh, this message translates to:
+  /// **'每 1 周自动续费'**
+  String get proPlanWeeklySub;
 
   /// No description provided for @proPlanMonthly.
   ///
@@ -150,22 +174,22 @@ abstract class AppLocalizations {
   /// **'月度'**
   String get proPlanMonthly;
 
+  /// No description provided for @proPlanMonthlySub.
+  ///
+  /// In zh, this message translates to:
+  /// **'每 1 个月自动续费'**
+  String get proPlanMonthlySub;
+
   /// No description provided for @proPlanYearly.
   ///
   /// In zh, this message translates to:
   /// **'年度'**
   String get proPlanYearly;
 
-  /// No description provided for @proPlanMonthlySub.
-  ///
-  /// In zh, this message translates to:
-  /// **'随时取消'**
-  String get proPlanMonthlySub;
-
   /// No description provided for @proPlanYearlySub.
   ///
   /// In zh, this message translates to:
-  /// **'最划算，送 2 个月'**
+  /// **'每 1 年自动续费 · 最划算'**
   String get proPlanYearlySub;
 
   /// No description provided for @proBestValue.
@@ -173,6 +197,60 @@ abstract class AppLocalizations {
   /// In zh, this message translates to:
   /// **'超值'**
   String get proBestValue;
+
+  /// No description provided for @proMostPopular.
+  ///
+  /// In zh, this message translates to:
+  /// **'热门'**
+  String get proMostPopular;
+
+  /// No description provided for @proFeatureUnlimitedScan.
+  ///
+  /// In zh, this message translates to:
+  /// **'无限次完整检测扫描'**
+  String get proFeatureUnlimitedScan;
+
+  /// No description provided for @proFeaturePdfReport.
+  ///
+  /// In zh, this message translates to:
+  /// **'PDF 取证报告导出与分享'**
+  String get proFeaturePdfReport;
+
+  /// No description provided for @proFeatureFullReport.
+  ///
+  /// In zh, this message translates to:
+  /// **'完整检测结果与设备明细'**
+  String get proFeatureFullReport;
+
+  /// No description provided for @proFeatureUnlimitedHistory.
+  ///
+  /// In zh, this message translates to:
+  /// **'无限历史报告存档'**
+  String get proFeatureUnlimitedHistory;
+
+  /// No description provided for @proRenewalNote.
+  ///
+  /// In zh, this message translates to:
+  /// **'确认购买后将从你的 Apple 账户扣款。订阅会自动续费，除非在当前订阅周期结束前至少 24 小时取消。可随时在「设置 → Apple ID → 订阅」中管理或取消。'**
+  String get proRenewalNote;
+
+  /// No description provided for @proTermsOfUse.
+  ///
+  /// In zh, this message translates to:
+  /// **'使用条款（EULA）'**
+  String get proTermsOfUse;
+
+  /// No description provided for @proPrivacyPolicy.
+  ///
+  /// In zh, this message translates to:
+  /// **'隐私政策'**
+  String get proPrivacyPolicy;
+
+  /// No description provided for @proLinkOpenFailed.
+  ///
+  /// In zh, this message translates to:
+  /// **'无法打开该链接'**
+  String get proLinkOpenFailed;
 
   /// No description provided for @proRestore.
   ///
@@ -210,11 +288,17 @@ abstract class AppLocalizations {
   /// **'有效期至 {date}'**
   String proActiveUntil(Object date);
 
-  /// No description provided for @proLocalSimUnlock.
+  /// No description provided for @reportLockedHint.
   ///
   /// In zh, this message translates to:
-  /// **'开发者 · 本地模拟解锁'**
-  String get proLocalSimUnlock;
+  /// **'升级 Pro 查看完整检测结果与设备明细'**
+  String get reportLockedHint;
+
+  /// No description provided for @pdfLockedHint.
+  ///
+  /// In zh, this message translates to:
+  /// **'升级 Pro 导出 PDF 取证报告'**
+  String get pdfLockedHint;
 
   /// No description provided for @navTabIr.
   ///

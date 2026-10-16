@@ -5,6 +5,8 @@ import 'package:intl/intl.dart';
 import 'package:printing/printing.dart';
 
 import '../../core/l10n/app_localizations_ext.dart';
+import '../../core/pro/pro_store.dart';
+import '../../core/pro/upgrade_dialog.dart';
 import '../../core/report/report_archive.dart';
 import '../../core/report/report_store.dart';
 import '../../core/theme/app_theme.dart';
@@ -56,6 +58,8 @@ class _ReportScreenState extends State<ReportScreen> {
       setState(() => _error = l10n.reportEmptyError);
       return;
     }
+    final allowed = await ensureAccess(context);
+    if (!allowed) return;
     setState(() {
       _exporting = true;
       _error = null;
@@ -227,7 +231,10 @@ class _ReportScreenState extends State<ReportScreen> {
                         ],
                       ),
                       const SizedBox(height: 4),
-                      for (final e in entries) _EntryTile(entry: e),
+                      if (!ProStore.instance.isPro)
+                        _LockedEntriesHint(onUnlock: () => ensureAccess(context))
+                      else
+                        for (final e in entries) _EntryTile(entry: e),
                     ],
                   ),
                 ),
@@ -377,6 +384,43 @@ class _ReportScreenState extends State<ReportScreen> {
                         fontSize: 12, color: AppColors.textSecondary)),
               ],
             ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+/// 免费用户查看完整报告条目时的锁定提示。
+class _LockedEntriesHint extends StatelessWidget {
+  const _LockedEntriesHint({required this.onUnlock});
+
+  final Future<bool> Function() onUnlock;
+
+  @override
+  Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
+    return Container(
+      padding: const EdgeInsets.all(16),
+      decoration: BoxDecoration(
+        color: AppColors.primary.withValues(alpha: 0.06),
+        borderRadius: BorderRadius.circular(12),
+        border: Border.all(color: AppColors.primary.withValues(alpha: 0.2)),
+      ),
+      child: Column(
+        children: [
+          const Icon(Icons.lock_outline_rounded,
+              color: AppColors.primary, size: 28),
+          const SizedBox(height: 8),
+          Text(l10n.reportLockedHint,
+              textAlign: TextAlign.center,
+              style: const TextStyle(
+                  fontSize: 13, color: AppColors.textSecondary, height: 1.4)),
+          const SizedBox(height: 12),
+          FilledButton.icon(
+            onPressed: onUnlock,
+            icon: const Icon(Icons.workspace_premium_rounded, size: 18),
+            label: Text(l10n.proUnlock),
           ),
         ],
       ),

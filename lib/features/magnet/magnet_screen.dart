@@ -6,6 +6,7 @@ import 'package:flutter/services.dart';
 import 'package:spy_assassin/l10n/app_localizations.dart';
 import 'package:sensors_plus/sensors_plus.dart';
 
+import '../../core/pro/upgrade_dialog.dart';
 import '../../core/report/report_store.dart';
 import '../../core/stats/stat_store.dart';
 import '../../core/theme/app_theme.dart';
@@ -13,7 +14,10 @@ import '../../core/widgets/common_widgets.dart';
 
 /// 磁力检测页：用磁力计贴近可疑物体，检测电子设备磁场异常。
 class MagnetScreen extends StatefulWidget {
-  const MagnetScreen({super.key});
+  /// [embeddedInQuickScan] 为 true 时跳过付费检查——一键扫描入口已统一扣费。
+  const MagnetScreen({super.key, this.embeddedInQuickScan = false});
+
+  final bool embeddedInQuickScan;
 
   @override
   State<MagnetScreen> createState() => _MagnetScreenState();
@@ -29,6 +33,8 @@ class _MagnetScreenState extends State<MagnetScreen> {
   bool _alarm = false;
   bool _reported = false;
   bool _statRecorded = false;
+  /// 付费墙被关闭且未解锁时显示锁定占位页。
+  bool _locked = false;
   final List<double> _history = [];
   DateTime? _aboveSince;
 
@@ -51,6 +57,16 @@ class _MagnetScreenState extends State<MagnetScreen> {
   }
 
   Future<void> _start() async {
+    if (!widget.embeddedInQuickScan) {
+      final allowed = await ensureScanAccess(context);
+      if (!allowed || !mounted) {
+        // 用户关闭付费墙未解锁：停止「校准中」假象，展示锁定占位页。
+        if (mounted) setState(() => _locked = true);
+        return;
+      }
+    }
+    if (!mounted) return;
+    setState(() => _locked = false);
     if (!_statRecorded) {
       _statRecorded = true;
       StatStore.instance.recordMagnet();
@@ -138,6 +154,38 @@ class _MagnetScreenState extends State<MagnetScreen> {
   @override
   Widget build(BuildContext context) {
     final l10n = AppLocalizations.of(context)!;
+    if (_locked) {
+      return Center(
+        child: Padding(
+          padding: const EdgeInsets.all(32),
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              const Icon(Icons.lock_rounded,
+                  size: 44, color: AppColors.primary),
+              const SizedBox(height: 16),
+              Text(l10n.proScanExhaustedTitle,
+                  style: const TextStyle(
+                      fontSize: 18,
+                      fontWeight: FontWeight.w600,
+                      color: Colors.white)),
+              const SizedBox(height: 8),
+              Text(l10n.proUpgradePrompt,
+                  textAlign: TextAlign.center,
+                  style: const TextStyle(
+                      fontSize: 13,
+                      color: AppColors.textSecondary,
+                      height: 1.5)),
+              const SizedBox(height: 20),
+              FilledButton(
+                onPressed: _start,
+                child: Text(l10n.proUnlock),
+              ),
+            ],
+          ),
+        ),
+      );
+    }
     return ListView(
       padding: const EdgeInsets.only(top: 8, bottom: 24),
       children: [

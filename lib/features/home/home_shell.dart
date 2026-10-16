@@ -18,7 +18,13 @@ class HomeShell extends StatefulWidget {
 class _HomeShellState extends State<HomeShell> {
   int _index = 0;
 
-  final _screens = const [
+  /// 已构建过的 Tab 索引。Tab 按需懒加载：只有用户首次点入时才创建，
+  /// 避免启动时 IndexedStack 一次性实例化全部页面——红外/磁力等页面
+  /// 在 initState 即开始检测并消耗免费扫描次数，同时初始化会导致
+  /// 启动瞬间免费配额被并发消耗、误弹付费墙。
+  final Set<int> _built = {0};
+
+  static const _screens = [
     CheckScreen(),
     IrScreen(),
     WifiScreen(),
@@ -41,12 +47,26 @@ class _HomeShellState extends State<HomeShell> {
       body: Column(
         children: [
           if (_index == 0) const _PrivacyPromiseBanner(),
-          Expanded(child: IndexedStack(index: _index, children: _screens)),
+          Expanded(
+            child: IndexedStack(
+              index: _index,
+              children: [
+                for (var i = 0; i < _screens.length; i++)
+                  if (_built.contains(i))
+                    _screens[i]
+                  else
+                    const SizedBox.shrink(),
+              ],
+            ),
+          ),
         ],
       ),
       bottomNavigationBar: NavigationBar(
         selectedIndex: _index,
-        onDestinationSelected: (i) => setState(() => _index = i),
+        onDestinationSelected: (i) => setState(() {
+          _index = i;
+          _built.add(i);
+        }),
         destinations: [
           NavigationDestination(
             icon: const Icon(Icons.shield_rounded),

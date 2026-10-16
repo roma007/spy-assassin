@@ -6,6 +6,7 @@ import 'package:flutter_blue_plus/flutter_blue_plus.dart';
 import 'package:spy_assassin/l10n/app_localizations.dart';
 
 import '../../core/permissions/permission_helper.dart';
+import '../../core/pro/upgrade_dialog.dart';
 import '../../core/report/report_store.dart';
 import '../../core/stats/stat_store.dart';
 import '../../core/theme/app_theme.dart';
@@ -58,6 +59,8 @@ class _TrackerScreenState extends State<TrackerScreen> {
 
   Future<void> _startScan() async {
     if (_scanning) return;
+    final allowed = await ensureScanAccess(context);
+    if (!allowed) return;
     if (_adapterState != BluetoothAdapterState.on) {
       await _turnOnBluetooth();
       return;

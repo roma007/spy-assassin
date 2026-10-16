@@ -20,7 +20,7 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get proSubtitle =>
-      'Archivo de historial ilimitado + funciones avanzadas de IA';
+      'Escaneos ilimitados · informes PDF · resultados completos · historial ilimitado';
 
   @override
   String get proUnlock => 'Desbloquear ahora';
@@ -30,22 +30,66 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get proUpgradePrompt =>
-      'Actualiza a Pro para obtener historial ilimitado y futuras funciones avanzadas de detección con IA.';
+      'Actualiza a Pro para obtener escaneos ilimitados, informes PDF de evidencia, resultados completos de detección e historial ilimitado.';
+
+  @override
+  String get proScanExhaustedTitle => 'Escaneos gratuitos agotados';
+
+  @override
+  String get proScanExhaustedMsg =>
+      'Has usado tu escaneo completo gratuito. Actualiza a Pro para seguir escaneando, exportar informes PDF y ver los resultados completos.';
+
+  @override
+  String get proPlanWeekly => 'Semanal';
+
+  @override
+  String get proPlanWeeklySub => 'Se renueva cada semana';
 
   @override
   String get proPlanMonthly => 'Mensual';
 
   @override
+  String get proPlanMonthlySub => 'Se renueva cada 1 mes';
+
+  @override
   String get proPlanYearly => 'Anual';
 
   @override
-  String get proPlanMonthlySub => 'Cancela cuando quieras';
-
-  @override
-  String get proPlanYearlySub => 'Mejor precio, 2 meses gratis';
+  String get proPlanYearlySub => 'Se renueva cada 1 año · mejor precio';
 
   @override
   String get proBestValue => 'MEJOR PRECIO';
+
+  @override
+  String get proMostPopular => 'MÁS POPULAR';
+
+  @override
+  String get proFeatureUnlimitedScan =>
+      'Escaneos de detección completos ilimitados';
+
+  @override
+  String get proFeaturePdfReport =>
+      'Exportar y compartir informes PDF de evidencia';
+
+  @override
+  String get proFeatureFullReport =>
+      'Resultados de detección completos y detalles del dispositivo';
+
+  @override
+  String get proFeatureUnlimitedHistory => 'Archivo de historial ilimitado';
+
+  @override
+  String get proRenewalNote =>
+      'El pago se cargará a tu cuenta de Apple al confirmar la compra. La suscripción se renueva automáticamente salvo que la canceles al menos 24 horas antes del final del periodo actual. Puedes gestionarla o cancelarla en Ajustes → Apple ID → Suscripciones.';
+
+  @override
+  String get proTermsOfUse => 'Términos de uso (EULA)';
+
+  @override
+  String get proPrivacyPolicy => 'Política de privacidad';
+
+  @override
+  String get proLinkOpenFailed => 'No se pudo abrir el enlace';
 
   @override
   String get proRestore => 'Restaurar compras';
@@ -69,7 +113,12 @@ class AppLocalizationsEs extends AppLocalizations {
   }
 
   @override
-  String get proLocalSimUnlock => 'Desarrollador · simular desbloqueo';
+  String get reportLockedHint =>
+      'Actualiza a Pro para ver los resultados completos y los detalles del dispositivo';
+
+  @override
+  String get pdfLockedHint =>
+      'Actualiza a Pro para exportar informes PDF de evidencia';
 
   @override
   String get navTabIr => 'IR';

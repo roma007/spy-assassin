@@ -19,7 +19,7 @@ class AppLocalizationsKo extends AppLocalizations {
   String get proTitle => 'Pro';
 
   @override
-  String get proSubtitle => '무제한 기록 보관 + AI 고급 감지';
+  String get proSubtitle => '무제한 스캔 · PDF 보고서 · 전체 결과 · 무제한 기록';
 
   @override
   String get proUnlock => '지금 잠금 해제';
@@ -29,22 +29,63 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get proUpgradePrompt =>
-      'Pro로 업그레이드하면 무제한 기록 보관과 향후 AI 고급 감지 기능을 이용할 수 있습니다.';
+      'Pro로 업그레이드하여 무제한 스캔, PDF 증거 보고서, 전체 탐지 결과 및 무제한 기록 보관을 이용하세요.';
+
+  @override
+  String get proScanExhaustedTitle => '무료 스캔 사용 완료';
+
+  @override
+  String get proScanExhaustedMsg =>
+      '무료 전체 스캔을 사용했습니다. Pro로 업그레이드하여 계속 스캔하고 PDF 증거 보고서를 내보내며 전체 결과를 확인하세요.';
+
+  @override
+  String get proPlanWeekly => '주간';
+
+  @override
+  String get proPlanWeeklySub => '매주 자동 갱신';
 
   @override
   String get proPlanMonthly => '월간';
 
   @override
+  String get proPlanMonthlySub => '1개월마다 자동 갱신';
+
+  @override
   String get proPlanYearly => '연간';
 
   @override
-  String get proPlanMonthlySub => '언제든 취소 가능';
-
-  @override
-  String get proPlanYearlySub => '가장 저렴, 2개월 무료';
+  String get proPlanYearlySub => '1년마다 자동 갱신 · 가장 합리적';
 
   @override
   String get proBestValue => '최고의 가치';
+
+  @override
+  String get proMostPopular => '가장 인기';
+
+  @override
+  String get proFeatureUnlimitedScan => '무제한 전체 탐지 스캔';
+
+  @override
+  String get proFeaturePdfReport => 'PDF 증거 보고서 내보내기 및 공유';
+
+  @override
+  String get proFeatureFullReport => '전체 탐지 결과 및 기기 세부 정보';
+
+  @override
+  String get proFeatureUnlimitedHistory => '무제한 기록 보관';
+
+  @override
+  String get proRenewalNote =>
+      '구매 확정 시 Apple 계정으로 결제됩니다. 현재 구독 기간 종료 24시간 전까지 취소하지 않으면 자동으로 갱신됩니다. 설정 → Apple ID → 구독에서 언제든지 관리하거나 취소할 수 있습니다.';
+
+  @override
+  String get proTermsOfUse => '이용 약관(EULA)';
+
+  @override
+  String get proPrivacyPolicy => '개인정보 처리방침';
+
+  @override
+  String get proLinkOpenFailed => '링크를 열 수 없습니다';
 
   @override
   String get proRestore => '구매 복원';
@@ -67,7 +108,10 @@ class AppLocalizationsKo extends AppLocalizations {
   }
 
   @override
-  String get proLocalSimUnlock => '개발자 · 로컬 시뮬레이션 잠금 해제';
+  String get reportLockedHint => '전체 결과와 기기 세부 정보를 보려면 Pro로 업그레이드하세요';
+
+  @override
+  String get pdfLockedHint => 'PDF 증거 보고서를 내보내려면 Pro로 업그레이드하세요';
 
   @override
   String get navTabIr => '적외선';

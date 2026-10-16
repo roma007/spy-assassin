@@ -9,6 +9,7 @@ import 'package:spy_assassin/l10n/app_localizations.dart';
 import 'package:sensors_plus/sensors_plus.dart';
 
 import '../../core/permissions/permission_helper.dart';
+import '../../core/pro/upgrade_dialog.dart';
 import '../../core/report/report_store.dart';
 import '../../core/stats/stat_store.dart';
 import '../../core/theme/app_theme.dart';
@@ -16,7 +17,11 @@ import 'bright_spot_detector.dart';
 
 /// 红外光检测页：全黑环境下用手机摄像头识别夜视摄像头的红外补光亮点。
 class IrScreen extends StatefulWidget {
-  const IrScreen({super.key});
+  /// [embeddedInQuickScan] 为 true 时跳过付费检查——一键扫描入口已统一扣费，
+  /// 子步骤页不得重复消耗免费次数。
+  const IrScreen({super.key, this.embeddedInQuickScan = false});
+
+  final bool embeddedInQuickScan;
 
   @override
   State<IrScreen> createState() => _IrScreenState();
@@ -26,6 +31,10 @@ class _IrScreenState extends State<IrScreen> with WidgetsBindingObserver {
   CameraController? _controller;
   bool _initializing = true;
   bool _permissionDenied = false;
+  /// 相机初始化是否进行中（防止生命周期回调与权限弹窗导致并发初始化）。
+  bool _starting = false;
+  /// 付费墙被关闭且未解锁时显示锁定占位页。
+  bool _locked = false;
   bool _hasTorch = false;
   bool _torchOn = false;
   bool _useFront = false;
@@ -81,7 +90,9 @@ class _IrScreenState extends State<IrScreen> with WidgetsBindingObserver {
   @override
   void didChangeAppLifecycleState(AppLifecycleState state) {
     if (state == AppLifecycleState.resumed) {
-      _init();
+      // 相机已被销毁才需要恢复重建；恢复路径不再走付费检查，
+      // 否则系统权限弹窗造成的 inactive→resumed 会重复消耗免费次数。
+      if (_controller == null) _init(fromResume: true);
     } else if (state == AppLifecycleState.inactive ||
         state == AppLifecycleState.paused) {
       _controller?.dispose();
@@ -89,58 +100,78 @@ class _IrScreenState extends State<IrScreen> with WidgetsBindingObserver {
     }
   }
 
-  Future<void> _init() async {
-    if (!mounted) return;
-    setState(() {
-      _initializing = true;
-      _permissionDenied = false;
-      _error = null;
-    });
-    final granted = await PermissionHelper.requestCamera();
-    if (!granted) {
-      if (mounted) {
-        setState(() {
-          _initializing = false;
-          _permissionDenied = true;
-        });
-      }
-      return;
-    }
+  Future<void> _init({bool fromResume = false}) async {
+    if (_starting) return;
+    _starting = true;
     try {
-      final cameras = await availableCameras();
-      if (cameras.isEmpty) {
+      if (!fromResume && !widget.embeddedInQuickScan) {
+        final allowed = await ensureScanAccess(context);
+        if (!allowed || !mounted) {
+          // 用户关闭付费墙未解锁：停止加载圈，展示锁定占位页。
+          if (mounted) {
+            setState(() {
+              _initializing = false;
+              _locked = true;
+            });
+          }
+          return;
+        }
+      }
+      if (!mounted) return;
+      setState(() {
+        _initializing = true;
+        _permissionDenied = false;
+        _locked = false;
+        _error = null;
+      });
+      final granted = await PermissionHelper.requestCamera();
+      if (!granted) {
         if (mounted) {
-          setState(() => _error = AppLocalizations.of(context)!.irNoCamera);
+          setState(() {
+            _initializing = false;
+            _permissionDenied = true;
+          });
         }
         return;
       }
-      final preferred = cameras
-          .where((c) => c.lensDirection == (_useFront ? CameraLensDirection.front : CameraLensDirection.back))
-          .toList();
-      final camera = preferred.isNotEmpty ? preferred.first : cameras.first;
-      final controller = CameraController(
-        camera,
-        _resolution,
-        enableAudio: false,
-        imageFormatGroup: ImageFormatGroup.yuv420,
-      );
-      await controller.initialize();
-      await _refreshTorchSupport(controller);
-      StatStore.instance.recordIr();
-      controller.startImageStream(_onImage);
-      if (!mounted) {
-        await controller.dispose();
-        return;
+      try {
+        final cameras = await availableCameras();
+        if (cameras.isEmpty) {
+          if (mounted) {
+            setState(() => _error = AppLocalizations.of(context)!.irNoCamera);
+          }
+          return;
+        }
+        final preferred = cameras
+            .where((c) => c.lensDirection == (_useFront ? CameraLensDirection.front : CameraLensDirection.back))
+            .toList();
+        final camera = preferred.isNotEmpty ? preferred.first : cameras.first;
+        final controller = CameraController(
+          camera,
+          _resolution,
+          enableAudio: false,
+          imageFormatGroup: ImageFormatGroup.yuv420,
+        );
+        await controller.initialize();
+        await _refreshTorchSupport(controller);
+        StatStore.instance.recordIr();
+        controller.startImageStream(_onImage);
+        if (!mounted) {
+          await controller.dispose();
+          return;
+        }
+        setState(() {
+          _controller = controller;
+          _initializing = false;
+        });
+      } catch (e) {
+        if (mounted) {
+          setState(
+              () => _error = AppLocalizations.of(context)!.irInitFailed('$e'));
+        }
       }
-      setState(() {
-        _controller = controller;
-        _initializing = false;
-      });
-    } catch (e) {
-      if (mounted) {
-        setState(
-            () => _error = AppLocalizations.of(context)!.irInitFailed('$e'));
-      }
+    } finally {
+      _starting = false;
     }
   }
 
@@ -237,6 +268,7 @@ class _IrScreenState extends State<IrScreen> with WidgetsBindingObserver {
   Widget build(BuildContext context) {
     if (_permissionDenied) return _buildPermissionDenied();
     if (_error != null) return _buildError();
+    if (_locked) return _buildLocked();
     if (_initializing || _controller == null) return const _LoadingView();
 
     return Column(
@@ -389,6 +421,37 @@ class _IrScreenState extends State<IrScreen> with WidgetsBindingObserver {
       title: l10n.irErrorTitle,
       message: _error!,
       onSettings: () => _init(),
+    );
+  }
+
+  /// 免费次数用尽且未解锁时的占位页：点击按钮重新拉起付费墙。
+  Widget _buildLocked() {
+    final l10n = AppLocalizations.of(context)!;
+    return Center(
+      child: Padding(
+        padding: const EdgeInsets.all(32),
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            const Icon(Icons.lock_rounded,
+                size: 44, color: AppColors.primary),
+            const SizedBox(height: 16),
+            Text(l10n.proScanExhaustedTitle,
+                style: const TextStyle(
+                    fontSize: 18, fontWeight: FontWeight.w600, color: Colors.white)),
+            const SizedBox(height: 8),
+            Text(l10n.proUpgradePrompt,
+                textAlign: TextAlign.center,
+                style: const TextStyle(
+                    fontSize: 13, color: AppColors.textSecondary, height: 1.5)),
+            const SizedBox(height: 20),
+            FilledButton(
+              onPressed: () => _init(),
+              child: Text(l10n.proUnlock),
+            ),
+          ],
+        ),
+      ),
     );
   }
 }
