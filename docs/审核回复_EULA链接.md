@@ -16,9 +16,10 @@
 ## 1. 修复步骤（App Store Connect）
 
 1. 登录 <https://appstoreconnect.apple.com> → 我的 App → **Spy Assassin**。
-2. 左侧 **App 信息（App Information）** → **本地化（Localizations）**。
-3. 对 **English (U.S.) / 简体中文 / Español (LatAm) / 한국어** 逐个打开，把描述整体替换为
-   `docs/商店素材.md` §4.2 / §4.1 / §4.4 / §4.3 对应的整段（**含末尾两行链接**）→ 保存。
+2. 左侧点 **版本（Version，如 1.0）**——**描述不在「App 信息」页**，在版本页。
+3. 版本页顶部有**语言下拉**，依次选 **English (U.S.) / 简体中文 / Español (LatAm) / 한국어**，
+   找到 **「描述（Description）」** 文本框（同一区域还有 关键词 / 促销文本 / 更新内容 / 支持网址），
+   把描述整体替换为 `docs/商店素材.md` §4.2 / §4.1 / §4.4 / §4.3 对应的整段（**含末尾两行链接**）→ **保存**（每切一个语言都要单独保存）。
 4. 回到 **App 信息** 页面，确认「许可协议（License Agreement）」保持**标准 EULA**（不要改成自定义，
    除非同时把 App 内链接也改成同一份自定义 EULA 并出新包）。
 5. 可选加固：确认 **隐私政策网址** 可访问（`https://roma007.github.io/spy-assassin/privacy.html`）。

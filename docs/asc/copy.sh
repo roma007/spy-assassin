@@ -26,6 +26,5 @@ pbcopy < "${file}"
 chars="$(wc -m < "${file}" | tr -d ' ')"
 
 echo "已复制到剪贴板：${file}（${chars} 字符）"
-echo "下一步：App Store Connect -> 我的 App -> Spy Assassin -> App 信息 -> 本地化"
-echo "        -> 选语言（English (U.S.) / 简体中文 / Español (LatAm) / 한국어）"
-echo "        -> 描述框内全选删除 -> 粘贴（Cmd+V）-> 保存"
+echo "下一步：App Store Connect -> 我的 App -> Spy Assassin -> 左侧「版本（1.0）」"
+echo "        -> 顶部语言下拉选语言 -> 「描述（Description）」框内全选删除 -> 粘贴（Cmd+V）-> 保存"
