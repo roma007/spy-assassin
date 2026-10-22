@@ -18,8 +18,16 @@
 1. 登录 <https://appstoreconnect.apple.com> → 我的 App → **Spy Assassin**。
 2. 左侧点 **版本（Version，如 1.0）**——**描述不在「App 信息」页**，在版本页。
 3. 版本页顶部有**语言下拉**，依次选 **English (U.S.) / 简体中文 / Español (LatAm) / 한국어**，
-   找到 **「描述（Description）」** 文本框（同一区域还有 关键词 / 促销文本 / 更新内容 / 支持网址），
-   把描述整体替换为 `docs/商店素材.md` §4.2 / §4.1 / §4.4 / §4.3 对应的整段（**含末尾两行链接**）→ **保存**（每切一个语言都要单独保存）。
+   找到 **「描述（Description）」** 文本框（同一区域还有 关键词 / 推广文本 / 更新内容 / 支持网址）。
+   ⚠️ **已有描述就只在末尾追加两行链接，不要整段覆盖**（后台描述通常更长，含订阅条款等补充说明）：
+   光标点到描述框**最末尾** → 回车换行 → 粘贴 → 保存（每切一个语言都要单独保存）。
+   末尾要追加的两行（取剪贴板：`docs/asc/copy.sh <语言> links`）：
+   ```
+   Terms of Use (EULA): https://www.apple.com/legal/internet-services/itunes/dev/stdeula/
+   Privacy Policy: https://roma007.github.io/spy-assassin/privacy.html
+   ```
+   （中文写「使用条款（EULA）：」+「隐私政策：」；西语 / 韩语见 `docs/asc/links_*.txt`）
+   该语言**完全没有**描述时才整段粘贴 `docs/asc/desc_<语言>.txt`。
 4. 回到 **App 信息** 页面，确认「许可协议（License Agreement）」保持**标准 EULA**（不要改成自定义，
    除非同时把 App 内链接也改成同一份自定义 EULA 并出新包）。
 5. 可选加固：确认 **隐私政策网址** 可访问（`https://roma007.github.io/spy-assassin/privacy.html`）。
