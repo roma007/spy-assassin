@@ -1,0 +1,26 @@
+Spy Assassin is a fully offline anti-spy tool that helps you check hotel rooms, rentals, changing rooms and bathrooms for hidden cameras.
+
+【Room check + one-tap scan】
+· 4-step guided check (IR → lens → WiFi → magnet/Bluetooth, about 4 minutes) or a one-tap auto scan that runs them in sequence and gives an instant red/green verdict.
+· IR Detection: CMOS sensors are sensitive to infrared. Turn off the lights and sweep smoke alarms, outlets, mirrors and clocks for IR glow.
+· Lens Reflection Scan: Point the flashlight at the same axis as your phone; camera lenses reflect back a bright spot.
+· WiFi Network Scan: Discover LAN devices, fingerprint IP cameras via RTSP/HTTP, resolve mDNS names, tag your own devices, and keep device history.
+· Magnet Detector: Sweep suspicious chargers, clocks and smoke alarms for embedded magnets (sensor near the top-right on iPhone).
+· Bluetooth Scan: A secondary sweep for nearby devices with camera/recorder-like names.
+
+【Privacy-first design】
+No account · no ads · no cloud upload · nothing saved. All detection runs entirely on your device.
+
+【Report & history】
+Findings are summarized automatically, and you can attach on-site photos to the report. The full result details and PDF report export are Pro features; scan history is archived locally — the free plan keeps the most recent 5, Pro keeps unlimited.
+
+【Found something?】
+Built-in guide: document it, tell the front desk / landlord, then contact the police.
+
+【Free & Pro】
+The free plan includes one full detection scan and its verdict. The full result details, PDF report export and unlimited history require Pro. Pro is an auto-renewable subscription (weekly / monthly / yearly) that unlocks unlimited scans, full result details, PDF report export and unlimited history.
+
+Disclaimer: results are for reference only and are not legal evidence.
+
+Terms of Use (EULA): https://www.apple.com/legal/internet-services/itunes/dev/stdeula/
+Privacy Policy: https://roma007.github.io/spy-assassin/privacy.html

@@ -1,0 +1,26 @@
+Asesino Espía es una herramienta antiespía totalmente offline que te ayuda a revisar habitaciones de hotel, alquileres, vestidores y baños en busca de cámaras ocultas.
+
+【Revisión de habitación + escaneo con un toque】
+· Revisión guiada por pasos (IR → lente → WiFi → imán/Bluetooth, unos minutos) o un escaneo automático con un toque que los ejecuta en secuencia y da un veredicto inmediato.
+· Detección IR: los sensores CMOS son sensibles a la luz infrarroja. Apaga las luces y revisa detectores de humo, enchufes, espejos y relojes en busca de brillo IR.
+· Escaneo de reflejo de lente: apunta la linterna en el mismo eje que el teléfono; las lentes de las cámaras reflejan un punto brillante.
+· Escaneo de red WiFi: descubre dispositivos de tu red, identifica cámaras IP por RTSP/HTTP, resuelve nombres mDNS, marca tus dispositivos y guarda el historial.
+· Detector de imanes: revisa cargadores, relojes y detectores de humo sospechosos en busca de imanes integrados.
+· Escaneo Bluetooth: un repaso secundario de dispositivos cercanos con nombres tipo cámara o grabadora.
+
+【Privacidad ante todo】
+Sin cuenta · sin anuncios · sin subida a la nube · sin guardar datos. Toda la detección se ejecuta en tu dispositivo.
+
+【Informe e historial】
+Los hallazgos se resumen automáticamente y puedes adjuntar fotos del lugar al informe. El detalle completo de los resultados y la exportación del informe en PDF son funciones Pro. El historial se archiva en el dispositivo: la versión gratuita conserva los últimos 5 y Pro, ilimitados.
+
+【¿Encontraste algo sospechoso?】
+Guía integrada: documenta, avisa a la recepción o al arrendador y luego contacta a la policía.
+
+【Gratis y Pro】
+La versión gratuita incluye un escaneo de detección completo con su veredicto. El detalle completo de los resultados, la exportación en PDF y el historial ilimitado requieren Pro. Pro es una suscripción con renovación automática (semanal / mensual / anual) que desbloquea escaneos ilimitados, el detalle completo, la exportación de informes en PDF y el historial ilimitado.
+
+Aviso: los resultados son solo de referencia y no constituyen prueba legal.
+
+Términos de uso (EULA): https://www.apple.com/legal/internet-services/itunes/dev/stdeula/
+Política de privacidad: https://roma007.github.io/spy-assassin/privacy.html
